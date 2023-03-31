@@ -32,9 +32,9 @@ spec:
     replicaCount: 3
     grafana:
       enabled: true
-    serviceMonitor:
-      enabled: true
-      interval: 1m
+    #serviceMonitor:
+    #  enabled: true
+    #  interval: 1m
     backgroundController:
       serviceMonitor:
         enabled: true
