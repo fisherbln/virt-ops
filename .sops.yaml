@@ -1,5 +1,5 @@
 creation_rules:
-  - path_regex: k8s/(global|clusters)/.*\.sops\.ya?ml
+  - path_regex: kubernetes/.*\.sops\.ya?ml
     encrypted_regex: ^(data|stringData)$
     # Personal, Flux
     age: age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w, age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6

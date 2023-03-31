@@ -26,3 +26,9 @@ kubectl get no
 
 kubectl kustomize --enable-helm ./cni | kubectl apply -f -
 kubectl kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
+
+enable cert rotation
+kubectl apply -f https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+re-run talosctl apply-config as above, except remove the --insecure flag

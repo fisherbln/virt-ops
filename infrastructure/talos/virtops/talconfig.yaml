@@ -21,40 +21,40 @@ nodes:
     ipAddress: 10.28.28.71
     controlPlane: true
     installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        dhcp: true
-        vlans:
-          - vlanId: 20
-            dhcp: false
-            addresses:
-              - 10.1.3.141/24
+    #networkInterfaces:
+    #  - interface: eth0
+    #    dhcp: true
+    #    vlans:
+    #      - vlanId: 20
+    #        dhcp: false
+    #        addresses:
+    #          - 10.1.3.141/24
   - hostname: enigma.nickeson.net
     disableSearchDomain: true
     ipAddress: 10.28.28.72
     controlPlane: true
     installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        dhcp: true
-        vlans:
-          - vlanId: 20
-            dhcp: false
-            addresses:
-              - 10.1.3.142/24
+    #networkInterfaces:
+    #  - interface: eth0
+    #    dhcp: true
+    #    vlans:
+    #      - vlanId: 20
+    #        dhcp: false
+    #        addresses:
+    #          - 10.1.3.142/24
   - hostname: felix.nickeson.net
     disableSearchDomain: true
     ipAddress: 10.28.28.73
     controlPlane: true
     installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        dhcp: true
-        vlans:
-          - vlanId: 20
-            dhcp: false
-            addresses:
-              - 10.1.3.143/24
+   #networkInterfaces:
+   #   - interface: eth0
+   #     dhcp: true
+   #     vlans:
+   #       - vlanId: 20
+   #         dhcp: false
+   #         addresses:
+   #           - 10.1.3.143/24
 
 controlPlane:
   patches:
