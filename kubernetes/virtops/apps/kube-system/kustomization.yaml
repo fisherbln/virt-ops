@@ -8,5 +8,6 @@ resources:
   - ./cilium/ks.yaml
   - ./external-secrets/ks.yaml
   - ./kubelet-csr-approver/ks.yaml
+  - ./reloader/ks.yaml
   #- ./metrics-server/ks.yaml
   #- ./snapshot-controller/ks.yaml
