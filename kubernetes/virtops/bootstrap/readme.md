@@ -69,16 +69,16 @@
 ### Install Flux
 
 ```sh
-kubectl apply --server-side --kustomize ./k8s/bootstrap
+kubectl apply --server-side --kustomize ./kubernetes/virtops/bootstrap
 ```
 
 ### Apply Cluster Configuration
 
 ```sh
-sops -d k8s/bootstrap/age-key.sops.yaml | kubectl apply -f -
-sops -d k8s/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
-sops -d k8s/flux/vars/global-secrets.yaml | kubectl apply -f -
-kubectl apply -f k8s/flux/vars/global-vars.yaml
+sops -d kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
+sops -d kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
+sops -d kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
+kubectl apply -f kubernetes/virtops/flux/vars/cluster-settings.yaml
 ```
 
 Wait until `kubectl get pods -n flux-system` shows all ready.
@@ -86,7 +86,7 @@ Wait until `kubectl get pods -n flux-system` shows all ready.
 ### Kick off Flux applying this repository
 
 ```sh
-kubectl apply --server-side --kustomize ./k8s/flux/config
+kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
 ```
 
 
