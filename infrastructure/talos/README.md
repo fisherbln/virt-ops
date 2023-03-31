@@ -19,7 +19,7 @@ talosctl apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtop
 ## wait a few seconds
 talosctl bootstrap -n 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
 talosctl kubeconfig -f ./ --nodes 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
-#talosctl kubeconfig -f .
+
 ```
 ```
 export KUBECONFIG=$(pwd)/kubeconfig
