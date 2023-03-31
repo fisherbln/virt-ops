@@ -1,0 +1,37 @@
+# yamllint disable
+apiVersion: v1
+kind: Secret
+metadata:
+    name: sops-age
+    namespace: flux-system
+stringData:
+    age.agekey: ENC[AES256_GCM,data:xDouoh+UJ3M8bth30IW08qS1jtGKWB3rfc8I8r/kZAsc50ZDXp/LMTagAYg6ngkquX1l2mDLp6DPsKP5xra2p9MRSuVBrq5afyk=,iv:Oz2Gvf9CdJqNmIXAtxw+1UyXq6OCmhd+TF+MxI+ePEg=,tag:kKwPdtk86wi6ykzfOH+/eg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmSXArcThVMHJWanFTelJJ
+            SGRWZUNOMmZLc1R4aFRBZlBNbzVmU0lMbjBjCk1YWC84N2s2a0V4RXM1WEl4Q0ZZ
+            Qk94UElGZHFOZ1lKeGJYOEZLbDU4VDgKLS0tIFR5WmZWYmRjNTJvMWVILzFhRVJL
+            aitrZ3pleVcxZUNKaThRWTB0WWZFOHMKhm3vlkZuSoOPKOGTWZMpqIr5g3MpSzfE
+            GzG3nSO3o+G7ID7TVTQxrZmAxgdkyplwv1659hqNHYIR7PAQFI86GA==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0VFRLeGZLZTBqc2NPUFUv
+            N3NlNjNRT3hLQy9NRzlPV0IzYWFtQkptK1FnCmNsY1pmNDcvSTNzdWh2K3NTWnFZ
+            bm01RUdVQSs1ZXRPeEpxckJ3TzYyZTQKLS0tIHBsWTlZOWttT2EwSmc0U3VVQlpv
+            bmVrR3dKckZvWDhWendmZDd5YTFSbmcKMZxmPIbz2XyGQisaqg3BnUu9M8tD+gei
+            XEtviTe1In4H7zPGVwxTpDSZmBmZ2xkJjhX4jQiDf8iPlljOhdd0+g==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-03-31T16:34:00Z"
+    mac: ENC[AES256_GCM,data:RGzserdK2tBF2/FnqX+N8oiOqnJaDyKQA2V0r7wmWC5deYUHl5fIJpfS7/yAFYWsPbJUF22FIHpSNGlme8Vjio9egnaBUnFDgtLhvLV7NgH3LW5rN+pZKgm3x7vEdgFUFD/hcCxR54FHY52IpDj7XEAti6etPnogdlDvacIupL8=,iv:B218AZMulIwhR+r2nDKBrpHIBKJ0YrGlkg3mPVo7L8o=,tag:RkBDHhwOxewfnhzVb4TXew==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

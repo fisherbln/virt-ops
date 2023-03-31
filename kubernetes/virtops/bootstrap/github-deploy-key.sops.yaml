@@ -1,0 +1,40 @@
+# yamllint disable
+# https://github.com/k8s-at-home/template-cluster-k3s/issues/324
+apiVersion: v1
+kind: Secret
+metadata:
+    name: github-deploy-key
+    namespace: flux-system
+stringData:
+    identity: ENC[AES256_GCM,data:/wsk1Pr0KD1mHZDTExRmIbSPKEgS+hnzT8Tvi3U/PrTxJKD2MqdBErfKtnv+H4BIG3uL/Euq6iqLj7FgwWGVoYAvkXdVt74ppYZbax6TW4lS+kUUBSG4450p//Ml8ueEmvV0t6sE2KWVl2jlCJn636b+C27MLRcsv3VxHVI0qavAHW4D1vHF2sjiSDfNHbQTp6NZMpu2s9fWENm9d4uVDLJ8VekKAerHA3TK3qF8tqTGn69CX6RH8XLlD49MBLaz3M1wa9PbH7I4CEAHH/9jIiSqaJMbxa6Ogn/N0SR/XXzfxaQRsDC0f6IOpVnMH6yf4vvPPNJry2r3GFo/OG3VrNOSHEH2/0ENa399ATSamm1lcXx68xNdxEJ1ddsXLM11zXlM/hCTr14xPsJPstIsYrQD9bLd5kFUyowXGBP4Doz3dN6K9MbspGj0LB/HltPFdCX9yjiz9cDjLFawTuCQNDUaDKeNsxjKtRgzQuuelAKeE2bMJ5Y00i+J75LNrpoupoMKvCkL0BJD3w9Cb97aGleprk91tzl+f33CMw1nfGKpdf4gSxhPP80BbJO6A7xwLYja9QK8AfY8CMKuDl+6HevP2nT0dRM5oum7xl+elyxb9pgGnS5xPaHocFMu3y5ygMJLshEklURw85M9+lGPZwMEI8AqerRsczksKKNlG54xBlZdh2I/irry0sotrW64895rGiiEd4ZINRbZ+yHPlVHfb0ssb4eHDQ0EoDyJBf/Vwa9lG6hFqzP6Axv7BtUCga8YsYBUIlPBV/g9W7pAcpNArkifjmvpRnyy5woOQJS6AQJ0uSta1nkqZNqm267dbANy1hN8gFLNfRlOIyNAFU4JpxwKsevljWfHclHwGI2OXiDFiEs4U5GhUeRCI65tz4wWuBon8jSfa5LinBKHsv3JwbxYn/hcCrcBdqTV3UvUGDDfZY+NJ2PziHSnm5Of0dZgovNXv8QZZg27F2lQiw==,iv:MLzGgfgLC/+cfMuZdNbIdL4/OmmunhkmbUZKrD6xP/E=,tag:VUAbrJCuPCINCRrwl47tMw==,type:str]
+    #ENC[AES256_GCM,data:r1lcJM99GPpYSq2l2e5KgErHm1bFNHtRu50fFzVkjVoFO6VKyUIB01QTBvGqyfUyjU60vf3BKYV/FGWV0O1d5L8WXVqoyhDGhbHroJqLSSC1MOEIH+jQwcRTXbw5o1ECQego,iv:5wAOvkxKMGPKdf6VWRNXAsIWqOKOcz7cCbrmQhfawKk=,tag:PUoLBX8DMn7wDwUjBY7ARg==,type:comment]
+    known_hosts: ENC[AES256_GCM,data:QJzgH3RX6EPCYp8bmjUdF7h+jMw3a6SOtW8m7CnmkMKG8sqk9uWR3onMw8mJ2cGkrIsuKqIFmnTLWZyZUyfJrDBAKwHOEGnST5a+0EPTurGUNBIZvs8pPbpFzAYV6jcIRVLhQ/HE42RyZB7BWMX6ppnHmWfBQ9c/pugrW5f0htsDAbha7Mg4OadomQkg4ilkAJIPyk6J7ngiiUb89brICHbQJdxnIbIx7dzT+XOgF5VgIEcclpHyuy24Jy+jDkk+UvTEffD2wpa+dSwSwg+e0KYRDJconW649ahU4QnZp4NezxCb2ynnLj2QNN4ZNFGadyFjAA+qB+aUyWZ1wKyIWZZVyBmPZtwGfHL+NhIPQQv2Cp0iVrR9Bj/jGQwZN4/3DfjQxD5kU2aQyt/mnzN1gDHf9UtdlAblrZg9OpYj+k3TBZuTmYmEAN0Baj613Msrdgd//32XgxqUexocdWkv74qocpWfrA4CzCr7JLQJGZMok1RQ0svdL5nf2xpFmR/BD4sh6P/Dw02WMbDiAB5vPKse8DuN5eXKNZF5Gc4D0TqpY+tyy96b0uPhz+RO/VCMwvj9Rchrt4h98ij9+qCteLpGU0tJud/nVOH/vztUxmFYOT9c2BZpmWuH4q5GxDz/jnK+XwhX4aleC+tndTXVYr28EHhe77uVBKPcBySfQjO34tkvqm2EqSpwbmLK8jkeqZmu+Lb+8LQS5UaHbkSmYRVAEbc2Uw08k0AfQRG2agxBpYjY/HPajx1W2GhOpBG6gn2uEaQ8KlKldxwMzrAtWrJrm4S5tish3PB1YFSc2lM68pJFIfPTjsLlaifl6O9JForJjp4fd+O1vhEn4tgfiruJxhrVNoPPRn8pLbm5DQ==,iv:8K5V7acUOwUnWKc0sCUgq0ugCAuaWPKhFCWPuDPPiek=,tag:Ad7ZPZo/Batcdr9bYZ47Ig==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVSWl1akllaVBOcnhiR3dr
+            dkZnUUpiamNISkwyc2NKaHlQeWE4KzJpT0U4CjhvRHJuSTdOZmJhOGZ3bDZuUStF
+            U1ZCMlpOTlhVVnRNMnNTemlLSWhKaGcKLS0tIFJUYnI0ZjZ5K3lwQUFyNEhZZG1L
+            THcwS0pjb1RpM0VSTUtGTFQzS2ZEbGMKrwBCChHsM878ep+MeEsxLnyFRcigYKpI
+            UwzguntUzK/oBGX5/BcugTq1KXTd8Gtv6IODc5V2rOwWF2UDZNEnmQ==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUV1FqQkl0OE9nSzN1ZFZL
+            ZkNCQUdxdUozR0NZRElQUUpWcFc1dHhiK1VzCnlLWFF2YjFRY2svNnVFYnA2b3E1
+            ampCa1kwZXdoZXFTYkVONGxvWmNxelkKLS0tIGNQSk5oeWVQdS93UWwvZDJtYU9W
+            N2svWm1WMVNwU3RFeEVlVE85Wk0wa1kKaEP9Cc0LLET5tuytXehPI3lfh1/HraV1
+            xUMi+Of/gRlomGffmRjWMEimU6mz4P0fVSyP2u+OHnjBaGYATRraaQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-03-31T16:33:04Z"
+    mac: ENC[AES256_GCM,data:WYoqbiAufsUHAhDIAzp1+jPlw6loImvW+S/xLKk62W5FHiUiR46tSBkcwrkOwbo53CR2NAvMi5sbo0Sq/oIgwW+w+ZDL2TfAmjd4istPNeyuxX6N4ADloaGBujVagRr0U/1Hv86ZVueEAA6JyH5+5Nayg0/IIDzXvUAcKE0SwOA=,iv:ybPveQESUo7Gh3hI//4c1gdgWeV75OmbEke84eNm3G4=,tag:GYf6asSLqHdxZS4NIwyXJw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
