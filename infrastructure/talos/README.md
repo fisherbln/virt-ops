@@ -10,25 +10,32 @@ sops -e -i talsecret.sops.yaml
 
 talhelper genconfig
 
+```
 export TALOSCONFIG=~/src/home-lab/talos/clusterconfig/talosconfig
 if using fish shell: set -x TALOSCONFIG ~/repos/virt-ops/infrastructure/talos/cluster-0/clusterconfig/talosconfig
 talosctl apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
 talosctl apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
 talosctl apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
+## wait a few seconds
 talosctl bootstrap -n 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
-talosctl kubeconfig -f --nodes 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
-talosctl kubeconfig -f .
-
+talosctl kubeconfig -f ./ --nodes 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
+#talosctl kubeconfig -f .
+```
+```
 export KUBECONFIG=$(pwd)/kubeconfig
 if using fish set -x KUBECONFIG $(pwd)/kubeconfig
 kubectl get no
 # wait until all nodes appear
-
+```
+```
 kubectl kustomize --enable-helm ./cni | kubectl apply -f -
 kubectl kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
+```
 
-enable cert rotation
+```
+# enable cert rotation
 kubectl apply -f https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
 
 re-run talosctl apply-config as above, except remove the --insecure flag
