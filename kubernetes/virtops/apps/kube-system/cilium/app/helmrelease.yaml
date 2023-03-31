@@ -53,7 +53,7 @@ spec:
           enabled: true
           className: "nginx"
           hosts:
-            - &host hubble-virtops.{NET_DOMAIN}
+            - &host hubble-virtops.${NET_DOMAIN}
           tls:
             - hosts:
                 - *host
@@ -61,7 +61,7 @@ spec:
     ipam:
       mode: kubernetes
     ipv4NativeRoutingCIDR: 10.244.0.0/16
-    k8sServiceHost: virtops.{NET_DOMAIN}
+    k8sServiceHost: virtops.${NET_DOMAIN}
     k8sServicePort: 6443
     kubeProxyReplacement: strict
     kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
