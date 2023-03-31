@@ -1,0 +1,22 @@
+---
+version: "3"
+
+vars:
+  CLUSTER_DIR: "{{.ROOT_DIR}}/kubernetes/virtops"
+  PROVISION_DIR: "{{.ROOT_DIR}}/infrastructure"
+
+env:
+  KUBECONFIG: ./infrastructure/talos/virtops/kubeconfig
+
+includes:
+  cl: .taskfiles/Cluster/Tasks.yml
+  #es: .taskfiles/ExternalSecrets/Tasks.yml
+  #fx: .taskfiles/Flux/Tasks.yml
+  #ku: .taskfiles/Kubernetes/Tasks.yml
+  #vs: .taskfiles/VolSync/Tasks.yml
+
+tasks:
+
+  default:
+    silent: true
+    cmds: ["task -l"]
