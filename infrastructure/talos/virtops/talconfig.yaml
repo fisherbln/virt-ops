@@ -1,5 +1,5 @@
 ---
-clusterName: cluster-0
+clusterName: virtops
 
 talosVersion: v1.3.6
 kubernetesVersion: 1.26.1
@@ -95,7 +95,7 @@ controlPlane:
           extraHostEntries:
             - ip: ${clusterEndpointIP}
               aliases:
-                - cluster-0.bjw-s.tech
+                - virtops.nickeson.net
         sysctls:
           fs.inotify.max_user_watches: "1048576"
           fs.inotify.max_user_instances: "8192"
