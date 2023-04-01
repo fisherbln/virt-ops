@@ -8,7 +8,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   interval: 10m
-  path: "./kubernetes/virtops/apps/network/ingress-nginx/app"
+  path: "./kubernetes/virtops/apps/networking/ingress-nginx/app"
   prune: true
   sourceRef:
     kind: GitRepository
