@@ -30,7 +30,8 @@ spec:
           value: "true"
           effect: "NoSchedule"
     crds:
-      enabled: false
+      #enabled: false
+      enabled: true
     cephBlockPoolsVolumeSnapshotClass:
       enabled: true
       name: csi-rbdplugin-snapclass
