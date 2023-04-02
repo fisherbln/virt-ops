@@ -7,7 +7,8 @@ metadata:
 spec:
   secretName: "${ORG_DOMAIN}-tls"
   issuerRef:
-    name: letsencrypt-production
+    # note that I'm using staging below. Fix when deployed
+    name: letsencrypt-staging
     kind: ClusterIssuer
   commonName: "${ORG_DOMAIN}"
   dnsNames:
