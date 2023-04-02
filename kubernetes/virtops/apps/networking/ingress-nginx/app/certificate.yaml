@@ -2,14 +2,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: "{$ORG_DOMAIN}-dev"
+  name: "${ORG_DOMAIN}"
   namespace: networking
 spec:
-  secretName: "{ORG_DOMAIN}-dev-tls"
+  secretName: "${ORG_DOMAIN}-tls"
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: "bjw-s.dev"
+  commonName: "${ORG_DOMAIN}"
   dnsNames:
-    - "bjw-s.dev"
-    - "*.bjw-s.dev"
+    - "${ORG_DOMAIN}"
+    - "*.${ORG_DOMAIN}"
