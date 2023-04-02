@@ -1,9 +1,0 @@
-apiVersion: v2
-appVersion: v1.0.0
-description: Kubelet CSR Approver
-maintainers:
-- name: clementnuss
-- name: f1ko
-name: kubelet-csr-approver
-type: application
-version: 1.0.0
