@@ -61,12 +61,12 @@ spec:
         - hosts:
             - *host
 
-    #persistence:
-    #  enabled: true
-    #  storageClass: "ceph-block"
-    #  accessModes:
-    #    - ReadWriteOnce
-    #  size: 50Mi
+    persistence:
+      enabled: true
+      storageClass: "ceph-block"
+      accessModes:
+        - ReadWriteOnce
+      size: 50Mi
 
     extraVolumeMounts:
       - name: config
