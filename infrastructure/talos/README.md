@@ -12,7 +12,7 @@ talhelper genconfig
 
 ```
 export TALOSCONFIG=~/src/home-lab/talos/clusterconfig/talosconfig
-if using fish shell: set -x TALOSCONFIG ~/repos/virt-ops/infrastructure/talos/cluster-0/clusterconfig/talosconfig
+if using fish shell: set -x TALOSCONFIG ~/repos/virt-ops/infrastructure/talos/virtops/clusterconfig/talosconfig
 talosctl apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
 talosctl apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
 talosctl apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml

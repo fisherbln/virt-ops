@@ -189,7 +189,7 @@ spec:
 
         enableAdminAPI: true
         externalLabels:
-          cluster: cluster-0
+          cluster: virtops
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         replicas: 1
