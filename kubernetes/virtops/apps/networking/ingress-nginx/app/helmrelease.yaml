@@ -24,7 +24,7 @@ spec:
       service:
         enabled: true
         type: LoadBalancer
-        loadBalancerIP: 10.45.0.1
+        loadBalancerIP: "${SVC_INGRESS_ADDR}"
         externalTrafficPolicy: Local
 
       publishService:
