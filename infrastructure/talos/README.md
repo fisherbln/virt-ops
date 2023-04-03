@@ -28,6 +28,8 @@ kubectl get no
 # wait until all nodes appear
 ```
 ```
+kubectl apply -f lb-bgp-test.yaml
+
 kubectl kustomize --enable-helm ./cni | kubectl apply -f -
 kubectl kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
 ```

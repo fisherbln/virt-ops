@@ -1,8 +1,9 @@
 .ONESHELL:
 .SHELLFLAGS += -e -o pipefail
 
-export TALOSCONFIG := ${HOME}/repos/infrastructure/talos/virtops/clusterconfig/talosconfig
-export KUBECONFIG := ${HOME}/repos/infrastructure/talos/virtops/kubeconfig
+#export TALOSCONFIG := ${HOME}/repos/infrastructure/talos/virtops/clusterconfig/talosconfig
+export TALOSCONFIG := /Users/brian/repos/virt-ops/infrastructure/talos/virtops/clusterconfig/talosconfig
+export KUBECONFIG := /Users/brian/repos/infrastructure/talos/virtops/kubeconfig
 
 
 
@@ -27,6 +28,7 @@ bootstrap:
 	${TC} bootstrap --nodes 10.28.28.71
 
 extras:
+	
 	${KC} kustomize --enable-helm ./cni | kubectl apply -f -
 	${KC} kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
 
@@ -69,11 +71,11 @@ nuke-and-pave:
 
 bootstrap-flux:
 	cd ../
-	kubectl apply --server-side --kustomize ./k8s/bootstrap
-	sops -d k8s/bootstrap/age-key.sops.yaml | kubectl apply -f -
-	sops -d k8s/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
-	sops -d k8s/flux/vars/global-secrets.yaml | kubectl apply -f -
-	kubectl apply -f k8s/flux/vars/global-vars.yaml
+	kubectl apply --server-side --kustomize ./kubernetes/virtops/bootstrap
+	sops -d kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
+	sops -d kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
+	sops -d kubernetes/virtops/flux/vars/global-secrets.yaml | kubectl apply -f -
+	kubectl apply -f kubernetes/virtops/flux/vars/global-vars.yaml
 	kubectl get pods -n flux-system
 	sleep 10
 	kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config

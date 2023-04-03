@@ -90,6 +90,11 @@ kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
 ```
 
 
+k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_clustersecretstores.yaml
+k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_secretstores.yaml
+k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_externalsecrets.yaml
+
+
 ### Test cilium connectivity
 
 ```
@@ -147,9 +152,11 @@ spec:
 ```
 
 ```
+kubectl create namespace cilium-test
 kubectl apply -f lb-bgp-test.yaml
 kubectl -n cilium-test get svc
 # wait until external ip is assigned
 curl http://<external ip>
 kubectl delete -f lb-bgp-test.yaml
+kubectl delete namespace cilium-test
 ```
