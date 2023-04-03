@@ -89,12 +89,6 @@ Wait until `kubectl get pods -n flux-system` shows all ready.
 kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
 ```
 
-
-k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_clustersecretstores.yaml
-k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_secretstores.yaml
-k apply -f https://raw.githubusercontent.com/external-secrets/external-secrets/main/config/crds/bases/external-secrets.io_externalsecrets.yaml
-
-
 ### Test cilium connectivity
 
 ```
