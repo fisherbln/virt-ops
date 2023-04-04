@@ -7,6 +7,10 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
+  dependsOn:
+    - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-thanos
   interval: 10m
   path: "./kubernetes/virtops/apps/monitoring/kube-prometheus-stack/app"
   prune: true

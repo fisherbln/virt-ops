@@ -7,6 +7,9 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
+  dependsOn:
+    #- name: cluster-apps-cloudnative-pg
+    - name: cluster-apps-external-secrets-stores
   interval: 10m
   path: "./kubernetes/virtops/apps/monitoring/grafana/app"
   prune: true
