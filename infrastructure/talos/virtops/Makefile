@@ -3,7 +3,7 @@
 
 #export TALOSCONFIG := ${HOME}/repos/infrastructure/talos/virtops/clusterconfig/talosconfig
 export TALOSCONFIG := /Users/brian/repos/virt-ops/infrastructure/talos/virtops/clusterconfig/talosconfig
-export KUBECONFIG := /Users/brian/repos/infrastructure/talos/virtops/kubeconfig
+export KUBECONFIG := /Users/brian/repos/virt-ops/infrastructure/talos/virtops/kubeconfig
 
 
 
@@ -57,6 +57,7 @@ nuke-and-pave:
 	$(MAKE) kubeconf
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
+	kubectl install ./cni/install.yaml
 	$(MAKE) extras
 	sleep 60
 	talhelper genconfig -c talconfig.yaml-2

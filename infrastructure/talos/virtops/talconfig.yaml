@@ -83,6 +83,7 @@ controlPlane:
         kubelet:
           extraArgs:
             feature-gates: GracefulNodeShutdown=true
+            #rotate-server-certificates: "false"
             rotate-server-certificates: "true"
         install:
           extraKernelArgs:
