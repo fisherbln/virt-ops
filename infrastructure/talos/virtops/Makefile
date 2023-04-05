@@ -57,7 +57,7 @@ nuke-and-pave:
 	$(MAKE) kubeconf
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
-	kubectl install ./cni/install.yaml
+	kubectl apply --server-side -f ./cni/install.yaml
 	$(MAKE) extras
 	sleep 60
 	talhelper genconfig -c talconfig.yaml-2
@@ -71,15 +71,16 @@ nuke-and-pave:
 
 
 bootstrap-flux:
-	cd ../
+	cd ~/repos/virt-ops/
 	kubectl apply --server-side --kustomize ./kubernetes/virtops/bootstrap
 	sops -d kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
-	sops -d kubernetes/virtops/flux/vars/global-secrets.yaml | kubectl apply -f -
-	kubectl apply -f kubernetes/virtops/flux/vars/global-vars.yaml
+	sops -d kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
+	kubectl apply -f kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
 	kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
 	sleep 10
-	flux reconcile -n flux-system source git flux-system
-	flux reconcile -n flux-system kustomization cluster
+	task cl:reconcile
+	#flux reconcile -n flux-system source git flux-system
+	#flux reconcile -n flux-system kustomization cluster
