@@ -33,6 +33,9 @@ sudo python3 create-external-cluster-resources.py \
 --format bash
  ```
 
+```bash
+sudo python3 create-external-cluster-resources.py --rbd-data-pool-name cephfs_data --namespace rook-ceph --cephfs-filesystem-name cephfs --cephfs-data-pool-name cephfs_data --cephfs-metadata-pool-name cephfs_metadata --format bash
+```
 Run `create-secrets.sh` to create the secret file. Don't forget to encrypt it with SOPS.
 
 To enable the dashboard

@@ -50,7 +50,7 @@ parameters:
   fsName: ceph-filesystem
   #pool: cephfs_data
   #pool: cephfs_ec
-  pool: proxmox
+  pool: cephfs
   csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
   csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
   csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
