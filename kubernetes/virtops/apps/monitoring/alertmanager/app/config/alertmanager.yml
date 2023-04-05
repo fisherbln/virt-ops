@@ -3,10 +3,10 @@ receivers:
   - name: "pushover"
     pushover_configs:
       - html: true
-        #token: ${SECRET_ALERTMANAGER_PUSHOVER_TOKEN}
-        #user_key: ${SECRET_ALERTMANAGER_PUSHOVER_USER_KEY}
-        token: ${SECRET_PUSHOVER_API_TOKEN}
-        user_key: ${SECRET_PUSHOVER_API_USERKEY}
+        token: ${SECRET_ALERTMANAGER_PUSHOVER_TOKEN}
+        user_key: ${SECRET_ALERTMANAGER_PUSHOVER_USER_KEY}
+        #token: ${SECRET_PUSHOVER_API_TOKEN}
+        #user_key: ${SECRET_PUSHOVER_API_USERKEY}
         send_resolved: true
         priority: |-
           {{ if eq .Status "firing" }}1{{ else }}0{{ end }}
