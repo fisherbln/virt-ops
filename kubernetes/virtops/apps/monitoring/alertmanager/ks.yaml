@@ -9,6 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-rook-ceph-cluster
   interval: 10m
   path: "./kubernetes/virtops/apps/monitoring/alertmanager/app"
   prune: true

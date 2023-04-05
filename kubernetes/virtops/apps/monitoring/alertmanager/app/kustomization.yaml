@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: monitoring
 resources:
   # Keep external secret off
-  #- ./externalsecret.yaml
+  - ./externalsecret.yaml
   - ./helmrelease.yaml
 configMapGenerator:
   - name: alertmanager-configmap
