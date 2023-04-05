@@ -7,4 +7,5 @@ metadata:
   namespace: monitoring
 spec:
   bucketName: loki-v1
-  storageClassName: ceph-bucket
+  #storageClassName: ceph-bucket
+  storageClassName: ceph-block
