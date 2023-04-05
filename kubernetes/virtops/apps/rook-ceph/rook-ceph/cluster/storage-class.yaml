@@ -21,15 +21,15 @@ parameters:
   csi.storage.k8s.io/fstype: ext4
 reclaimPolicy: Delete
 allowVolumeExpansion: true
----
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: ceph-bucket
-provisioner: rook-ceph.cephfs.csi.ceph.com
-parameters:
-  clusterID: rook-ceph
-  fsName: ceph-block
+#---
+#apiVersion: storage.k8s.io/v1
+#kind: StorageClass
+#metadata:
+#  name: ceph-bucket
+#provisioner: rook-ceph.cephfs.csi.ceph.com
+#parameters:
+#  clusterID: rook-ceph
+#  fsName: ceph-block
 #  pool: pve_ec_cephfs_data_erasure_low_redundancy
 #  csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
 #  csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
@@ -37,8 +37,8 @@ parameters:
 #  csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
 #  csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
 #  csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
-  region: us-east-1
-reclaimPolicy: Delete
+#  region: us-east-1
+#reclaimPolicy: Delete
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
