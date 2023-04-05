@@ -130,7 +130,7 @@ spec:
       GF_SECURITY_COOKIE_SAMESITE: grafana
       GF_SERVER_ROOT_URL: "https://grafana.${ORG_DOMAIN}"
 
-    #envFromSecret: grafana-secrets
+    envFromSecret: grafana-secrets
 
     grafana.ini:
       analytics:
