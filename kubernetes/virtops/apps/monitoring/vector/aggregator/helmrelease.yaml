@@ -49,8 +49,8 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: 10.45.0.2
-        annotations:
-          coredns.io/hostname: "vector.${ORG_DOMAIN}"
+        #annotations:
+        #  coredns.io/hostname: "vector.${ORG_DOMAIN}"
         externalTrafficPolicy: Local
         ports:
           http:
