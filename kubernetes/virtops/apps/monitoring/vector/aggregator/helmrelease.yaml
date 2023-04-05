@@ -19,20 +19,6 @@ spec:
         namespace: flux-system
   interval: 30m
   values:
-    initContainers:
-      01-init-geoip:
-        image: ghcr.io/maxmind/geoipupdate:v4.11.1
-        imagePullPolicy: IfNotPresent
-        env:
-          - { name: GEOIPUPDATE_EDITION_IDS, value: GeoLite2-City }
-          - { name: GEOIPUPDATE_FREQUENCY, value: "0" }
-          - { name: GEOIPUPDATE_VERBOSE, value: "true" }
-        envFrom:
-          - secretRef:
-              name: vector-aggregator-secret
-        volumeMounts:
-          - { name: geoip, mountPath: /usr/share/GeoIP }
-
     controller:
       replicas: 1
       strategy: Recreate
@@ -49,8 +35,8 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: 10.45.0.2
-        #annotations:
-        #  coredns.io/hostname: "vector.${ORG_DOMAIN}"
+        annotations:
+          coredns.io/hostname: "vector.${NET_DOMAIN}"
         externalTrafficPolicy: Local
         ports:
           http:

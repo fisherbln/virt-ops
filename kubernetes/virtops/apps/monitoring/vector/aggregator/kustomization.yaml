@@ -4,17 +4,9 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ./helmrelease.yaml
-  - ./externalsecret.yaml
 configMapGenerator:
   - name: vector-aggregator-configmap
     files:
       - vector.yaml=./config/vector.yaml
-configurations:
-  - ./patches/kustomizeconfig.yaml
 generatorOptions:
   disableNameSuffixHash: true
-labels:
-  - pairs:
-      app.kubernetes.io/name: vector-aggregator
-      app.kubernetes.io/instance: vector-aggregator
-      app.kubernetes.io/part-of: vector
