@@ -12,10 +12,18 @@ spec:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-thanos
     - name: cluster-apps-alertmanager
-  interval: 10m
+  
   path: "./kubernetes/virtops/apps/monitoring/kube-prometheus-stack/app"
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-  wait: true
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: kube-prometheus-stack
+      namespace: monitoring
+  interval: 10m
+  retryInterval: 1m
+  timeout: 5m
+  #wait: true
