@@ -26,8 +26,8 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    #- name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-external-secrets
+    - name: cluster-apps-external-secrets-stores
+    #- name: cluster-apps-external-secrets
   path: ./kubernetes/virtops/apps/flux-system/addons/notifications
   prune: true
   sourceRef:

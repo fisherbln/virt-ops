@@ -10,8 +10,8 @@ spec:
   dependsOn:
     - name: cluster-apps-kube-prometheus-stack
     - name: cluster-apps-rook-ceph-cluster
-    #- name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-external-secrets
+    - name: cluster-apps-external-secrets-stores
+    #- name: cluster-apps-external-secrets
     #- name: cluster-apps-thanos
   path: "./kubernetes/virtops/apps/monitoring/loki/app"
   prune: true
