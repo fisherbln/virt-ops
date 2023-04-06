@@ -44,7 +44,8 @@ spec:
       #name: external-secrets-stores
       #name: clustersecretstores.external-secrets.io
       name: doppler-virtops
-      namespace: kube-system
+      #namespace: kube-system
+      namespace: flux-system
   interval: 30m
   retryInterval: 1m
   timeout: 3m
