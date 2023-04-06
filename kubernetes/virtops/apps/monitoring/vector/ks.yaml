@@ -49,5 +49,6 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    # - name: cluster-apps-vector-geoipupdate
-    - name: cluster-apps-vector-aggregator
+    - name: cluster-apps-external-secrets
+    #- name: cluster-apps-kube-prometheus-stack
+    - name: cluster-apps-rook-ceph-cluster

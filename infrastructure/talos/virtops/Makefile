@@ -60,7 +60,7 @@ nuke-and-pave:
 ### kubectl apply --server-side -f ./cni/install.yaml
 	$(MAKE) extras
 	sleep 60
-	talhelper genconfig -c talconfig.yaml-2
+	talhelper genconfig -c talconfig.yaml
 	$(MAKE) apply-talos
 	kubectl get no
 	sleep 60
@@ -81,6 +81,7 @@ bootstrap-flux:
 	sleep 10
 	kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
 	sleep 10
-	task cl:reconcile
-	#flux reconcile -n flux-system source git flux-system
-	#flux reconcile -n flux-system kustomization cluster
+	#task cl:reconcile
+	flux reconcile -n flux-system source git flux-system
+	sleep 10
+	flux reconcile -n flux-system kustomization cluster
