@@ -10,6 +10,7 @@ spec:
   dependsOn:
     #- name: cluster-apps-cloudnative-pg
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-external-secrets
     - name: cluster-apps-kube-prometheus-stack
   interval: 10m
   path: "./kubernetes/virtops/apps/monitoring/grafana/app"
