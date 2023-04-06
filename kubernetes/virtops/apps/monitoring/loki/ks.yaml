@@ -12,8 +12,7 @@ spec:
     - name: cluster-apps-rook-ceph-cluster
     #- name: cluster-apps-external-secrets-stores
     - name: cluster-apps-external-secrets
-    - name: cluster-apps-thanos
-  interval: 10m
+    #- name: cluster-apps-thanos
   path: "./kubernetes/virtops/apps/monitoring/loki/app"
   prune: true
   sourceRef:
@@ -24,5 +23,7 @@ spec:
       kind: HelmRelease
       name: loki
       namespace: monitoring
-  wait: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
   
