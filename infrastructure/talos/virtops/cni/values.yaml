@@ -15,6 +15,9 @@ hubble:
   enabled: false
 ipam:
   mode: kubernetes
+  operator:
+    clusterPoolIPv4PodCIDRList:
+      - 172.28.0.0/16
 #ipv4NativeRoutingCIDR: 10.244.0.0/16
 ipv4NativeRoutingCIDR: 172.28.0.0/16
 k8sServiceHost: 10.5.0.10
