@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-external-secrets
   path: ./kubernetes/apps/flux-system/weave-gitops/app
   prune: true
   sourceRef:
