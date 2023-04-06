@@ -4,6 +4,7 @@
 #export TALOSCONFIG := ${HOME}/repos/infrastructure/talos/virtops/clusterconfig/talosconfig
 export TALOSCONFIG := /Users/brian/repos/virt-ops/infrastructure/talos/virtops/clusterconfig/talosconfig
 export KUBECONFIG := /Users/brian/repos/virt-ops/infrastructure/talos/virtops/kubeconfig
+export BASEDIR := /Users/brian/repos/virt-ops/
 
 
 
@@ -59,29 +60,30 @@ nuke-and-pave:
 	talosctl --nodes 10.28.28.71 get members
 ### kubectl apply --server-side -f ./cni/install.yaml
 	$(MAKE) extras
-	sleep 60
+	sleep 20
 	talhelper genconfig -c talconfig.yaml
 	$(MAKE) apply-talos
 	kubectl get no
-	sleep 60
+	sleep 20
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
 	cilium status
-	cilium connectivity test
+###	cilium connectivity test
 
 
 bootstrap-flux:
-	cd ~/repos/virt-ops/
-	kubectl apply --server-side --kustomize ./kubernetes/virtops/bootstrap
-	sops -d kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
-	sops -d kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
-	sops -d kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
-	kubectl apply -f kubernetes/virtops/flux/vars/cluster-settings.yaml
+###	cd ~/repos/virt-ops/
+	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap
+	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
+	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
+	sops -d ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
+	kubectl apply -f ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
-	kubectl apply --server-side --kustomize ./kubernetes/virtops/flux/config
+	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/flux/config
 	sleep 10
 	#task cl:reconcile
-	flux reconcile -n flux-system source git flux-system
+	flux reconcile -n flux-system source git home-ops-kubernetes
 	sleep 10
 	flux reconcile -n flux-system kustomization cluster
+	
