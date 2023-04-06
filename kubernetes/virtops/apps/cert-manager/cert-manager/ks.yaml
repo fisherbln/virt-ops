@@ -5,12 +5,12 @@ metadata:
   name: cluster-apps-cert-manager
   namespace: flux-system
 spec:
-  interval: 10m
   path: "./kubernetes/virtops/apps/cert-manager/cert-manager/app"
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
+  interval: 30m
   retryInterval: 1m
   timeout: 3m
 ---
@@ -23,7 +23,6 @@ spec:
   dependsOn:
     - name: cluster-apps-cert-manager
     - name: cluster-apps-external-secrets-stores
-  interval: 10m
   path: "./kubernetes/virtops/apps/cert-manager/cert-manager/issuers"
   prune: true
   sourceRef:
