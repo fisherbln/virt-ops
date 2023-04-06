@@ -38,10 +38,12 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       #kind: clustersecretstores.external-secrets.io
       #kind: HelmRelease
-      kind: CustomResourceDefinition
+      #kind: CustomResourceDefinition
+      kind: ClusterSecretStore
       #name: doppler-virtops
       #name: external-secrets-stores
-      name: clustersecretstores.external-secrets.io
+      #name: clustersecretstores.external-secrets.io
+      name: doppler-virtops
       namespace: kube-system
   interval: 30m
   retryInterval: 1m
