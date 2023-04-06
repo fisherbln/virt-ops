@@ -54,7 +54,7 @@ nuke-and-pave:
 	$(MAKE) apply-talos-first
 	sleep 60
 	$(MAKE) bootstrap
-	sleep 60
+	sleep 120
 	$(MAKE) kubeconf
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
@@ -80,10 +80,12 @@ bootstrap-flux:
 	kubectl apply -f ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
+	kubectl get pods -n flux-system
 	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/flux/config
 	sleep 10
 	#task cl:reconcile
 	flux reconcile -n flux-system source git home-ops-kubernetes
 	sleep 10
 	flux reconcile -n flux-system kustomization cluster
+	kubectl get kustomizations -A
 	
