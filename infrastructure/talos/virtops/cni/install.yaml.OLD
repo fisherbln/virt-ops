@@ -524,10 +524,10 @@ metadata:
     name: cilium
     namespace: kube-system
 spec:
-    #selector:
-    #    matchLabels:
-    #        app.kubernetes.io/managed-by: Helm
-    #        k8s-app: cilium
+    selector:
+        matchLabels:
+            app.kubernetes.io/managed-by: Helm
+            k8s-app: cilium
     template:
         metadata:
             annotations:
@@ -538,13 +538,13 @@ spec:
                 app.kubernetes.io/managed-by: Helm
                 k8s-app: cilium
         spec:
-            #affinity:
-            #    podAntiAffinity:
-            #        requiredDuringSchedulingIgnoredDuringExecution:
-            #            - labelSelector:
-            #                matchLabels:
-            #                    k8s-app: cilium
-            #              topologyKey: kubernetes.io/hostname
+            affinity:
+                podAntiAffinity:
+                    requiredDuringSchedulingIgnoredDuringExecution:
+                        - labelSelector:
+                            matchLabels:
+                                k8s-app: cilium
+                          topologyKey: kubernetes.io/hostname
             containers:
                 - args:
                     - --config-dir=/tmp/cilium/config-map

@@ -1,4 +1,7 @@
 ---
+cluster:
+  id: 1
+  name: virtops
 autoDirectNodeRoutes: true
 bgp:
   announce:
@@ -17,6 +20,7 @@ ipv4NativeRoutingCIDR: 172.28.0.0/16
 k8sServiceHost: 10.5.0.10
 k8sServicePort: 6443
 kubeProxyReplacement: strict
+kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
 loadBalancer:
   algorithm: maglev
   mode: dsr
