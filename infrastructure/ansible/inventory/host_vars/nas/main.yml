@@ -3,10 +3,8 @@ ansible_host: "10.1.1.11"
 ansible_python_interpreter: /volume1/@appstore/python310/bin/python3
 
 certificates:
-  - common_name: "*.bjw-s.dev"
-    email: "postmaster@bjw-s.dev"
-  - common_name: "*.nickeson.org"
-    email: "postmaster@nickeson.org"
+  - common_name: "*.nickeson.xyz"
+    email: "postmaster@nickeson.xyz"
 
 apps:
   syno_cli:
