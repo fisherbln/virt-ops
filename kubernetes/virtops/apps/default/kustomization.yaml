@@ -7,4 +7,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./glauth/ks.yaml
+  - ./redis/ks.yaml
   
