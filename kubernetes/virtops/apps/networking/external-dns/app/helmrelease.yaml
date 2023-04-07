@@ -25,7 +25,7 @@ spec:
         valueFrom:
           secretKeyRef:
             name: externaldns-secrets
-            key: api_token
+            key: api-token
 
     extraArgs:
       - --cloudflare-proxied
