@@ -66,7 +66,7 @@ spec:
       #      any: true
 
       extraArgs:
-        default-ssl-certificate: "network/${XYZ_DOMAIN}-tls"
+        default-ssl-certificate: "networking/${XYZ_DOMAIN}-tls"
 
       topologySpreadConstraints:
         - maxSkew: 2
