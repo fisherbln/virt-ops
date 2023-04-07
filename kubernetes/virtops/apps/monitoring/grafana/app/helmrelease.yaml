@@ -128,7 +128,7 @@ spec:
       #GF_PATHS_PROVISIONING: /etc/grafana/provisioning
       GF_SECURITY_ALLOW_EMBEDDING: true
       GF_SECURITY_COOKIE_SAMESITE: grafana
-      GF_SERVER_ROOT_URL: "https://grafana.${ORG_DOMAIN}"
+      GF_SERVER_ROOT_URL: "https://grafana.${XYZ_DOMAIN}"
 
     envFromSecret: grafana-secrets
 
@@ -164,7 +164,7 @@ spec:
         plugins: /var/lib/grafana/plugins
         provisioning: /etc/grafana/provisioning
       server:
-        root_url: https://grafana.${ORG_DOMAIN}
+        root_url: https://grafana.${XYZ_DOMAIN}
 
     imageRenderer:
       enabled: true
@@ -175,7 +175,7 @@ spec:
       annotations:
         nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
       hosts:
-        - &host grafana.${ORG_DOMAIN}
+        - &host grafana.${XYZ_DOMAIN}
       tls:
         - hosts:
             - *host

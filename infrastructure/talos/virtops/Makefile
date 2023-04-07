@@ -59,7 +59,8 @@ nuke-and-pave:
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
 ### kubectl apply --server-side -f ./cni/install.yaml
-    kubectl apply -f ./cni/install.yaml
+    
+	kubectl apply -f ./cni/install.yaml
 	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml

@@ -40,7 +40,7 @@ spec:
               }
               ready
 
-              k8s_gateway ${ORG_DOMAIN} ${NET_DOMAIN} {
+              k8s_gateway ${XYZ_DOMAIN} ${NET_DOMAIN} {
                 apex  k8s-gateway.network
                 resources Ingress Service
                 ttl 300
