@@ -1,6 +1,6 @@
 terraform {
   cloud {
-    organization = "bjw-s"
+    organization = "Virtops"
     workspaces {
       name = "home-auth0-provisioner"
     }
@@ -30,8 +30,8 @@ module "onepassword_item_mailgun" {
   item   = "mailgun"
 }
 
-module "bjws" {
-  source = "./modules/bjws"
+module "virtops" {
+  source = "./modules/virtops"
 
   secrets = {
     auth0_domain        = module.onepassword_item_auth0.fields.bjws_domain
@@ -39,12 +39,12 @@ module "bjws" {
     auth0_client_secret = module.onepassword_item_auth0.fields.terraform_client_secret
     users = {
       bernd = {
-        email    = module.onepassword_item_auth0.fields.user_bernd_email
-        password = module.onepassword_item_auth0.fields.user_bernd_password
+        email    = module.onepassword_item_auth0.fields.user_brian_email
+        password = module.onepassword_item_auth0.fields.user_brian_password
       }
       manyie = {
-        email    = module.onepassword_item_auth0.fields.user_manyie_email
-        password = module.onepassword_item_auth0.fields.user_manyie_password
+        email    = module.onepassword_item_auth0.fields.user_sally_email
+        password = module.onepassword_item_auth0.fields.user_sally_password
       }
     }
     mailgun = {

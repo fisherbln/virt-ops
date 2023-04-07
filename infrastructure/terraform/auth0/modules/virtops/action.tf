@@ -3,7 +3,7 @@ resource "auth0_action" "add_roles" {
   runtime = "node16"
   code    = <<-EOT
         exports.onExecutePostLogin = async (event, api) => {
-          const namespace = 'https://bjw-s';
+          const namespace = 'https://nickeson';
           if (event.authorization) {
             api.idToken.setCustomClaim(`$${namespace}/groups`, event.authorization.roles);
             api.accessToken.setCustomClaim(`$${namespace}/groups`, event.authorization.roles);
