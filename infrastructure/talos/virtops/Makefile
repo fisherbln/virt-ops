@@ -60,7 +60,7 @@ nuke-and-pave:
 	talosctl --nodes 10.28.28.71 get members
 ### kubectl apply --server-side -f ./cni/install.yaml
     
-	kubectl apply -f ./cni/install.yaml
+	kubectl apply -f ${BASEDIR}/infrastructure/talos/virtops/cni/install.yaml
 	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml
@@ -87,7 +87,7 @@ bootstrap-flux:
 	sleep 10
 	#task cl:reconcile
 	flux reconcile -n flux-system source git home-ops-kubernetes
-	sleep 10
+	sleep 15
 	flux reconcile -n flux-system kustomization cluster
 	kubectl get kustomizations -A
 	
