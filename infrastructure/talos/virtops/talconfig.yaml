@@ -3,7 +3,7 @@ clusterName: virtops
 
 talosVersion: v1.3.6
 kubernetesVersion: 1.26.1
-endpoint: "https://virtops.nickeson.net:6443"
+endpoint: "https://virtops.${net_domain}:6443"
 
 cniConfig:
   name: none
@@ -13,10 +13,10 @@ additionalApiServerCertSans:
 
 additionalMachineCertSans:
   - ${clusterEndpointIP}
-  - virtops.nickeson.net
+  - virtops.${net_domain}
 
 nodes:
-  - hostname: delta.nickeson.net
+  - hostname: delta.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.71
     controlPlane: true
@@ -29,7 +29,7 @@ nodes:
     #        dhcp: false
     #        addresses:
     #          - 10.1.3.141/24
-  - hostname: enigma.nickeson.net
+  - hostname: enigma.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.72
     controlPlane: true
@@ -42,7 +42,7 @@ nodes:
     #        dhcp: false
     #        addresses:
     #          - 10.1.3.142/24
-  - hostname: felix.nickeson.net
+  - hostname: felix.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.73
     controlPlane: true
@@ -87,16 +87,16 @@ controlPlane:
             rotate-server-certificates: "true"
         install:
           extraKernelArgs:
-            - "talos.logging.kernel=udp://vector.nickeson.net:6050/"
+            - "talos.logging.kernel=udp://vector.${net_domain}:6050/"
         logging:
           destinations:
-            - endpoint: "udp://vector.nickeson.net:6051/"
+            - endpoint: "udp://vector.${net_domain}:6051/"
               format: json_lines
         network:
           extraHostEntries:
             - ip: ${clusterEndpointIP}
               aliases:
-                - virtops.nickeson.net
+                - virtops.${net_domain}
         sysctls:
           fs.inotify.max_user_watches: "1048576"
           fs.inotify.max_user_instances: "8192"

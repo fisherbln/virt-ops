@@ -442,7 +442,7 @@ data:
   ipam: kubernetes
   ipv4-native-routing-cidr: 172.28.0.0/16
   kube-proxy-replacement: strict
-  kube-proxy-replacement-healthz-bind-address: 0.0.0.0:10256
+  kube-proxy-replacement-healthz-bind-address: ""
   monitor-aggregation: medium
   monitor-aggregation-flags: all
   monitor-aggregation-interval: 5s
@@ -507,7 +507,7 @@ spec:
   template:
     metadata:
       annotations:
-        cilium.io/cilium-configmap-checksum: 8339f07be85c3a839594f1ba7f2ece1c056d3ca91c11bcc73750154b58f33ed8
+        cilium.io/cilium-configmap-checksum: 5e3902b94a7632e86281953e5ef578a44611efaa8d8ddb08b68d3f9ee443aa6d
         meta.helm.sh/release-name: cilium
         meta.helm.sh/release-namespace: kube-system
       labels:
@@ -605,7 +605,7 @@ spec:
   template:
     metadata:
       annotations:
-        cilium.io/cilium-configmap-checksum: 8339f07be85c3a839594f1ba7f2ece1c056d3ca91c11bcc73750154b58f33ed8
+        cilium.io/cilium-configmap-checksum: 5e3902b94a7632e86281953e5ef578a44611efaa8d8ddb08b68d3f9ee443aa6d
         meta.helm.sh/release-name: cilium
         meta.helm.sh/release-namespace: kube-system
       labels:
