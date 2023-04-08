@@ -130,19 +130,25 @@ spec:
       GF_SECURITY_COOKIE_SAMESITE: grafana
       GF_SERVER_ROOT_URL: "https://grafana.${ORG_DOMAIN}"
 
-    envFromSecret: grafana-secrets
+    envFromSecrets: 
+      - name: grafana-secrets
 
     grafana.ini:
       analytics:
         check_for_updates: false
       auth:
+        signout_redirect_url: https://auth.${ORG_DOMAIN}/logout
         oauth_auto_login: false
       auth.basic:
         enabled: false
       auth.generic_oauth:
         enabled: true
-        name: Auth0
-        scopes: "openid profile email"
+        name: Authelia
+        scopes: "openid profile email groups"
+        empty_scopes: false
+        login_attribute_path: preferred_username
+        groups_attribute_path: groups
+        name_attribute_path: name
         client_id: # Set by env vars
         client_secret: # Set by env vars
         auth_url: # Set by env vars
@@ -152,8 +158,11 @@ spec:
 
       auth.generic_oauth.group_mapping:
         role_attribute_path: |
-          contains("https://virtops/groups"[*], 'grafana-admin') && 'Admin' || contains("https://virtops/groups"[*], 'grafana-viewer') && 'Viewer'
+          contains(groups[*], 'admins') && 'Admin' || contains(groups[*], 'people') && 'Viewer'
         org_id: 1
+      auth.basic:
+        enabled: false
+        # disable_login_form: false
       grafana_net:
         url: https://grafana.net
       log:
