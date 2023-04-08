@@ -12,7 +12,7 @@ TC := talosctl --talosconfig ${TALOSCONFIG}
 KC := kubectl
 
 reset:
-	${TC} reset --endpoints 10.28.28.71 --graceful=false -n 10.28.28.71 -n 10.28.28.72 -n 10.28.28.73 --reboot --wait=false
+	${TC} reset --endpoints 10.28.28.71 --graceful=false -n 10.28.28.71 -n 10.28.28.72 -n 10.28.28.73 -n 10.28.28.61 -n 10.28.28.62 -n 10.28.28.63 --reboot --wait=false
 	rm -rf clusterconfig/*.yaml clusterconfig/talosconfig kubeconfig talsecret.sops.yaml
 
 gen:
@@ -24,6 +24,9 @@ apply-talos-first:
 	${TC} apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.61 --file clusterconfig/virtops-node-pve1.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.62 --file clusterconfig/virtops-node-pve2.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.63 --file clusterconfig/virtops-node-pve3.nickeson.net.yaml
 
 bootstrap:
 	${TC} bootstrap --nodes 10.28.28.71
@@ -37,11 +40,17 @@ apply-talos:
 	${TC} apply-config --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.61 --file clusterconfig/virtops-node-pve1.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.62 --file clusterconfig/virtops-node-pve2.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.63 --file clusterconfig/virtops-node-pve3.nickeson.net.yaml
 
 reboot:
 	${TC} reboot --nodes 10.28.28.71 --wait
 	${TC} reboot --nodes 10.28.28.72 --wait
 	${TC} reboot --nodes 10.28.28.73 --wait
+	${TC} reboot --nodes 10.28.28.61 --wait
+	${TC} reboot --nodes 10.28.28.62 --wait
+	${TC} reboot --nodes 10.28.28.63 --wait
 
 kubeconf:
 	${TC} kubeconfig --nodes 10.28.28.71 -f .
