@@ -10,7 +10,8 @@ metadata:
 spec:
   type: ExternalName
   #externalName: opnsense.turbo.ac.
-  externalName: gateway.${NET_DOMAIN}
+  #externalName: gateway.${NET_DOMAIN}
+  externalName: 10.28.1.36
   ports:
     - name: http
       port: &port 8123
