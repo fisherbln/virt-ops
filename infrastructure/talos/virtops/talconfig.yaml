@@ -176,7 +176,3 @@ worker:
           disabled: false
           servers:
             - 10.28.1.1
-
-    - |-
-      - op: remove
-        path: /cluster/apiServer/admissionControl

@@ -9,6 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/default/redis/app
   prune: true
   sourceRef:

@@ -9,6 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-kube-prometheus-stack
   interval: 10m
   path: "./kubernetes/virtops/apps/networking/external-dns/app"
   prune: true

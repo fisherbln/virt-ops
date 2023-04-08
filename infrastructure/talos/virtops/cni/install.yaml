@@ -440,7 +440,7 @@ data:
   identity-heartbeat-timeout: 30m0s
   install-no-conntrack-iptables-rules: "false"
   ipam: kubernetes
-  ipv4-native-routing-cidr: 172.28.0.0/16
+  ipv4-native-routing-cidr: 172.22.0.0/16
   kube-proxy-replacement: strict
   kube-proxy-replacement-healthz-bind-address: ""
   monitor-aggregation: medium
@@ -507,7 +507,7 @@ spec:
   template:
     metadata:
       annotations:
-        cilium.io/cilium-configmap-checksum: 5e3902b94a7632e86281953e5ef578a44611efaa8d8ddb08b68d3f9ee443aa6d
+        cilium.io/cilium-configmap-checksum: 77f3356e6b02f477a26cb44b03d245db071f055ebe6b46d0b26e6b67a73625f0
         meta.helm.sh/release-name: cilium
         meta.helm.sh/release-namespace: kube-system
       labels:
@@ -605,7 +605,7 @@ spec:
   template:
     metadata:
       annotations:
-        cilium.io/cilium-configmap-checksum: 5e3902b94a7632e86281953e5ef578a44611efaa8d8ddb08b68d3f9ee443aa6d
+        cilium.io/cilium-configmap-checksum: 77f3356e6b02f477a26cb44b03d245db071f055ebe6b46d0b26e6b67a73625f0
         meta.helm.sh/release-name: cilium
         meta.helm.sh/release-namespace: kube-system
       labels:
