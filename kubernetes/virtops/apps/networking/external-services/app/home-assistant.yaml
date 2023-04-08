@@ -11,7 +11,8 @@ spec:
   type: ExternalName
   #externalName: opnsense.turbo.ac.
   #externalName: gateway.${NET_DOMAIN}
-  externalName: 10.28.1.36
+  externalName: ${HAOS_DIRECT}
+  #externalName: haos.${ORG_DOMAIN}
   ports:
     - name: http
       port: &port 8123
