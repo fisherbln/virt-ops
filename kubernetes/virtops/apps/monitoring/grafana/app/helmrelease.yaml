@@ -139,8 +139,6 @@ spec:
       auth:
         signout_redirect_url: https://auth.${ORG_DOMAIN}/logout
         oauth_auto_login: false
-      auth.basic:
-        enabled: false
       auth.generic_oauth:
         enabled: true
         name: Authelia
