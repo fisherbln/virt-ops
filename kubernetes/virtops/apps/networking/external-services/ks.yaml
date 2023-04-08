@@ -13,7 +13,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: cluster-home-ops
+    name: home-ops-kubernetes
   interval: 10m
   retryInterval: 1m
   timeout: 3m
