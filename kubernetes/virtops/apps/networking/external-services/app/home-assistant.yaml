@@ -9,8 +9,6 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  #externalName: opnsense.turbo.ac.
-  #externalName: gateway.${NET_DOMAIN}
   externalName: ${HAOS_DIRECT}
   #externalName: haos.${ORG_DOMAIN}
   ports:
