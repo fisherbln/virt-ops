@@ -93,7 +93,7 @@ spec:
             add_header X-XSS-Protection "1; mode=block";
           hajimari.io/icon: mdi:shield-account
         hosts:
-          - host: &host auth.${ORG_DOMAINA}
+          - host: &host auth.${ORG_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
