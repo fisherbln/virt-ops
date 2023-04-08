@@ -2,15 +2,15 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: ${XYZ_DOMAIN}
+  name: ${ORG_DOMAIN}
   namespace: networking
 spec:
-  secretName: ${XYZ_DOMAIN}-tls
+  secretName: ${ORG_DOMAIN}-tls
   issuerRef:
     #name: letsencrypt-staging
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: ${XYZ_DOMAIN}
+  commonName: ${ORG_DOMAIN}
   dnsNames:
-    - ${XYZ_DOMAIN}
-    - "*.${XYZ_DOMAIN}"
+    - ${ORG_DOMAIN}
+    - "*.${ORG_DOMAIN}"

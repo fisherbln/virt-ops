@@ -18,7 +18,7 @@ spec:
 
   values:
     domainFilters:
-      - ${XYZ_DOMAIN}
+      - ${ORG_DOMAIN}
 
     env:
       - name: CF_API_TOKEN

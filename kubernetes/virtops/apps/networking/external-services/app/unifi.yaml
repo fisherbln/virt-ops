@@ -30,7 +30,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host unifi.${XYZ_DOMAIN}
+    - host: &host unifi.${ORG_DOMAIN}
       http:
         paths:
           - path: /
