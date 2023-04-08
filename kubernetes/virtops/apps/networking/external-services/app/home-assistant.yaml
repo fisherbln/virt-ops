@@ -24,6 +24,7 @@ metadata:
   namespace: networking
   annotations:
     #hajimari.io/icon: mdi:shield-check
+    external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
   labels:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
