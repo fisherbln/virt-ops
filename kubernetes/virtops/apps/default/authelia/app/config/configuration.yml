@@ -20,7 +20,7 @@ access_control:
   rules:
     - domain: ['grafana.${ORG_DOMAIN}']
       policy: bypass
-    - domain: ['smarthome.${ORG_DOMAIN}'']
+    - domain: ['smarthome.${ORG_DOMAIN}']
       policy: bypass
 
 identity_providers:
