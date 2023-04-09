@@ -4,7 +4,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: radarr-restic
-  namespace: default
+  namespace: media
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
@@ -28,7 +28,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: radarr
-  namespace: default
+  namespace: media
 spec:
   sourcePVC: config-radarr-0
   trigger:
