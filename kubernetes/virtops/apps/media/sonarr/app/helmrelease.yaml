@@ -99,7 +99,7 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: expanse.turbo.ac
+        server: expanse.${NET_DOMAIN}
         path: /eros/Media
         mountPath: /media
       #scripts:
