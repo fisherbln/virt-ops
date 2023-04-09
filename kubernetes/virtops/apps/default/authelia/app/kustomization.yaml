@@ -13,8 +13,7 @@ configMapGenerator:
     files:
       - ./config/configuration.yml
 generatorOptions:
-  #disableNameSuffixHash: true
-  disableNameSuffixHash: false
+  disableNameSuffixHash: true
   annotations:
     #kustomize.toolkit.fluxcd.io/substitute: disabled
     kustomize.toolkit.fluxcd.io/substitute: enabled
