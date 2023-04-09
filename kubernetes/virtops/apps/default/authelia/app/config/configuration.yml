@@ -31,7 +31,7 @@ identity_providers:
     clients:
       - id: grafana
         description: Grafana
-        secret: ${GRAFANA_OAUTH_CLIENT_SECRET}
+        secret: ${GRAFANA_OAUTH_CLIENT_SECRET_VAR}
         public: false
         authorization_policy: two_factor
         pre_configured_consent_duration: 1y
