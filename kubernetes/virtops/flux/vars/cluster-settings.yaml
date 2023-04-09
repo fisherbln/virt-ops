@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
   name: cluster-settings
 data:
+  TIMEZONE: "America/Chicago"
   CLUSTER_NAME: home-ops
   CLUSTER_APISERVER_ENDPOINT: 10.5.0.10
   CLUSTER_CIDR: 172.22.0.0/16
