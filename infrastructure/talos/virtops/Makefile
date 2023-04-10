@@ -84,6 +84,12 @@ nuke-and-pave:
 
 bootstrap-flux:
 ###	cd ~/repos/virt-ops/
+	kubectl label nodes delta node-role.kubernetes.io/master=master
+	kubectl label nodes enigma node-role.kubernetes.io/master=master
+	kubectl label nodes felix node-role.kubernetes.io/master=master
+	kubectl label nodes node-pve1 node-role.kubernetes.io/worker=worker
+	kubectl label nodes node-pve2 node-role.kubernetes.io/worker=worker
+	kubectl label nodes node-pve3 node-role.kubernetes.io/worker=worker
 	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
