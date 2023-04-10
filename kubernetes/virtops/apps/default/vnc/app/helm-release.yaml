@@ -1,0 +1,56 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ubuntu-vnc
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.3.2
+      interval: 15m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  # See https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
+  values:
+    image:
+      repository: docker.io/dorowu/ubuntu-desktop-lxde-vnc
+      tag: latest@sha256:775184eaa5bbc01bc4261a6c9596a642b3b43a433c1508637567bc724575964b
+
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+          vnc:
+            enabled: false
+            port: 5900
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
+          nginx.ingress.kubernetes.io/auth-method: GET
+          nginx.ingress.kubernetes.io/auth-url: http://authelia.default.svc.cluster.local/api/verify
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${ORG_DOMAIN}?rm=$request_method
+          nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
+          nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Method $request_method;
+        hosts:
+          - host: &host "vnc.${ORG_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: tls.ubuntu-vnc
+            hosts:
+              - *host
+
+    podSecurityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
