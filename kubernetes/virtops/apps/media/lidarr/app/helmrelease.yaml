@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: lidarr
-  namespace: default
+  namespace: media
 spec:
   interval: 15m
   chart:
@@ -52,15 +52,15 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            proxy_set_header Accept-Encoding "";
-            sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.devbu.io/css/base/lidarr/nord.css"></head>';
-            sub_filter_once on;
+          #nginx.ingress.kubernetes.io/configuration-snippet: |
+          #  proxy_set_header Accept-Encoding "";
+          #  sub_filter '</head>' '<link rel="stylesheet" type="text/css" href="https://theme-park.devbu.io/css/base/lidarr/nord.css"></head>';
+          #  sub_filter_once on;
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/icon: mdi:headphones
+          #hajimari.io/icon: mdi:headphones
         hosts:
-          - host: &host "{{ .Release.Name }}.devbu.io"
+          - host: &host "{{ .Release.Name }}.${ORG_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -83,7 +83,7 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: expanse.turbo.ac
+        server: expanse.${NET_DOMAIN}
         path: /eros/Media
         mountPath: /media
     resources:
