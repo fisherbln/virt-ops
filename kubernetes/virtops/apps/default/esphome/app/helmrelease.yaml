@@ -101,4 +101,4 @@ spec:
         tls:
           - hosts:
               - *host
-            #secretName: "tls-{{ .Release.Name }}"
+            secretName: "tls-{{ .Release.Name }}"
