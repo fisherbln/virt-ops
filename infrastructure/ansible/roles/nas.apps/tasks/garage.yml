@@ -43,7 +43,7 @@
       - "{{ apps.garage.data_folder }}:/var/lib/garage/data"
       - "{{ apps.garage.config_folder }}/garage.toml:/etc/garage.toml"
     env:
-      TZ: "Europe/Amsterdam"
+      TZ: "America/Chicago"
     published_ports:
       - 3910:3910
       - 3911:3911

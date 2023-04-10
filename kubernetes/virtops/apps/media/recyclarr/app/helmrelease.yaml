@@ -43,7 +43,7 @@ spec:
       repository: ghcr.io/recyclarr/recyclarr
       tag: edge
     env:
-      TZ: America/New_York
+      TZ: ${TIMEZONE}
     envFrom:
       - secretRef:
           name: recyclarr-secret

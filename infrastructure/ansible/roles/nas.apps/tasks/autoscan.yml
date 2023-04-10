@@ -32,7 +32,7 @@
         read_only: true
         type: bind
     env:
-      TZ: "Europe/Amsterdam"
+      TZ: "America/Chicago"
       PUID: "0"
       PGID: "0"
       AUTOSCAN_VERBOSITY: "1"
