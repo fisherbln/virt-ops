@@ -14,12 +14,21 @@ spec:
         kind: HelmRepository
         name: external-dns
         namespace: flux-system
-      interval: 30m
-
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
-    domainFilters:
-      - ${ORG_DOMAIN}
-
+    interval: 2m
+    # logLevel: debug
+    provider: cloudflare
     env:
       - name: CF_API_TOKEN
         valueFrom:
@@ -35,9 +44,9 @@ spec:
     sources:
       - ingress
     txtPrefix: "k8s."
-    #txtOwnerId: default
-
-    provider: cloudflare
+    txtOwnerId: default
+    domainFilters:
+      - ${ORG_DOMAIN}
     serviceMonitor:
       enabled: true
     podAnnotations:
