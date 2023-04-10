@@ -57,7 +57,7 @@ kubeconf:
 
 
 nuke-and-pave:
-###	$(MAKE) reset
+	$(MAKE) reset
 	$(MAKE) gen
 	sleep 120
 	$(MAKE) apply-talos-first
