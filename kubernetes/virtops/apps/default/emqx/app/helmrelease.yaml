@@ -35,8 +35,8 @@ spec:
       EMQX_DASHBOARD__DEFAULT_USERNAME: admin
     service:
       type: LoadBalancer
-      annotations:
-        coredns.io/hostname: emqx.${ORG_DOMAIN}
+      #annotations:
+      #  coredns.io/hostname: emqx.${ORG_DOMAIN}
       externalIPs: 
         - ${SVC_EMQX_ADDR_V4}
       externalTrafficPolicy: Local
