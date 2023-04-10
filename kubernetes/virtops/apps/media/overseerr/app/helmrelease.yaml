@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: overseerr
-  namespace: default
+  namespace: media
 spec:
   interval: 15m
   chart:
@@ -47,9 +47,9 @@ spec:
         ingressClassName: nginx
         annotations:
           external-dns.alpha.kubernetes.io/target: ipv4.devbu.io
-          hajimari.io/icon: mdi:eye-circle
+          #hajimari.io/icon: mdi:eye-circle
         hosts:
-          - host: &host requests.devbu.io
+          - host: &host requests.${ORG_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
