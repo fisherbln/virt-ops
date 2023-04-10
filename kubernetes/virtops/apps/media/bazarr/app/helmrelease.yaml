@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: bazarr
-  namespace: default
+  namespace: media
 spec:
   interval: 15m
   chart:
@@ -27,13 +27,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    # initContainers:
-    #   01-init-db:
-    #     image: ghcr.io/onedr0p/postgres-initdb:14.7
-    #     imagePullPolicy: IfNotPresent
-    #     envFrom:
-    #       - secretRef:
-    #           name: bazarr-secret
+     initContainers:
+       01-init-db:
+         image: ghcr.io/onedr0p/postgres-initdb:14.7
+         imagePullPolicy: IfNotPresent
+         envFrom:
+           - secretRef:
+               name: bazarr-secret
     controller:
       type: statefulset
       annotations:
@@ -65,7 +65,7 @@ spec:
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           hajimari.io/icon: mdi:subtitles-outline
         hosts:
-          - host: &host "{{ .Release.Name }}.devbu.io"
+          - host: &host "{{ .Release.Name }}.${ORG_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -88,7 +88,7 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: expanse.turbo.ac
+        server: expanse.${NET_DOMAIN}
         path: /eros/Media
         mountPath: /media
       add-ons:
