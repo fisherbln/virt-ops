@@ -1,0 +1,118 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: paperless
+  namespace: default
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.3.2
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    image:
+      repository: ghcr.io/paperless-ngx/paperless-ngx
+      tag: 1.13.0
+
+    podAnnotations:
+      secret.reloader.stakater.com/reload: paperless-secrets
+
+    env:
+      COMPOSE_PROJECT_NAME: paperless
+      PAPERLESS_CONSUMER_POLLING: "60"
+      PAPERLESS_CONSUMER_RECURSIVE: "true"
+      PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: "true"
+      PAPERLESS_ENABLE_HTTP_REMOTE_USER: "true"
+      PAPERLESS_HTTP_REMOTE_USER_HEADER_NAME: HTTP_X_AUTH_REQUEST_EMAIL
+      #PAPERLESS_HTTP_REMOTE_USER_HEADER_NAME: HTTP_X_AUTHENTIK_USERNAME
+      PAPERLESS_OCR_LANGUAGES: nld
+      PAPERLESS_OCR_LANGUAGE: nld
+      PAPERLESS_PORT: 8000
+      PAPERLESS_REDIS: redis://paperless-redis.default.svc.cluster.local:6379
+      PAPERLESS_TASK_WORKERS: 2
+      PAPERLESS_TIME_ZONE: ${TIMEZONE}
+      PAPERLESS_URL: https://paperless.${ORG_DOMAIN}
+      USERMAP_GID: 1700
+      PAPERLESS_ADMIN_USER:
+        valueFrom:
+          secretKeyRef:
+            name: paperless-secrets
+            key: PAPERLESS_ADMIN_USER
+      PAPERLESS_ADMIN_PASSWORD:
+        valueFrom:
+          secretKeyRef:
+            name: paperless-secrets
+            key: PAPERLESS_ADMIN_PASSWORD
+      PAPERLESS_SECRET_KEY:
+        valueFrom:
+          secretKeyRef:
+            name: paperless-secrets
+            key: PAPERLESS_SECRET_KEY
+
+    service:
+      main:
+        ports:
+          http:
+            port: 8000
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
+          nginx.ingress.kubernetes.io/auth-method: GET
+          nginx.ingress.kubernetes.io/auth-url: http://authelia.default.svc.cluster.local/api/verify
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${ORG_DOMAIN}?rm=$request_method
+          nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
+          nginx.ingress.kubernetes.io/auth-snippet: proxy_set_header X-Forwarded-Method $request_method;
+          #
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+          #nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}
+        hosts:
+          - host: &host "paperless.${ORG_DOMAIN}"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+              - *host
+
+    persistence:
+      data:
+        enabled: true
+        mountPath: /usr/src/paperless/data
+        type: nfs
+        server: &nas "expanse.${NET_DOMAIN}"
+        path: /eros/Documents/paperless/data
+      media:
+        enabled: true
+        mountPath: /usr/src/paperless/media
+        type: nfs
+        server: *nas
+        path: /eros/Documents/paperless/media
+      consume:
+        enabled: true
+        mountPath: /usr/src/paperless/consume
+        type: nfs
+        server: *nas
+        path: /eros/Documents/paperless/incoming
+      export:
+        enabled: true
+        mountPath: /usr/src/paperless/export
+        type: nfs
+        server: *nas
+        path: /eros/Documents/paperless/export
+
+    resources:
+      requests:
+        cpu: 23m
+        memory: 2975M
+      limits:
+        memory: 6572M
