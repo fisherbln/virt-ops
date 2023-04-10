@@ -33,8 +33,8 @@ spec:
       EMQX_ALLOW_ANONYMOUS: "false"
       EMQX_AUTH__MNESIA__PASSWORD_HASH: plain
       EMQX_DASHBOARD__DEFAULT_USERNAME: admin
-      EMQX_LOADED_MODULES: "emqx_mod_presence,emqx_mod_acl_internal,emqx_mod_topic_metrics"
-      EMQX_LOADED_PLUGINS: "emqx_management,emqx_recon,emqx_retainer,emqx_dashboard,emqx_rule_engine,emqx_auth_mnesia,emqx_prometheus"
+      #EMQX_LOADED_MODULES: "emqx_mod_presence,emqx_mod_acl_internal,emqx_mod_topic_metrics"
+      #EMQX_LOADED_PLUGINS: "emqx_management,emqx_recon,emqx_retainer,emqx_dashboard,emqx_rule_engine,emqx_auth_mnesia,emqx_prometheus"
     service:
       type: LoadBalancer
       #annotations:
@@ -77,15 +77,15 @@ spec:
               topologyKey: kubernetes.io/hostname
   valuesFrom:
     - targetPath: emqxConfig.EMQX_DASHBOARD__DEFAULT_PASSWORD
-        kind: Secret
-        name: emqx-secret
-        valuesKey: mqtt_admin_pass
-      - targetPath: emqxConfig.EMQX_AUTH__USER__1__USERNAME
-        kind: Secret
-        name: emqx-secret
-        valuesKey: mqtt_username
-      - targetPath: emqxConfig.EMQX_AUTH__USER__1__PASSWORD
-        kind: Secret
-        name: emqx-secret
-        valuesKey: mqtt_userpass
-        
+      kind: Secret
+      name: emqx-secret
+      valuesKey: mqtt_admin_pass
+    - targetPath: emqxConfig.EMQX_AUTH__USER__1__USERNAME
+      kind: Secret
+      name: emqx-secret
+      valuesKey: mqtt_username
+    - targetPath: emqxConfig.EMQX_AUTH__USER__1__PASSWORD
+      kind: Secret
+      name: emqx-secret
+      valuesKey: mqtt_userpass
+  
