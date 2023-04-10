@@ -9,5 +9,6 @@ resources:
   - ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./glauth/ks.yaml
+  - ./outline/ks.yaml
   - ./redis/ks.yaml
   

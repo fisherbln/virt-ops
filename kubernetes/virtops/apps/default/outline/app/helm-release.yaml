@@ -15,9 +15,6 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  dependsOn:
-    - name: outline-redis
-      namespace: default
   maxHistory: 3
   install:
     createNamespace: true
