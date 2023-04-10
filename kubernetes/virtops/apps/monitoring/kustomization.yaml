@@ -13,6 +13,6 @@ resources:
   - ./loki/ks.yaml
   - ./thanos/ks.yaml
   - ./vector/ks.yaml
-  - ./vpa.ks.yaml
+  - ./vpa/ks.yaml
   # Standard Resources
   #- ./miscellaneous
