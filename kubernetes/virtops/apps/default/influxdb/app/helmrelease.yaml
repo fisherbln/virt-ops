@@ -46,13 +46,6 @@ spec:
       - name: TZ
         value: "${TIMEZONE}"
 
-    #resources:
-    #  limits:
-    #    memory: 128Mi
-    #  requests:
-    #    cpu: 100m
-    #    memory: 128Mi
-
     adminUser:
       organization: "primary"
       # user: "admin"
@@ -71,7 +64,6 @@ spec:
       hostname: influx.${ORG_DOMAIN}
       path: /
       tls: true
-      path: /
 
   valuesFrom:
     - targetPath: adminUser.user
