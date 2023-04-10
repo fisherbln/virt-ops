@@ -10,7 +10,7 @@ helmCharts:
     namespace: kube-system
     valuesInline:
       providerRegex: |
-        ^(delta|enigma|felix)$
+        ^(delta|enigma|felix|node-pve1|node-pve2|node-pve3)$
       bypassDnsResolution: true
 commonAnnotations:
   meta.helm.sh/release-name: kubelet-csr-approver
