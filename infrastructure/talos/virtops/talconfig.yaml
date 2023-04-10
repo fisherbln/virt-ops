@@ -7,7 +7,7 @@ endpoint: "https://virtops.${net_domain}:6443"
 clusterPodNets:
   - 172.22.0.0/16
 clusterSvcNets:
-  - 172.24.0.0/16
+  - 172.24.0.0/14
 
 cniConfig:
   name: none
