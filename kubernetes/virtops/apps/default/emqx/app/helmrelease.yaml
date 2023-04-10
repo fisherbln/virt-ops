@@ -31,7 +31,7 @@ spec:
     # recreatePods: true
     emqxConfig:
       EMQX_ALLOW_ANONYMOUS: "false"
-      #EMQX_AUTH__MNESIA__PASSWORD_HASH: plain
+      EMQX_AUTH__MNESIA__PASSWORD_HASH: plain
       EMQX_DASHBOARD__DEFAULT_USERNAME: admin
       EMQX_LOADED_MODULES: "emqx_mod_presence,emqx_mod_acl_internal,emqx_mod_topic_metrics"
       EMQX_LOADED_PLUGINS: "emqx_management,emqx_recon,emqx_retainer,emqx_dashboard,emqx_rule_engine,emqx_auth_mnesia,emqx_prometheus"
@@ -88,7 +88,4 @@ spec:
         kind: Secret
         name: emqx-secret
         valuesKey: mqtt_userpass
-      - targetPath: emqxConfig.EMQX_AUTH__MNESIA__PASSWORD_HASH
-        kind: Secret
-        name: emqx-secret
-        valuesKey: password_hash
+        
