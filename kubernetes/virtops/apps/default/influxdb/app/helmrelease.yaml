@@ -18,17 +18,17 @@ spec:
   #dependsOn:
   #  - name: rook-ceph-cluster
   #    namespace: rook-ceph
-  postRenderers:
-    - kustomize:
-        patchesStrategicMerge:
-          - apiVersion: v1
-            kind: Service
-            metadata:
-              name: influxdb
-            spec:
-              externalIPs:
-                - ${SVC_INFLUX_ADDR_V4}
-              externalTrafficPolicy: Local
+  #postRenderers:
+  #  - kustomize:
+  #      patchesStrategicMerge:
+  #        - apiVersion: v1
+  #          kind: Service
+  #          metadata:
+  #            name: influxdb
+  #          spec:
+  #            externalIPs:
+  #              - ${SVC_INFLUX_ADDR_V4}
+  #            externalTrafficPolicy: Local
   # Values link: https://github.com/influxdata/helm-charts/blob/master/charts/influxdb2/values.yaml
   values:
     fullnameOverride: *app
