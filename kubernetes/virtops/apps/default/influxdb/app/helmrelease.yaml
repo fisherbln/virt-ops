@@ -41,8 +41,8 @@ spec:
     service:
       type: LoadBalancer
       #loadBalancerIP: "${SVC_INFLUX_ADDR_V4}"
-      annotations:
-        coredns.io/hostname: influx.${ORG_DOMAIN}
+      #annotations:
+      #  coredns.io/hostname: influx.${ORG_DOMAIN}
 
     env:
       - name: TZ
