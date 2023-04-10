@@ -4,12 +4,9 @@ kind: Kustomization
 resources:
   - ./config
   - ./pvc.yaml
-  - ./external-secrets.yaml
-  - ./helm-release.yaml
-  - ./replicationsource.yaml
-  #- volsync-secrets.sops.yaml
-  # - volsync-replication-destination.yaml
-  # - volsync-replication-source.yaml
+  - ./externalsecret.yaml
+  - ./helmrelease.yaml
+  #- ./replicationsource.yaml
 commonLabels:
   app.kubernetes.io/name: esphome
   app.kubernetes.io/instance: esphome
