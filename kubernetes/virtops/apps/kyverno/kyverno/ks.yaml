@@ -8,6 +8,8 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
+  dependsOn:
+    - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/kyverno/kyverno/app
   prune: true
   sourceRef:
