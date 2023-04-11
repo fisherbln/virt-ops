@@ -27,10 +27,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    #adminUser:
-    #  create: true
-    #  #create: false
-    #  username: admin
+    adminUser:
+      create: true
+      username: admin
     oidcSecret:
       create: true
       clientID: weave-gitops
