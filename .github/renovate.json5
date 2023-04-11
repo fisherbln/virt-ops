@@ -1,26 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    "docker:enableMajor",
-    ":disableRateLimiting",
-    ":dependencyDashboard",
-    ":semanticCommits",
-    ":automergeDigest",
-    ":automergeBranch",
+    "github>fisherbln/renovate-config",
+    "github>fisherbln/renovate-config:automerge-github-actions",
     "github>fisherbln/virt-ops/.github/renovate/allowedVersions.json5",
     "github>fisherbln/virt-ops/.github/renovate/autoMerge.json5",
-    "github>fisherbln/virt-ops/.github/renovate/commitMessage.json5",
+    "github>fisherbln/virt-ops/.github/renovate/disabledDatasources.json5",
     "github>fisherbln/virt-ops/.github/renovate/groups.json5",
-    "github>fisherbln/virt-ops/.github/renovate/labels.json5",
-    "github>fisherbln/virt-ops/.github/renovate/semanticCommits.json5",
-    "helpers:pinGitHubActionDigests"
   ],
   "platform": "github",
-  "onboarding": false,
-  "requireConfig": "optional",
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
-  "suppressNotifications": ["prIgnoreNotification"],
+  "username": "HomeOpsBot[bot]",
+  "gitAuthor": "HomeOpsBot <98030736+homeopsbot[bot]@users.noreply.github.com>",
+  "repositories": ["fisherbln/virt-ops"],
   "flux": {
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
@@ -32,30 +23,74 @@
   },
   "regexManagers": [
     {
-      "description": "Process custom dependencies",
+      "description": ["Process CRD dependencies - Chart and Github Release are the same version"],
+      "fileMatch": ["kubernetes/.+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: registryUrl=(?<registryUrl>\\S+) chart=(?<depName>\\S+)\n.*?(?<currentValue>[^-\\s]*)\n",
+      ],
+      "datasourceTemplate": "helm"
+    },
+    {
+      "description": ["Generic Docker image Regex manager"],
+      "fileMatch": [
+        "infrastructure/.+\\.ya?ml$",
+        "infrastructure/.+\\.tf$"
+      ],
+      "matchStrings": [
+        "# renovate: docker-image( versioning=(?<versioning>.*=?))?\n .*[:|=] \"?(?<depName>.*?):(?<currentValue>[^\"\n]*=?)\"?",
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "description": ["Raw GitHub URL Regex manager"],
       "fileMatch": [
         "infrastructure/.+\\.ya?ml$",
         "kubernetes/.+\\.ya?ml$"
       ],
       "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
+        "https:\\/\\/raw.githubusercontent.com\\/(?<depName>[\\w\\d\\-_]+\\/[\\w\\d\\-_]+)\\/(?<currentValue>[\\w\\d\\.\\-_]+)\\/.*",
       ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
+    // Custom version schemes
     {
-      "description": "Loose versioning for non-semver packages",
+      "description": "Use custom versioning for dsmr-reader",
       "matchDatasources": ["docker"],
-      "versioning": "loose",
-      "matchPackagePatterns": ["changedetection", "plex", "qbittorrent"]
+      "matchPackageNames": ["ghcr.io/xirixiz/dsmr-reader-docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<build>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "description": "Use custom versioning for Vector",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["docker.io/timberio/vector"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>.*)$"
+    },
+    {
+      "description": "Use custom versioning for http-https-echo",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/mendhak/http-https-echo"],
+      "versioning": "regex:^(?<major>\\d+)$"
     },
     {
       "description": "Use custom versioning for Minio",
       "matchDatasources": ["docker"],
-      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$",
-      "matchPackagePatterns": ["minio"]
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z(-(?<compatibility>.*))?$",
+      "matchPackageNames": ["quay.io/minio/minio"]
+    },
+    // Version strategies
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/onedr0p/plex", "ghcr.io/onedr0p/qbittorrent"],
+      "versioning": "loose"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["tomsquest/docker-radicale"],
+      "versioning": "pep440"
     }
   ]
 }
