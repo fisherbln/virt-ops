@@ -27,10 +27,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    adminUser:
-      create: true
-      #create: false
-      username: admin
+    #adminUser:
+    #  create: true
+    #  #create: false
+    #  username: admin
     oidcSecret:
       create: true
       clientID: weave-gitops
@@ -65,10 +65,10 @@ spec:
     podAnnotations:
       secret.reloader.stakater.com/reload: weave-gitops-secret
   valuesFrom:
-    #- kind: Secret
-    #  name: weave-gitops-secret
-    #  valuesKey: adminPassword
-    #  targetPath: adminUser.passwordHash
+    - kind: Secret
+      name: weave-gitops-secret
+      valuesKey: adminPassword
+      targetPath: adminUser.passwordHash
     - kind: Secret
       name: weave-gitops-secret
       valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
