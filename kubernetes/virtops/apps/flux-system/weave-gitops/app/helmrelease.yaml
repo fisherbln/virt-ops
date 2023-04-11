@@ -30,11 +30,11 @@ spec:
     adminUser:
       create: true
       username: admin
-    # oidcSecret:
-    #   create: true
-    #   clientID: weave-gitops
-    #   issuerURL: https://auth.devbu.io
-    #   redirectURL: https://gitops.devbu.io/oauth2/callback
+     oidcSecret:
+       create: true
+       clientID: weave-gitops
+       issuerURL: https://auth.${ORG_DOMAIN}
+       redirectURL: https://gitops.${ORG_DOMAIN}/oauth2/callback
     ingress:
       enabled: true
       className: nginx
@@ -43,7 +43,7 @@ spec:
           10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
         hajimari.io/icon: mdi:sawtooth-wave
       hosts:
-        - host: &host gitops.devbu.io
+        - host: &host gitops.${ORG_DOMAIN}
           paths:
             - path: /
               pathType: Prefix
@@ -68,7 +68,7 @@ spec:
       name: weave-gitops-secret
       valuesKey: adminPassword
       targetPath: adminUser.passwordHash
-    # - kind: Secret
-    #   name: weave-gitops-secret
-    #   valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
-    #   targetPath: oidcSecret.clientSecret
+     - kind: Secret
+       name: weave-gitops-secret
+       valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
+       targetPath: oidcSecret.clientSecret
