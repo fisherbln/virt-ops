@@ -67,7 +67,8 @@ spec:
   valuesFrom:
     - kind: Secret
       name: weave-gitops-secret
-      valuesKey: adminPassword
+      #valuesKey: adminPassword
+      valuesKey: adminPasswordHash
       targetPath: adminUser.passwordHash
     - kind: Secret
       name: weave-gitops-secret
