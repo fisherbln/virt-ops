@@ -3,6 +3,7 @@
   "extends": [
     "github>fisherbln/renovate-config",
     "github>fisherbln/renovate-config:automerge-github-actions",
+    "github>fisherbln/virt-ops//.github/renovate/allowedVersions.json5",
     "github>fisherbln/virt-ops//.github/renovate/autoMerge.json5",
     "github>fisherbln/virt-ops//.github/renovate/disabledDatasources.json5",
     "github>fisherbln/virt-ops//.github/renovate/groups.json5",
