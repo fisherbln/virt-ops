@@ -28,9 +28,9 @@ spec:
     keepHistory: false
   values:
     adminUser:
-      #create: true
-      create: false
-      #username: admin
+      create: true
+      #create: false
+      username: admin
      oidcSecret:
        create: true
        clientID: weave-gitops
@@ -69,7 +69,7 @@ spec:
     #  name: weave-gitops-secret
     #  valuesKey: adminPassword
     #  targetPath: adminUser.passwordHash
-     - kind: Secret
-       name: weave-gitops-secret
-       valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
-       targetPath: oidcSecret.clientSecret
+    - kind: Secret
+      name: weave-gitops-secret
+      valuesKey: WEAVEGITOPS_OAUTH_CLIENT_SECRET
+      targetPath: oidcSecret.clientSecret
