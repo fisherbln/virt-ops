@@ -5,12 +5,12 @@ metadata:
   name: webhook-receiver
   namespace: flux-system
   annotations:
-    external-dns.alpha.kubernetes.io/target: ipv4.devbu.io
+    external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
     hajimari.io/enable: "false"
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host flux-webhook.devbu.io
+    - host: &host flux-webhook.${ORG_DOMAIN}
       http:
         paths:
           - path: /hook/
