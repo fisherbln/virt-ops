@@ -44,7 +44,8 @@ identity_providers:
         public: false
         authorization_policy: two_factor
         pre_configured_consent_duration: 1y
-        scopes: ["openid", "profile", "email", "offline_access"]
+        #scopes: ["openid", "profile", "email", "offline_access"]
+        scopes: ["openid", "profile", "email"]
         redirect_uris: ["https://outline.${ORG_DOMAIN}/auth/oidc.callback"]
         userinfo_signing_algorithm: none
       - id: immich
