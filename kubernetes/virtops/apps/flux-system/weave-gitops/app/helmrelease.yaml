@@ -31,11 +31,11 @@ spec:
       create: true
       #create: false
       username: admin
-     oidcSecret:
-       create: true
-       clientID: weave-gitops
-       issuerURL: https://auth.${ORG_DOMAIN}
-       redirectURL: https://gitops.${ORG_DOMAIN}/oauth2/callback
+    oidcSecret:
+      create: true
+      clientID: weave-gitops
+      issuerURL: https://auth.${ORG_DOMAIN}
+      redirectURL: https://gitops.${ORG_DOMAIN}/oauth2/callback
     ingress:
       enabled: true
       className: nginx
