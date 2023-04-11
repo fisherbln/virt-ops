@@ -41,13 +41,11 @@ jobs:
                   [
                     "ACTION_ACTIONLINT",
                     "ANSIBLE_ANSIBLE_LINT",
-                    "COPYPASTE_JSCPD",
                     "KUBERNETES_KUBEVAL",
                     "MARKDOWN_MARKDOWNLINT",
                     "PYTHON_FLAKE8",
                     "PYTHON_PYLINT",
                     "REPOSITORY_GIT_DIFF",
-                    "REPOSITORY_SECRETLINT",
                     "TERRAFORM_TERRAFORM_FMT",
                   ]
                 '),
