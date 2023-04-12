@@ -11,7 +11,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-    #name: flux-system
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
@@ -35,26 +34,24 @@ spec:
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-    #name: flux-system
   interval: 30m
   retryInterval: 1m
   timeout: 5m
----
-# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/kustomization_v1beta2.json
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: cluster-apps-rook-ceph-cluster-monitoring
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: cluster-apps-rook-ceph
-  path: ./kubernetes/virtops/apps/rook-ceph/rook-ceph/monitoring
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: home-ops-kubernetes
-    #name: flux-system
-  interval: 30m
-  retryInterval: 1m
-  timeout: 5m
+#---
+## yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/kustomization_v1beta2.json
+#apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+#kind: Kustomization
+#metadata:
+#  name: cluster-apps-rook-ceph-cluster-monitoring
+#  namespace: flux-system
+#spec:
+#  dependsOn:
+#    - name: cluster-apps-rook-ceph
+#  path: ./kubernetes/virtops/apps/rook-ceph/rook-ceph/monitoring
+#  prune: true
+#  sourceRef:
+#    kind: GitRepository
+#    name: home-ops-kubernetes
+#  interval: 30m
+#  retryInterval: 1m
+#  timeout: 5m
