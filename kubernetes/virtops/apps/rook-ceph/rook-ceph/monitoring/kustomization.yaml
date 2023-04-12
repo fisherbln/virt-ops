@@ -10,10 +10,10 @@ generatorOptions:
 configMapGenerator:
   # Note: These are currently not renovated
   # https://grafana.com/grafana/dashboards/2842
-  #- name: grafana-dashboard-ceph-cluster
-  #  files:
-  #    - ceph-cluster.json
-  # https://grafana.com/grafana/dashboards/5336
+  - name: grafana-dashboard-ceph-cluster
+    files:
+      - ceph-cluster.json
+   https://grafana.com/grafana/dashboards/5336
   - name: grafana-dashboard-ceph-osd
     files:
       - ceph-osd.json
