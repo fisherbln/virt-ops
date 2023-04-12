@@ -47,9 +47,10 @@ spec:
           type: ceph_default
           oid: 1.3.6.1.4.1.50495.15.1.2.2.2
         annotations:
-          description: >
-            Ceph has been in HEALTH_WARN for more than 15 minutes.
-            Please check "ceph health detail" for more information.
+          description: test
+          #description: >
+          #  Ceph has been in HEALTH_WARN for more than 15 minutes.
+          #  Please check "ceph health detail" for more information.
 
   - name: mon
     rules:
