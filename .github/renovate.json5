@@ -17,6 +17,9 @@
     "helpers:pinGitHubActionDigests"
   ],
   "platform": "github",
+  "username": "HomeOpsBot[bot]",
+  "gitAuthor": "HomeOpsBot <128801459+homeopsbot[bot]@users.noreply.github.com>",
+  "repositories": ["fisherbln/virt-ops"],
   "onboarding": false,
   "requireConfig": "optional",
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
@@ -33,26 +36,36 @@
   },
   "regexManagers": [
     {
-      "description": "Process Tekton dependencies",
-      "fileMatch": [
-        "kubernetes/.+\\.ya?ml$"
-      ],
+      "description": ["Process CRD dependencies - Chart and Github Release are the same version"],
+      "fileMatch": ["kubernetes/.+\\.ya?ml$"],
       "matchStrings": [
-        "depName=(?<depName>\\S+)?\n.*?(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+        "# renovate: registryUrl=(?<registryUrl>\\S+) chart=(?<depName>\\S+)\n.*?(?<currentValue>[^-\\s]*)\n",
       ],
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "helm"
     },
     {
-      "description": "Process custom dependencies",
+      "description": ["Generic Docker image Regex manager"],
       "fileMatch": [
-        "ansible/.+\\.ya?ml$",
+        "infrastructure/.+\\.ya?ml$",
+        "infrastructure/.+\\.tf$"
+      ],
+      "matchStrings": [
+        "# renovate: docker-image( versioning=(?<versioning>.*=?))?\n .*[:|=] \"?(?<depName>.*?):(?<currentValue>[^\"\n]*=?)\"?",
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "description": ["Raw GitHub URL Regex manager"],
+      "fileMatch": [
+        "infrastructure/.+\\.ya?ml$",
         "kubernetes/.+\\.ya?ml$"
       ],
       "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
+        "https:\\/\\/raw.githubusercontent.com\\/(?<depName>[\\w\\d\\-_]+\\/[\\w\\d\\-_]+)\\/(?<currentValue>[\\w\\d\\.\\-_]+)\\/.*",
       ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [

@@ -8,6 +8,7 @@ on:
         description: "Dry-Run"
         default: "false"
         required: false
+        type: boolean
       logLevel:
         description: "Log-Level"
         default: "debug"
@@ -15,16 +16,18 @@ on:
   schedule:
     - cron: "0 * * * *"
   push:
-    branches: ["main"]
+    branches: 
+      - main
     paths:
-      - .github/renovate-bot.json5
-      - .github/renovate.json5
-      - .github/renovate/**.json5
+      - ".github/renovate-bot.json5"
+      - ".github/renovate.json5"
+      - ".github/renovate/**.json"
+      - ".github/renovate/**.json5"
 
 env:
   LOG_LEVEL: debug
   RENOVATE_DRY_RUN: false
-  RENOVATE_CONFIG_FILE: .github/renovate-bot.json5
+  RENOVATE_CONFIG_FILE: ".github/renovate.json5"
 
 jobs:
   renovate:
