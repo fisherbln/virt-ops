@@ -184,16 +184,21 @@ spec:
       #            matchLabels:
       #              {{- include "loki.backendSelectorLabels" . | nindent 12 }}
       #          topologyKey: kubernetes.io/hostname
-      extraVolumeMounts:
-        - name: rules
-          mountPath: /rules
-      extraVolumes:
-        - name: rules
-          emptyDir: {}
       persistence:
         size: 20Gi
         storageClass: ceph-block
-
+      extraVolumeMounts:
+        - name: rules
+          mountPath: /rules/fake
+        - name: scratch
+          mountPath: /tmp/scratch
+      extraVolumes:
+        - name: rules
+          configMap:
+            name: loki-alerting-rules
+        - name: scratch
+          emptyDir: {}
+          
     monitoring:
       dashboards:
         annotations:
