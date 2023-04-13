@@ -181,12 +181,15 @@ spec:
       #          topologyKey: kubernetes.io/hostname
       extraVolumeMounts:
         - name: rules
-          mountPath: /rules/fake
+          #mountPath: /rules/fake
+          mountPath: /rules
       extraVolumes:
+        #- name: rules
+        #  configMap:
+        #    name: loki-alerting-rules
+        #- name: scratch
+        #  emptyDir: {}
         - name: rules
-          configMap:
-            name: loki-alerting-rules
-        - name: scratch
           emptyDir: {}
       persistence:
         size: 20Gi
