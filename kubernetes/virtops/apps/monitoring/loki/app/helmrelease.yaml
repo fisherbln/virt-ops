@@ -118,6 +118,8 @@ spec:
       #              {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
       #          topologyKey: kubernetes.io/hostname
       enabled: true
+      deploymentStrategy:
+        type: Recreate
       image:
         registry: ghcr.io
         repository: nginxinc/nginx-unprivileged

@@ -41,6 +41,9 @@ spec:
       enabled: false
     # admin:
     #   existingSecret: grafana-secret
+    deploymentStrategy:
+      type: Recreate
+      
     env:
       GF_ANALYTICS_CHECK_FOR_UPDATES: false
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
