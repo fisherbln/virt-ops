@@ -112,11 +112,11 @@ spec:
       #            matchLabels:
       #              {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
       #          topologyKey: kubernetes.io/hostname
-      enabled: true
-      image:
-        registry: ghcr.io
-        repository: nginxinc/nginx-unprivileged
-        tag: 1.23-alpine
+      #enabled: true
+      #image:
+      #  registry: ghcr.io
+      #  repository: nginxinc/nginx-unprivileged
+      #  tag: 1.23-alpine
       ingress:
         enabled: true
         ingressClassName: "nginx"
