@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "username": "HomeOps[bot]",
-  "gitAuthor": "HomeOps <128801459+homeopsbot[bot]@users.noreply.github.com>",
+  "username": "HomeOpsBot[bot]",
+  "gitAuthor": "HomeOpsBot <128801459+homeopsbot[bot]@users.noreply.github.com>",
   "repositories": ["fisherbln/virt-ops"]
 }
