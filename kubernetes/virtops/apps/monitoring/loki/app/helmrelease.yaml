@@ -108,15 +108,15 @@ spec:
 
     gateway:
       replicas: 3
-      affinity: |
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
-                topologyKey: kubernetes.io/hostname
+      #affinity: |
+      #  podAntiAffinity:
+      #    preferredDuringSchedulingIgnoredDuringExecution:
+      #      - weight: 1
+      #        podAffinityTerm:
+      #          labelSelector:
+      #            matchLabels:
+      #              {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
+      #          topologyKey: kubernetes.io/hostname
       enabled: true
       image:
         registry: ghcr.io
@@ -139,30 +139,30 @@ spec:
 
     write:
       replicas: 3
-      affinity: |
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    {{- include "loki.writeSelectorLabels" . | nindent 12 }}
-                topologyKey: kubernetes.io/hostname
+      #affinity: |
+      #  podAntiAffinity:
+      #    preferredDuringSchedulingIgnoredDuringExecution:
+      #      - weight: 1
+      #        podAffinityTerm:
+      #          labelSelector:
+      #            matchLabels:
+      #              {{- include "loki.writeSelectorLabels" . | nindent 12 }}
+      #          topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
         storageClass: ceph-block
 
     read:
       replicas: 3
-      affinity: |
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    {{- include "loki.readSelectorLabels" . | nindent 12 }}
-                topologyKey: kubernetes.io/hostname
+      #affinity: |
+      #  podAntiAffinity:
+      #    preferredDuringSchedulingIgnoredDuringExecution:
+      #      - weight: 1
+      #        podAffinityTerm:
+      #          labelSelector:
+      #            matchLabels:
+      #              {{- include "loki.readSelectorLabels" . | nindent 12 }}
+      #          topologyKey: kubernetes.io/hostname
       extraVolumeMounts:
         - name: rules
           mountPath: /rules
@@ -175,15 +175,15 @@ spec:
 
     backend:
       replicas: 3
-      affinity: |
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    {{- include "loki.backendSelectorLabels" . | nindent 12 }}
-                topologyKey: kubernetes.io/hostname
+      #affinity: |
+      #  podAntiAffinity:
+      #    preferredDuringSchedulingIgnoredDuringExecution:
+      #      - weight: 1
+      #        podAffinityTerm:
+      #          labelSelector:
+      #            matchLabels:
+      #              {{- include "loki.backendSelectorLabels" . | nindent 12 }}
+      #          topologyKey: kubernetes.io/hostname
       extraVolumeMounts:
         - name: rules
           mountPath: /rules
@@ -213,22 +213,14 @@ spec:
 
   valuesFrom:
     - targetPath: loki.structuredConfig.common.storage.s3.bucketnames
-      #kind: ConfigMap
       kind: Secret
-      #name: loki-bucket-v1
       name: loki-secret
       valuesKey: BUCKET_NAME
-    #- targetPath: loki.structuredConfig.common.storage.s3.endpoint
-    #  kind: ConfigMap
-    #  name: loki-bucket-v1
-    #  valuesKey: BUCKET_HOST
     - targetPath: loki.structuredConfig.common.storage.s3.access_key_id
       kind: Secret
-      #name: loki-bucket-v1
       name: loki-secret
       valuesKey: AWS_ACCESS_KEY_ID
     - targetPath: loki.structuredConfig.common.storage.s3.secret_access_key
       kind: Secret
-      #name: loki-bucket-v1
       name: loki-secret
       valuesKey: AWS_SECRET_ACCESS_KEY
