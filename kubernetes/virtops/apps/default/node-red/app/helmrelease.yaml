@@ -14,18 +14,21 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
+  maxHistory: 3
   install:
     createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     image:
       repository: docker.io/nodered/node-red
       tag: 3.0.2
-
     envFrom:
       - secretRef:
           name: node-red-secrets
@@ -43,16 +46,15 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        ingressClassName: "nginx"
         annotations:
           #hajimari.io/appName: "Node-RED"
-          #hajimari.io/instance: "org"
           #hajimari.io/enable: "true"
           #hajimari.io/icon: "graph-outline"
           external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-          - host: &host "node-red.${ORG_DOMAIN}"
+          - host: &host node-red.${ORG_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -67,9 +69,9 @@ spec:
         mountPath: /data
 
     podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
 
     resources:
