@@ -1,24 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "packageRules": [
+  packageRules: [
     {
-      "description": "Auto merge container digests",
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["digest"],
-      "matchPackagePattern": ["ghcr.io/onedr0p"]
+      description: "Auto merge container digests",
+      matchDatasources: ["docker"],
+      automerge: true,
+      automergeType: "branch",
+      matchUpdateTypes: ["digest"],
+      matchPackagePattern: ["ghcr.io/onedr0p"],
+      ignoreTests: true,
     },
-    {
-      "description": "Auto merge GitHub Actions",
-      "matchManagers": ["github-actions"],
-      "matchDatasources": ["github-tags"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"]
-    }
     {
       description: "Auto merge containers",
       matchDatasources: ["docker"],
@@ -28,5 +19,5 @@
       matchPackageNames: ["ghcr.io/onedr0p/prowlarr-nightly"],
       ignoreTests: true,
     },
-  ]
+  ],
 }
