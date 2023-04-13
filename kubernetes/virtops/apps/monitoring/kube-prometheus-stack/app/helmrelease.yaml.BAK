@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 45.9.1
+      version: 45.8.1
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
@@ -22,101 +22,11 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    cleanPrometheusOperatorObjectNames: true
     ###
     ### Component values
     ###
     alertmanager:
-      #enabled: false
-      config:
-        global:
-          resolve_timeout: 5m
-        receivers:
-          - name: heartbeat
-            webhook_configs:
-              - url: "https://heartbeat.uptimerobot.com/${SECRET_ALERTMANAGER_UPTIMEROBOT_HEARTBEAT_TOKEN}"
-                send_resolved: true
-          - name: "null" # quote
-          - name: pushover
-            pushover_configs:
-              - url_title: View in Alertmanager
-                token: "${SECRET_ALERTMANAGER_PUSHOVER_TOKEN}"
-                user_key: "${SECRET_ALERTMANAGER_PUSHOVER_USER_KEY}"
-                send_resolved: true
-                html: true
-                sound: gamelan
-                priority: |-
-                  {{ if eq .Status "firing" }}1{{ else }}0{{ end }}
-                title: |-
-                   {{ .CommonLabels.alertname }} [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}]
-                message: |-
-                  {{- range .Alerts }}
-                    {{- if ne .Annotations.description "" }}
-                      {{ .Annotations.description }}
-                    {{- else if ne .Annotations.summary "" }}
-                      {{ .Annotations.summary }}
-                    {{- else if ne .Annotations.message "" }}
-                      {{ .Annotations.message }}
-                    {{- else }}
-                      Alert description not available
-                    {{- end }}
-                    {{- if gt (len .Labels.SortedPairs) 0 }}
-                      <small>
-                      {{- range .Labels.SortedPairs }}
-                        <b>{{ .Name }}:</b> {{ .Value }}
-                      {{- end }}
-                      </small>
-                    {{- end }}
-                  {{- end }}
-        route:
-          group_by: ["alertname", "job"]
-          group_wait: 1m
-          group_interval: 10m
-          repeat_interval: 12h
-          receiver: pushover
-          routes:
-            - receiver: heartbeat
-              group_wait: 0s
-              group_interval: 2m
-              repeat_interval: 2m
-              matchers:
-                - alertname =~ "Watchdog"
-            - receiver: "null" # quote
-              matchers:
-                - alertname =~ "InfoInhibitor"
-            - receiver: pushover
-              matchers:
-                - severity = "critical"
-              continue: true
-        inhibit_rules:
-          - source_matchers:
-              - severity = "critical"
-            target_matchers:
-              - severity = "warning"
-            equal: ["alertname", "namespace"]
-      ingress:
-        enabled: true
-        pathType: Prefix
-        ingressClassName: nginx
-        annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: |
-            10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
-          hajimari.io/appName: "Alert Manager"
-          hajimari.io/icon: mdi:alert-decagram-outline
-        hosts:
-          - &host alert-manager.${ORG_DOMAIN}
-        tls:
-          - hosts:
-              - *host
-      alertmanagerSpec:
-        replicas: 3
-        storage:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: ceph-block
-              resources:
-                requests:
-                  storage: 1Gi
+      enabled: false
 
     kubeApiServer:
       enabled: true
@@ -134,15 +44,7 @@ spec:
             action: drop
 
     kubeControllerManager:
-      #enabled: false
-      enabled: true
-      endpoints: ["10.28.28.71", "10.28.28.72", "10.28.28.73"]
-      serviceMonitor:
-        metricRelabelings:
-          # Remove duplicate metrics
-          - sourceLabels: ["__name__"]
-            regex: "(apiserver_audit|apiserver_client|apiserver_delegated|apiserver_envelope|apiserver_storage|apiserver_webhooks|attachdetach_controller|authenticated_user|authentication|cronjob_controller|disabled_metric|endpoint_slice|ephemeral_volume|garbagecollector_controller|get_token|go|hidden_metric|job_controller|kubernetes_build|kubernetes_feature|leader_election|node_collector|node_ipam|process_cpu|process_max|process_open|process_resident|process_start|process_virtual|pv_collector|registered_metric|replicaset_controller|rest_client|retroactive_storageclass|root_ca|running_managed|scrape_duration|scrape_samples|scrape_series|service_controller|storage_count|storage_operation|ttl_after|volume_operation|workqueue)_(.+)"
-            action: keep
+      enabled: false
 
     kubeEtcd:
       enabled: false
@@ -235,11 +137,11 @@ spec:
               - *host_prometheus
 
       prometheusSpec:
-        #alertingEndpoints:
-        #  - namespace: monitoring
-        #    name: alertmanager
-        #    port: 9093
-        #    apiVersion: v2
+        alertingEndpoints:
+          - namespace: monitoring
+            name: alertmanager
+            port: 9093
+            apiVersion: v2
         additionalScrapeConfigs:
           - job_name: coredns
             scrape_interval: 1m
@@ -286,7 +188,6 @@ spec:
                   - gateway.${NET_DOMAIN}:9798
 
         enableAdminAPI: true
-        walCompression: true
         externalLabels:
           cluster: virtops
         podMonitorSelectorNilUsesHelmValues: false
@@ -317,7 +218,8 @@ spec:
             name: thanos-objstore-secret
             key: objstore.yml
           # renovate: datasource=docker depName=quay.io/thanos/thanos
-          version: "v0.31.0" 
+          version: "v0.31.0"
+        walCompression: true
 
       thanosService:
         enabled: true
