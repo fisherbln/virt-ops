@@ -6,7 +6,6 @@
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
-    ":enablePreCommit",
     ":automergeDigest",
     ":automergeBranch",
     "github>fisherbln/virt-ops//.github/renovate/allowedVersions.json5",
@@ -17,16 +16,12 @@
     "github>fisherbln/virt-ops//.github/renovate/semanticCommits.json5",
     "helpers:pinGitHubActionDigests"
   ],
-  "dependencyDashboard": true,
+  "platform": "github",
+  "onboarding": false,
+  "requireConfig": "optional",
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prIgnoreNotification"],
   "ignorePaths": ["archive/**"],
-  "rebaseWhen": "conflicted",
-  "timezone": "America/Chicago"
-  "schedule": ["before 8am every weekday"],
-  "pre-commit": {
-    "enabled": true
-  },
   "flux": {
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
@@ -34,23 +29,18 @@
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
   "kubernetes": {
-    "fileMatch": [
-      "ansible/.+\\.ya?ml.j2$",
-      "kubernetes/.+\\.ya?ml$"
-    ]
+    "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
   "regexManagers": [
     {
-      "description": "Process various other dependencies",
+      "description": "Process Tekton dependencies",
       "fileMatch": [
-        "ansible/.+\\.ya?ml$",
         "kubernetes/.+\\.ya?ml$"
       ],
       "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n"
+        "depName=(?<depName>\\S+)?\n.*?(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
       ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "datasourceTemplate": "github-releases"
     },
     {
       "description": "Process custom dependencies",
