@@ -35,7 +35,7 @@ spec:
     spec:
       replicas: 3
       volumeClaimTemplates:
-        storageClassName: ceph-block
+        storageClassName: ceph-filesystem
         resources:
           requests:
             storage: 1Gi
