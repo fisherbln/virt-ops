@@ -13,6 +13,8 @@
   "username": "HomeOpsBot[bot]",
   "gitAuthor": "HomeOpsBot <128801459+homeopsbot[bot]@users.noreply.github.com>",
   "repositories": ["fisherbln/virt-ops"],
+  "suppressNotifications": ["prIgnoreNotification"],
+  "ignorePaths": ["archive/**"],
   "flux": {
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
   },
