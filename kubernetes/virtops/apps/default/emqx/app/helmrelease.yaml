@@ -8,13 +8,8 @@ spec:
   interval: 60m
   chart:
     spec:
-<<<<<<< HEAD
-      chart: emqx
-      version: 5.0.22
-=======
       chart: *app
       version: 2.1.1
->>>>>>> fb8079b (try enabling emqx operator)
       sourceRef:
         kind: HelmRepository
         name: emqx
