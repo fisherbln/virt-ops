@@ -27,15 +27,14 @@ spec:
     ### Component values
     ###
     alertmanager:
-      #enabled: false
       config:
         global:
           resolve_timeout: 5m
         receivers:
-          - name: heartbeat
-            webhook_configs:
-              - url: "https://heartbeat.uptimerobot.com/${SECRET_ALERTMANAGER_UPTIMEROBOT_HEARTBEAT_TOKEN}"
-                send_resolved: true
+          #- name: heartbeat
+          #  webhook_configs:
+          #    - url: "https://heartbeat.uptimerobot.com/${SECRET_ALERTMANAGER_UPTIMEROBOT_HEARTBEAT_TOKEN}"
+          #      send_resolved: true
           - name: "null" # quote
           - name: pushover
             pushover_configs:
@@ -235,11 +234,6 @@ spec:
               - *host_prometheus
 
       prometheusSpec:
-        #alertingEndpoints:
-        #  - namespace: monitoring
-        #    name: alertmanager
-        #    port: 9093
-        #    apiVersion: v2
         additionalScrapeConfigs:
           - job_name: coredns
             scrape_interval: 1m
