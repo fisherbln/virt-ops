@@ -5,7 +5,7 @@ metadata:
   name: emqx
   namespace: default
 spec:
-  image: emqx/emqx:5.0.21
+  image: emqx/emqx:5.0.22@sha256:02f76e39341ae0d16c7df265078ec316cb7411df74ef75c7c33a89ce41fa5c71
   # values: https://github.com/emqx/emqx-operator/blob/main/config/samples/emqx/v2alpha1/emqx-full.yaml
   bootstrapConfig: |
     authorization {
