@@ -33,7 +33,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-emqx-operator
-  path: ./kubernetes/virtops/apps/default/emqx/app
+  path: ./kubernetes/virtops/apps/default/emqx/cluster
   prune: true
   sourceRef:
     kind: GitRepository
