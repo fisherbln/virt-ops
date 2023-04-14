@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emqx-lb
+  namespace: default
+  #annotations:
+  #  coredns.io/hostname: emqx.{ORG_DOMAIN}
+  #labels:
+  #  apps.emqx.io/db-role: core
+  #  apps.emqx.io/instance: emqx
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: ${SVC_EMQX_ADDR_V4}
+  ports:
+    - protocol: TCP
+      port: 1883
+  selector:
+    apps.emqx.io/db-role: core
+    apps.emqx.io/instance: emqx
+
+#spec:
+#  type: LoadBalancer
+#  externalTrafficPolicy: Local
+#  loadBalancerIP: 10.45.0.24
+#  ports:
+#    - name: postgres
+#      port: 5432
+#      protocol: TCP
+#      targetPort: 5432
+#  selector:
+#    postgresql: postgres
+#    role: primary
