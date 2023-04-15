@@ -57,13 +57,13 @@ spec:
         ssl-protocols: "TLSv1.3 TLSv1.2"
         use-forwarded-headers: "true"
 
-      #metrics:
-      #  enabled: true
-      #  serviceMonitor:
-      #    enabled: true
-      #    namespace: networking
-      #    namespaceSelector:
-      #      any: true
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: networking
+          namespaceSelector:
+            any: true
 
       extraArgs:
         default-ssl-certificate: "networking/${ORG_DOMAIN}-tls"
