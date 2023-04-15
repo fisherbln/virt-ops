@@ -1,5 +1,4 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/externalsecret_v1beta1.json
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -8,8 +7,7 @@ metadata:
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
-    name: doppler-global
-    #name: vault-global
+    name: onepassword-connect
   target:
     name: esphome-restic-secret
     creationPolicy: Owner
@@ -22,25 +20,20 @@ spec:
         AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
   dataFrom:
     - extract:
-        key: VOLSYNC_RESTIC_TEMPLATE
-        #key: volsync-restic-template
+        key: volsync-restic-template
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/replicationsource_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: esphome
   namespace: default
 spec:
-  sourcePVC: esphome-config
+  sourcePVC: config-esphome-0
   trigger:
-    schedule: "0 0 * * *"
+    schedule: "0 */12 * * *"
   restic:
     copyMethod: Snapshot
-    pruneIntervalDays: 10
+    pruneIntervalDays: 14
     repository: esphome-restic-secret
-    volumeSnapshotClassName: csi-ceph-blockpool
-    storageClassName: ceph-block
     retain:
-      daily: 10
-      within: 3d
+      daily: 14
