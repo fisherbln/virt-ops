@@ -63,7 +63,7 @@ spec:
           secretName: esphome-secrets
         subPath:
           - path: secrets.yaml
-          mountPath: /config/secrets.yaml
+            mountPath: /config/secrets.yaml
       esphome-cache:
         enabled: true
         type: emptyDir
