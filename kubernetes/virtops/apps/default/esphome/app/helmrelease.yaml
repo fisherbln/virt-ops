@@ -55,15 +55,6 @@ spec:
         name: esphome-secrets
         mountPath: /config/secrets.yaml
         subPath: secrets.yaml
-        #enabled: true
-        #type: custom
-        #readOnly: true
-        #volumeSpec:
-        #  secret:
-        #  secretName: esphome-secrets
-        #subPath:
-        #  - path: secrets.yaml
-        #    mountPath: /config/secrets.yaml
       esphome-cache:
         enabled: true
         type: emptyDir
