@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: media
 resources:
   - ./helmrelease.yaml
-  #- ./volsync.yaml
+  - ./volsync.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: overseerr
