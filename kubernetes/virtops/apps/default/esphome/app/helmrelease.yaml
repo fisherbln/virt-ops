@@ -50,32 +50,33 @@ spec:
 
     persistence:
       secrets:
-        #enabled: true
-        #type: secret
-        #name: esphome-secrets
-        #mountPath: /config/secrets.yaml
-        #subPath: secrets.yaml
         enabled: true
-        type: custom
-        readOnly: true
-        volumeSpec:
-          secret:
-          secretName: esphome-secrets
-        subPath:
-          - path: secrets.yaml
-            mountPath: /config/secrets.yaml
+        type: secret
+        name: esphome-secrets
+        mountPath: /config/secrets.yaml
+        subPath: secrets.yaml
+        #enabled: true
+        #type: custom
+        #readOnly: true
+        #volumeSpec:
+        #  secret:
+        #  secretName: esphome-secrets
+        #subPath:
+        #  - path: secrets.yaml
+        #    mountPath: /config/secrets.yaml
       esphome-cache:
         enabled: true
         type: emptyDir
         mountPath: /config/.esphome
-      #deploy-key:
-      #  enabled: true
-      #  type: secret
-      #  name: esphome-deploykey
-      #  defaultMode: 256
-      #  subPath:
-      #    - path: id_ed25519
-      #      mountPath: /root/.ssh/id_ed25519
+      deploy-key:
+        enabled: true
+        type: secret
+        name: esphome-deploykey
+       defaultMode: 256
+        subPath:
+          #- path: id_ed25519
+          - path: deploy_key
+            mountPath: /root/.ssh/id_ed25519
 
     resources:
       requests:
