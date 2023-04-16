@@ -74,8 +74,8 @@ spec:
         name: esphome-deploykey
         defaultMode: 256
         subPath:
-          #- path: id_ed25519
-          - path: deploy_key
+          - path: id_ed25519
+          #- path: deploy_key
             mountPath: /root/.ssh/id_ed25519
 
     resources:
