@@ -86,6 +86,12 @@ spec:
         server: expanse.${NET_DOMAIN}
         path: /eros/Media
         mountPath: /media
+      downloads:
+        enabled: true
+        type: nfs
+        server: "expanse.${NET_DOMAIN}"
+        path: /eros/Downloads
+        mountPath: /downloads
     resources:
       requests:
         cpu: 10m
