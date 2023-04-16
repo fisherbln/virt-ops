@@ -72,7 +72,7 @@ spec:
         enabled: true
         type: secret
         name: esphome-deploykey
-       defaultMode: 256
+        defaultMode: 256
         subPath:
           #- path: id_ed25519
           - path: deploy_key
