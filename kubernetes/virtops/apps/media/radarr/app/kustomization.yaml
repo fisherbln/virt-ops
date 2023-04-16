@@ -6,11 +6,11 @@ namespace: media
 resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
-#  - ./volsync.yaml
-#configMapGenerator:
-#  - name: radarr-configmap
-#    files:
-#      - ./scripts/pushover-notify.sh
+  - ./volsync.yaml
+configMapGenerator:
+  - name: radarr-configmap
+    files:
+      - ./scripts/pushover-notify.sh
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
