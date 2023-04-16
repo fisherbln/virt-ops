@@ -4,11 +4,11 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: overseerr-restic
-  namespace: default
+  namespace: media
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
-    name: onepassword-connect
+    name: doppler-virtops
   target:
     name: overseerr-restic-secret
     creationPolicy: Owner
@@ -28,7 +28,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: overseerr
-  namespace: default
+  namespace: media
 spec:
   sourcePVC: config-overseerr-0
   trigger:

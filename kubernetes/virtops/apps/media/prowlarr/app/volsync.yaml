@@ -4,11 +4,11 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: prowlarr-restic
-  namespace: default
+  namespace: media
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
-    name: onepassword-connect
+    name: doppler-virtops
   target:
     name: prowlarr-restic-secret
     creationPolicy: Owner
@@ -21,14 +21,14 @@ spec:
         AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
   dataFrom:
     - extract:
-        key: volsync-restic-template
+        key: VOLSYNC_RESTIC_TEMPLATE
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/replicationsource_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: prowlarr
-  namespace: default
+  namespace: media
 spec:
   sourcePVC: config-prowlarr-0
   trigger:
