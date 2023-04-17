@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     #- name: cluster-apps-external-secrets
-  path: ./kubernetes/apps/virtops/flux-system/tf-controller/app
+  path: ./kubernetes/virtops/apps/flux-system/tf-controller/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -34,7 +34,7 @@ spec:
     - name: cluster-apps-external-secrets-stores
     #- name: cluster-apps-external-secrets
     - name: cluster-apps-tf-controller
-  path: ./kubernetes/apps/virtops/flux-system/tf-controller/terraforms
+  path: ./kubernetes/virtops/apps/flux-system/tf-controller/terraforms
   prune: true
   sourceRef:
     kind: GitRepository
