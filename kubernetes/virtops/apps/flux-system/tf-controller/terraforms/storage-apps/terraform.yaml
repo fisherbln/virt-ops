@@ -36,13 +36,13 @@ spec:
   runnerPodTemplate:
     spec:
       env:
-        - name: OP_CONNECT_HOST
-          value: http://onepassword-connect.kube-system.svc.cluster.local:8080
-        - name: OP_CONNECT_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: tf-controller-op-secret
-              key: OP_CONNECT_TOKEN
+        #- name: OP_CONNECT_HOST
+        #  value: http://onepassword-connect.kube-system.svc.cluster.local:8080
+        #- name: OP_CONNECT_TOKEN
+        #  valueFrom:
+        #    secretKeyRef:
+        #      name: tf-controller-op-secret
+        #      key: OP_CONNECT_TOKEN
       volumeMounts:
         - name: sops
           mountPath: /home/runner/.config/sops/age/keys.txt

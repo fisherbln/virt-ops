@@ -4,6 +4,10 @@ creation_rules:
     # Personal, Flux
     age: age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w, age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6
   - path_regex: .*\.sops\.ya?ml
-    # Personal
-    age: 'age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w,  age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6      '
+    # Personal, Flux
+    age: 'age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w,  age18wyx5alsla6rtntfh03pfu80psex368jdwukmtpnkjqxprl3fekqesr9j6'
+  - path_regex: kubernetes/.*\.sops\.ya?ml
+    encrypted_regex: ^(data|stringData)$
+    # Personal, Terraform
+    age: age12z8sxnrr3qpge7shgx7cpz8d9l83tc0mvvhu9l9jgdrssp8g5acq6uaf7w, age1rhc7lprjfcfl2uyjxcc0nny7h0ha0l7uykvah0vmcf2s7hecp94qupxyym
 
