@@ -35,7 +35,7 @@ spec:
     name: tf-controller-tfrc-secret
   runnerPodTemplate:
     spec:
-      env:
+      #env:
         #- name: OP_CONNECT_HOST
         #  value: http://onepassword-connect.kube-system.svc.cluster.local:8080
         #- name: OP_CONNECT_TOKEN
