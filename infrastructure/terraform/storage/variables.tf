@@ -3,7 +3,7 @@ variable "nexus_password" {
   type    = string
 }
 variable "vector_agent_host" {
-  default = "10.28.99.111"
+  default = "10.45.0.2"
   type    = string
 }
 variable "vector_agent_port" {
