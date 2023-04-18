@@ -7,6 +7,6 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./addons/ks.yaml
-  #- ./terraform-registry/ks.yaml
-  #- ./tf-controller/ks.yaml
+  - ./terraform-registry/ks.yaml
+  - ./tf-controller/ks.yaml
   - ./weave-gitops/ks.yaml
