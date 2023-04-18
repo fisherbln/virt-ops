@@ -7,4 +7,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./descheduler/ks.yaml
+  - ./reloader/ks.yaml
   - ./volsync/ks.yaml
