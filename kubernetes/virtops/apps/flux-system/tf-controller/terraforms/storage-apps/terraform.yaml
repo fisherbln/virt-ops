@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: oci://ghcr.io/fisherbln/provision-storage-oci
+  url: oci://ghcr.io/fisherbln/provision-terraform-oci
   ref:
     tag: main
   # Note: This is not ready for primetime
