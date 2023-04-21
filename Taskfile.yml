@@ -4,6 +4,8 @@ version: "3"
 vars:
   CLUSTER_DIR: "{{.ROOT_DIR}}/kubernetes/virtops"
   PROVISION_DIR: "{{.ROOT_DIR}}/infrastructure"
+  TALOS_CONTROL_NODES: "10.28.28.71, 10.28.28.72, 10.28.28.73"
+  TALOS_WORKER_NODES: "10.28.28.61, 10.28.28.62, 10.28.28.63"
 
 env:
   KUBECONFIG: ./infrastructure/talos/virtops/kubeconfig
@@ -14,6 +16,7 @@ includes:
   fx: .taskfiles/Flux/Tasks.yml
   ku: .taskfiles/Kubernetes/Tasks.yml
   vs: .taskfiles/VolSync/Tasks.yml
+  ta: .taskfiles/Talos/Tasks.yml
 
 tasks:
 

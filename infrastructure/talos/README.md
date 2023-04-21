@@ -41,3 +41,8 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 ```
 
 re-run talosctl apply-config as above, except remove the --insecure flag
+
+
+# Apply Talos Confiig individually when needed
+
+talosctl -n delta apply-config -f cluster-0-delta.yaml --mode reboot
