@@ -14,22 +14,22 @@ spec:
   externalTrafficPolicy: Local
   loadBalancerIP: ${SVC_EMQX_ADDR_V4}
   ports:
-    #- protocol: TCP
-    #  port: 1883
+    - protocol: TCP
+      port: 1883
     #- protocol: TCP
     #  port: 8083
     #- protocol: TCP
     #  port: 18083
-    mqtt:
-      enabled: true
-      port: 1883
-      protocol: TCP
-    host-sni:
-      enabled: true
-      port: 8083
-    secure:
-      enabled: true
-      port: 18083
+    #mqtt:
+    #  enabled: true
+    #  port: 1883
+    #  protocol: TCP
+    #host-sni:
+    #  enabled: true
+    #  port: 8083
+    #secure:
+    #  enabled: true
+    #  port: 18083
   selector:
     apps.emqx.io/db-role: core
     apps.emqx.io/instance: emqx
