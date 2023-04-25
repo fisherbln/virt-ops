@@ -10,11 +10,11 @@ x-task-vars: &task-vars
   kustomization: '{{.kustomization}}'
 
 vars:
-  destinationTemplate: "{{.PROJECT_DIR}}/.taskfiles/volsync/ReplicationDestination.tmpl.yaml"
-  wipeJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/volsync/WipeJob.tmpl.yaml"
-  waitForJobScript: "{{.PROJECT_DIR}}/.taskfiles/volsync/wait-for-job.sh"
-  listJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/volsync/ListJob.tmpl.yaml"
-  unlockJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/volsync/UnlockJob.tmpl.yaml"
+  destinationTemplate: "{{.PROJECT_DIR}}/.taskfiles/Volsync/ReplicationDestination.tmpl.yaml"
+  wipeJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/Volsync/WipeJob.tmpl.yaml"
+  waitForJobScript: "{{.PROJECT_DIR}}/.taskfiles/Volsync/wait-for-job.sh"
+  listJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/Volsync/ListJob.tmpl.yaml"
+  unlockJobTemplate: "{{.PROJECT_DIR}}/.taskfiles/Volsync/UnlockJob.tmpl.yaml"
   ts: '{{now | date "150405"}}'
 
 tasks:
@@ -75,7 +75,8 @@ tasks:
 
   # To run restore jobs in parallel for all replicationdestinations:
   #   - kubectl get replicationsources --all-namespaces --no-headers | awk '{print $2, $1}' | xargs --max-procs=2 -l bash -c 'task volsync:restore rsrc=$0 namespace=$1'
-  #
+  # 
+  # Be sure to edit the "As Of" section in the ReplicationDestination.tmpl.yaml file
   restore:
     desc: Trigger a Restic ReplicationSource restore (ex. task volsync:restore rsrc=plex [namespace=default])
     cmds:
