@@ -25,6 +25,10 @@ spec:
       default_username: "admin"
       default_password: "public"
     }
+    listeners.tcp.default {
+      bind = "0.0.0.0:1883"
+      max_connections = 1024000
+    }
 
   coreTemplate:
     metadata:
