@@ -18,6 +18,13 @@ spec:
 
       no_match: "deny"
     }
+    cluster {
+      discovery_strategy = dns
+      dns {
+        record_type = srv
+        name:"emqx-headless.default.svc.cluster.local"
+      }
+    }
     dashboard {
       listeners.http {
           bind: 18083
@@ -29,7 +36,7 @@ spec:
       bind = "0.0.0.0:1883"
       max_connections = 1024000
     }
-
+    sysmon.vm.long_schedule = disabled
   coreTemplate:
     metadata:
       name: emqx-core
