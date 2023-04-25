@@ -12,7 +12,7 @@ spec:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-kube-prometheus-stack
-  path: ./kubernetes/virtops/apps/default/influxdb
+  path: ./kubernetes/virtops/apps/default/influxdb/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -25,3 +25,4 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 3m
+  
