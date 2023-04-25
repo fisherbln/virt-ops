@@ -68,25 +68,6 @@ spec:
           - path: id_ed25519
           #- path: deploy_key
             mountPath: /root/.ssh/id_ed25519
-      additionalContainers:
-        gitconfig:
-          name: gitconfig
-          image: registry.k8s.io/git-sync/git-sync:v3.6.5@sha256:7231f6c2284758b91caed71e4e596413df31ac4467de9b596dc6b386b82f624f
-          args:
-            - --repo=https://github.com/fisherbln/esphome-config
-            - --branch=main
-            - --depth=1
-            #- --root=/config/JBOPS
-          volumeMounts:
-            - name: gitconfig
-              mountPath: /gitconfig
-          #resources:
-          #    requests:
-          #    cpu: 78m
-          #    memory: 50M
-          #  limits:
-          #    cpu: 78m
-          #    memory: 50M
 
     resources:
       requests:
