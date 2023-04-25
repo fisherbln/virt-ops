@@ -16,19 +16,10 @@ spec:
   ports:
     - protocol: TCP
       port: 1883
+    - protocol: TCP
+      port: 8083
+    - protocol: TCP
+      port: 18083
   selector:
     apps.emqx.io/db-role: core
     apps.emqx.io/instance: emqx
-
-#spec:
-#  type: LoadBalancer
-#  externalTrafficPolicy: Local
-#  loadBalancerIP: 10.45.0.24
-#  ports:
-#    - name: postgres
-#      port: 5432
-#      protocol: TCP
-#      targetPort: 5432
-#  selector:
-#    postgresql: postgres
-#    role: primary
