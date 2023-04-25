@@ -51,13 +51,12 @@ spec:
           #hajimari.io/appName: "Node-RED"
           #hajimari.io/enable: "true"
           #hajimari.io/icon: "graph-outline"
-          external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
+          #external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-          - host: &host node-red.${ORG_DOMAIN}
+          - host: &host "nodered.${ORG_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
         tls:
           - hosts:
               - *host
