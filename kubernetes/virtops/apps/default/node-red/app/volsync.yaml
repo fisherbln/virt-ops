@@ -9,7 +9,7 @@ spec:
   secretStoreRef:
     kind: ClusterSecretStore
     name: doppler-virtops
-]  target:
+  target:
     name: node-red-restic-secret
     creationPolicy: Owner
     template:
