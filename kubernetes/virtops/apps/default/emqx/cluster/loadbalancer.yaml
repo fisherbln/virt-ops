@@ -16,10 +16,10 @@ spec:
   ports:
     - protocol: TCP
       port: 1883
-    - protocol: TCP
-      port: 8083
-    - protocol: TCP
-      port: 18083
+    #- protocol: TCP
+    #  port: 8083
+    #- protocol: TCP
+    #  port: 18083
   selector:
     apps.emqx.io/db-role: core
     apps.emqx.io/instance: emqx
