@@ -23,14 +23,7 @@ spec:
         namespace: flux-system
   values:
     pspEnable: false
-    #csi:
-    #  pluginTolerations:
-    #    - key: "nuc"
-    #      operator: "Equal"
-    #      value: "true"
-    #      effect: "NoSchedule"
     crds:
-      #enabled: false
       enabled: true
     cephBlockPoolsVolumeSnapshotClass:
       enabled: true
