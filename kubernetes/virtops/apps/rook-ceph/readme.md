@@ -1,3 +1,6 @@
+Another repo using external ceph cluster: https://github.com/JJGadgets/Biohazard/tree/main/kube/3-deploy/1-core/02-storage/rook-ceph
+
+Current instructions:
 Pre-reqs:
 
 * Enable ceph in PVE
