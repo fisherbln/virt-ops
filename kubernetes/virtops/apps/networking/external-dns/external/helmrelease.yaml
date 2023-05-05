@@ -28,8 +28,8 @@ spec:
   values:
     fullnameOverride: &name externaldns-external
     
-    domainFilters:
-      - ${ORG_DOMAIN}
+    #domainFilters:
+    #  - ${ORG_DOMAIN}
 
     env:
       - name: CF_API_TOKEN
