@@ -28,6 +28,9 @@ spec:
   values:
     fullnameOverride: &name externaldns-external
     
+    domainFilters:
+      - ${ORG_DOMAIN}
+
     env:
       - name: CF_API_TOKEN
         valueFrom:
@@ -43,19 +46,21 @@ spec:
 
     policy: sync
     provider: cloudflare
+    
     sources:
       - ingress
       - crd
 
     txtPrefix: "k8s."
 
-    txtOwnerId: default
-    domainFilters:
-      - ${ORG_DOMAIN}
+    #txtOwnerId: default
+    
     serviceMonitor:
       enabled: true
+    
     podAnnotations:
       secret.reloader.stakater.com/reload: externaldns-external-secrets
+    
     postRenderers:
     - kustomize:
         patches:
