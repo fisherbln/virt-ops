@@ -39,8 +39,8 @@ spec:
             key: api-token
 
     extraArgs:
-      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
-      - --crd-source-kind=DNSEndpoint
+      #- --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      #- --crd-source-kind=DNSEndpoint
       - --cloudflare-proxied
       - --annotation-filter=external-dns.alpha.kubernetes.io/target
 
@@ -49,11 +49,11 @@ spec:
     
     sources:
       - ingress
-      - crd
+      #- crd
 
     txtPrefix: "k8s."
 
-    #txtOwnerId: default
+    txtOwnerId: default
     
     serviceMonitor:
       enabled: true
@@ -61,15 +61,15 @@ spec:
     podAnnotations:
       secret.reloader.stakater.com/reload: externaldns-external-secrets
     
-    postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              version: v1
-              kind: Deployment
-              name: *name
-            patch: |
-              - op: add
-                path: /spec/template/spec/enableServiceLinks
-                value: false
+    #postRenderers:
+    #- kustomize:
+    #    patches:
+    #      - target:
+    #          version: v1
+    #          kind: Deployment
+    #          name: *name
+    #        patch: |
+    #          - op: add
+    #            path: /spec/template/spec/enableServiceLinks
+    #            value: false
    
