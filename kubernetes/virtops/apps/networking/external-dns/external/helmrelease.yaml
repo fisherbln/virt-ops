@@ -26,7 +26,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    interval: 2m
+    fullnameOverride: *app
+    # interval: 2m
     # logLevel: debug
     provider: cloudflare
     env:
@@ -39,11 +40,15 @@ spec:
     extraArgs:
       - --cloudflare-proxied
       - --annotation-filter=external-dns.alpha.kubernetes.io/target
-
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      - --crd-source-kind=DNSEndpoint
     policy: sync
     sources:
       - ingress
+      - crd
+
     txtPrefix: "k8s."
+
     txtOwnerId: default
     domainFilters:
       - ${ORG_DOMAIN}
