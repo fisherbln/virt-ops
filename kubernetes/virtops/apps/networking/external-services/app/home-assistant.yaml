@@ -10,7 +10,6 @@ metadata:
 spec:
   type: ExternalName
   externalName: ${HAOS_DIRECT}
-  #externalName: haos.${ORG_DOMAIN}
   ports:
     - name: http
       port: &port 8123
@@ -23,7 +22,6 @@ metadata:
   name: &app home-assistant
   namespace: networking
   annotations:
-    #hajimari.io/icon: mdi:shield-check
     external-dns.alpha.kubernetes.io/target: ipv4.${ORG_DOMAIN}
   labels:
     app.kubernetes.io/name: *app
@@ -31,7 +29,6 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    #- host: &host adguard.devbu.io
     - host: &host smarthome.${ORG_DOMAIN}
       http:
         paths:
