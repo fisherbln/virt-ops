@@ -9,7 +9,8 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: ${HAOS_DIRECT_V4}
+  #externalName: ${HAOS_DIRECT_V4}
+  externalName: haos.${NET_DOMAIN}
   ports:
     - name: http
       port: &port 8123
