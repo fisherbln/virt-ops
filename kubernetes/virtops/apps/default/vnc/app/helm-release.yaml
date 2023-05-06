@@ -46,9 +46,8 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: tls.ubuntu-vnc
-            hosts:
-              - *host
+          - hosts:
+            - *host
 
     podSecurityContext:
       runAsUser: 0
