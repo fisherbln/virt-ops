@@ -46,7 +46,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.devbu.io
+          external-dns.alpha.kubernetes.io/target: ingress.${ORG_DOMAIN}
           #hajimari.io/icon: mdi:eye-circle
         hosts:
           - host: &host requests.${ORG_DOMAIN}
