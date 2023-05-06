@@ -25,6 +25,8 @@ spec:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: "${SVC_INGRESS_ADDR}"
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: ingress.${ORG_DOMAIN}
         externalTrafficPolicy: Local
 
       publishService:
