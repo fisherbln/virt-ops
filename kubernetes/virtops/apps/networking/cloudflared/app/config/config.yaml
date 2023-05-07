@@ -1,0 +1,7 @@
+---
+ingress:
+  - hostname: "*.${ORG_DOMAIN}"
+    service: https://ingress-nginx-controller.network.svc.cluster.local:443
+    originRequest:
+      originServerName: ingress.${ORG_DOMAIN}
+  - service: http_status:404
