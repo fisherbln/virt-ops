@@ -9,7 +9,7 @@ resources:
   - ./external-dns/ks.yaml
   - ./external-services/ks.yaml
   - ./ingress-nginx/ks.yaml
-  - ./k8s-gateway/ks.yaml
+  #- ./k8s-gateway/ks.yaml
   #- ./multus/ks.yaml
   # Standard Resources
   
