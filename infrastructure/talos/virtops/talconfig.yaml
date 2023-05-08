@@ -2,7 +2,7 @@
 clusterName: virtops
 
 talosVersion: v1.4.1
-kubernetesVersion: 1.26.3
+kubernetesVersion: 1.27.1
 endpoint: "https://virtops.${net_domain}:6443"
 clusterPodNets:
   - 172.22.0.0/16
