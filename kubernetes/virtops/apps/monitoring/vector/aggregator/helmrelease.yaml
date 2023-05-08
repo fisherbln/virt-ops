@@ -36,7 +36,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: 10.45.0.2
         annotations:
-          coredns.io/hostname: "vector.${NET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/hostname: "vector.${NET_DOMAIN}"
         externalTrafficPolicy: Local
         ports:
           http:
