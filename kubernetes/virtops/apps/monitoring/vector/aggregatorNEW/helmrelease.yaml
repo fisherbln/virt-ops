@@ -75,7 +75,7 @@ spec:
       config:
         enabled: true
         type: configMap
-        name: vector-aggregator-configmap # overriden by kustomizeconfig
+        name: vector-aggregator-configmap-new # overriden by kustomizeconfig
         subPath: vector.yaml
         mountPath: /etc/vector/vector.yaml
         readOnly: true
