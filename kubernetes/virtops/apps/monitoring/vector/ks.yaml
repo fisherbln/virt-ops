@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-vector-geoipupdate
+    #- name: cluster-apps-vector-geoipupdate
     - name: cluster-apps-vector-agent
   path: "./kubernetes/virtops/apps/monitoring/vector/aggregatorNEW"
   prune: true

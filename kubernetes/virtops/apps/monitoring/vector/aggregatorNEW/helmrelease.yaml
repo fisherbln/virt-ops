@@ -53,7 +53,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: ${SVC_VECTORNEW_V4}
+        loadBalancerIP: 10.45.0.2 #${SVC_VECTORNEW_V4}
         annotations:
           external-dns.alpha.kubernetes.io/hostname: vector2.${ORG_DOMAIN}
         #externalIPs: 
