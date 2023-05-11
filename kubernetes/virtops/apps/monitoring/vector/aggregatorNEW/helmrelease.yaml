@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app vector-aggregator-new
+  name: &app vector-aggregator
   namespace: monitoring
 spec:
   interval: 15m
@@ -64,13 +64,13 @@ spec:
             port: 8686
           journald:
             enabled: true
-            port: 6000
+            port: 6002
           kubernetes:
             enabled: true
-            port: 6010
+            port: 6000
           vyos:
             enabled: true
-            port: 6020
+            port: 6001
             # protocol: UDP
     persistence:
       config:
