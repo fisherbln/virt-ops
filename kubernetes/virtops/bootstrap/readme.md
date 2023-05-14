@@ -136,7 +136,7 @@ spec:
       containers:
       - name: web
         image: nginx
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         readinessProbe:

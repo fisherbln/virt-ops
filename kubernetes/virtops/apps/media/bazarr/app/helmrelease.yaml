@@ -30,7 +30,7 @@ spec:
      #initContainers:
      #  01-init-db:
      #    image: ghcr.io/onedr0p/postgres-initdb:14.7
-     #    imagePullPolicy: IfNotPresent
+     #    imagePullPolicy: Always
      #    envFrom:
      #      - secretRef:
      #          name: bazarr-secret
@@ -104,7 +104,7 @@ spec:
     sidecars:
       subcleaner:
         image: registry.k8s.io/git-sync/git-sync:v3.6.6@sha256:7e96e8cf7a9a1a5378f9141bd82a4eb9c02f3b3029c5e77b951695a4a657a967
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         args:
           - --repo=https://github.com/KBlixt/subcleaner.git
           - --branch=master
