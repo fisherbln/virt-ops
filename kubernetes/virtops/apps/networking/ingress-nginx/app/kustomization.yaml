@@ -5,7 +5,7 @@ namespace: networking
 resources:
   - ./helmrelease.yaml
   #- ./certificate.yaml
-  #- ./dashboard/
+  - ./dashboard/
 configMapGenerator:
   - name: cloudflare-proxied-networks
     files:
