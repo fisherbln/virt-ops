@@ -6,7 +6,6 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  #- ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./esphome/ks.yaml
   - ./glauth/ks.yaml
