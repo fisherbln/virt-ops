@@ -67,7 +67,7 @@ spec:
         ingressClassName: nginx
         annotations:
         hosts:
-          - host: &host ldap.${ORG_DOMAIN}
+          - host: &host lldap.${ORG_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
