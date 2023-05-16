@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: &app lldap
-  namespace: default
+  namespace: auth
 spec:
   interval: 15m
   chart:
@@ -49,6 +49,7 @@ spec:
       LLDAP_HTTP_URL: https://lldap.${ORG_DOMAIN}
       LLDAP_LDAP_PORT: &ldap-port 389
       LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
+      LLDAP_IGNORED_GROUP_ATTRIBUTES: '[ "mail", "userPrincipalName", "ou" ]'
     envFrom:
       - secretRef:
           name: lldap-secret
