@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: net-wildcard-certificate
+  namespace: networking
+spec:
+  secretName: net-wildcard-tls
+  issuerRef:
+    #name: letsencrypt-staging
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: ${NET_DOMAIN}
+  dnsNames:
+    - ${NET_DOMAIN}
+    - "*.${NET_DOMAIN}"
