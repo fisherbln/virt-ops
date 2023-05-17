@@ -56,6 +56,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+            tls:
+              - hosts:
+                  - *host
     podSecurityContext:
       runAsUser: 5050
       runAsGroup: 5050
