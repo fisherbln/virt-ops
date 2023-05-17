@@ -35,28 +35,14 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: traefik
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          hajimari.io/icon: mdi:monitor-screenshot
-          hajimari.io/instance: "org"
-          external-dns.alpha.kubernetes.io/target: ingress.${ORG_DOMAIN}
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-org-auth@kubernetescrd"
+        ingressClassName: nginx
         hosts:
           - host: &host "sql.${ORG_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: tls.adminer
             hosts:
               - *host
-    resources:
-      requests:
-        cpu: 15m
-        memory: 105Mi
-      limits:
-        memory: 105Mi
     env:
       ADMINER_DEFAULT_SERVER: mariadb
