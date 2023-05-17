@@ -6,7 +6,7 @@ metadata:
   name: cluster-apps-pgadmin
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/dbms/pgadmin/app
+  path: ./kubernetes/virtops/apps/default/pgadmin/app
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
