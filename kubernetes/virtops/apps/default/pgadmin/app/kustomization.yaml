@@ -5,6 +5,7 @@ namespace: default
 resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
+  - ./pvc.yaml
   #- ./volsync-config.yaml
 configMapGenerator:
   - name: servers-json
