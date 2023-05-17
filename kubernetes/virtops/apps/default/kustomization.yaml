@@ -18,6 +18,7 @@ resources:
   - ./paperless/ks.yaml
   #- ./pgadmin/ks.yaml
   - ./redis/ks.yaml
+  - ./scrypted/ks.yaml
   - ./smtp-relay/ks.yaml
   - ./vnc/ks.yaml
   
