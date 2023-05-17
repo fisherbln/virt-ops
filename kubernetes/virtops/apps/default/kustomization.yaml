@@ -16,7 +16,7 @@ resources:
   - ./node-red/ks.yaml
   - ./outline/ks.yaml
   - ./paperless/ks.yaml
-  #- ./pgadmin/ks.yaml
+  - ./pgadmin/ks.yaml
   - ./redis/ks.yaml
   - ./scrypted/ks.yaml
   - ./smtp-relay/ks.yaml
