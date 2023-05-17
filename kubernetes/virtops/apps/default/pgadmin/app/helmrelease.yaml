@@ -28,10 +28,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    controller:
-      type: statefulset
-      annotations:
-        reloader.stakater.com/auto: "true"
+    #controller:
+    #  type: statefulset
+    #  annotations:
+    #    reloader.stakater.com/auto: "true"
     image:
       repository: docker.io/dpage/pgadmin4
       tag: "7.1"
