@@ -64,13 +64,13 @@ spec:
             port: 8686
           journald:
             enabled: true
-            port: 6002
+            port: 6000
           kubernetes:
             enabled: true
-            port: 6000
+            port: 6010
           vyos:
             enabled: true
-            port: 6001
+            port: 6020
             # protocol: UDP
     persistence:
       config:
