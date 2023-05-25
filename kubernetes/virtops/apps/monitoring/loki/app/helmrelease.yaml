@@ -140,6 +140,8 @@ spec:
               - *host
 
     write:
+      deploymentStrategy:
+        type: Recreate
       replicas: 3
       #affinity: |
       #  podAntiAffinity:
