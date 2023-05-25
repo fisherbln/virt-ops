@@ -108,15 +108,15 @@ spec:
 
     gateway:
       replicas: 3
-      #affinity: |
-      #  podAntiAffinity:
-      #    preferredDuringSchedulingIgnoredDuringExecution:
-      #      - weight: 1
-      #        podAffinityTerm:
-      #          labelSelector:
-      #            matchLabels:
-      #              {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
-      #          topologyKey: kubernetes.io/hostname
+      affinity: |
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
+                topologyKey: kubernetes.io/hostname
       enabled: true
       deploymentStrategy:
         type: Recreate
@@ -158,15 +158,15 @@ spec:
 
     read:
       replicas: 3
-      #affinity: |
-      #  podAntiAffinity:
-      #    preferredDuringSchedulingIgnoredDuringExecution:
-      #      - weight: 1
-      #        podAffinityTerm:
-      #          labelSelector:
-      #            matchLabels:
-      #              {{- include "loki.readSelectorLabels" . | nindent 12 }}
-      #          topologyKey: kubernetes.io/hostname
+      affinity: |
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "loki.readSelectorLabels" . | nindent 12 }}
+                topologyKey: kubernetes.io/hostname
       extraVolumeMounts:
         - name: rules
           mountPath: /rules
