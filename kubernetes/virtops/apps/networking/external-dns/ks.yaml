@@ -1,5 +1,5 @@
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: cluster-apps-externaldns-shared
@@ -15,7 +15,7 @@ spec:
     name: home-ops-kubernetes
   wait: true
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: cluster-apps-externaldns-external
@@ -40,7 +40,7 @@ spec:
   retryInterval: 1m
   timeout: 3m
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: cluster-apps-externaldns-internal
