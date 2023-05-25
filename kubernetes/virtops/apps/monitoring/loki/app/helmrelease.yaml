@@ -140,18 +140,18 @@ spec:
               - *host
 
     write:
-      deploymentStrategy:
-        type: Recreate
+      #deploymentStrategy:
+      #  type: Recreate
       replicas: 3
-      #affinity: |
-      #  podAntiAffinity:
-      #    preferredDuringSchedulingIgnoredDuringExecution:
-      #      - weight: 1
-      #        podAffinityTerm:
-      #          labelSelector:
-      #            matchLabels:
-      #              {{- include "loki.writeSelectorLabels" . | nindent 12 }}
-      #          topologyKey: kubernetes.io/hostname
+      affinity: |
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "loki.writeSelectorLabels" . | nindent 12 }}
+                topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
         storageClass: ceph-block
