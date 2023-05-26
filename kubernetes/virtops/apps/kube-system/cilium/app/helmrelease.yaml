@@ -16,6 +16,10 @@ spec:
       version: 1.13.2
   interval: 30m
 
+  valuesFrom:
+    - kind: ConfigMap
+      name: cilium-values
+      
   values:
     autoDirectNodeRoutes: true
     bgp:
