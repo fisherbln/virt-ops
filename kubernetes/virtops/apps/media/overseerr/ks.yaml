@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-    #- name: cluster-apps-volsync
+    - name: cluster-apps-volsync
     - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/media/overseerr/app
   prune: true
