@@ -80,43 +80,41 @@ controlPlane:
   patches:
     - |-
       cluster:
-        allowSchedulingOnMasters: false
-        apiServer:
-        controllerManager:
-        discovery:
-          registries:
-            service:
-              disabled: true
+        allowSchedulingOnMasters: true
         proxy:
           disabled: true
-        scheduler:
+        extraManifests:
+          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/cni/cilium.yaml
+          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/kubelet-csr-approver/kubelet-csr-approver.yaml
 
+    - |-
+      - op: remove
+        path: /cluster/apiServer/admissionControl
+
+    - |-
       machine:
         files:
-          - content: |
+          - op: create
+            path: /etc/cri/conf.d/20-customization.part
+            content: |
               [plugins]
                 [plugins."io.containerd.grpc.v1.cri"]
                   enable_unprivileged_ports = true
                   enable_unprivileged_icmp = true
-            path: /etc/cri/conf.d/20-customization.part
-            op: create
         kubelet:
           extraArgs:
-            feature-gates: GracefulNodeShutdown=true
-            #rotate-server-certificates: "false"
+            feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true,NewVolumeManagerReconstruction=false
             rotate-server-certificates: "true"
-        install:
-          extraKernelArgs:
-            - "talos.logging.kernel=udp://vector.${net_domain}:6050/"
-        logging:
-          destinations:
-            - endpoint: "udp://vector.${net_domain}:6051/"
-              format: json_lines
+          extraConfig:
+            maxPods: 150
+          nodeIP:
+            validSubnets:
+                - 10.28.28.0/24
         network:
           extraHostEntries:
             - ip: ${clusterEndpointIP}
               aliases:
-                - virtops.${net_domain}
+                - ${clusterName}.bjw-s.tech
         sysctls:
           fs.inotify.max_user_watches: "1048576"
           fs.inotify.max_user_instances: "8192"
@@ -125,9 +123,6 @@ controlPlane:
           servers:
             - 10.28.1.1
 
-    - |-
-      - op: remove
-        path: /cluster/apiServer/admissionControl
 worker:
   patches:
     - |-
