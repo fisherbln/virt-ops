@@ -16,6 +16,7 @@ spec:
   #    kind: HelmRelease
   #    name: external-secrets
   #    namespace: kube-system
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m
@@ -39,6 +40,7 @@ spec:
   #    kind: HelmRelease
   #    name: external-secrets
   #    namespace: kube-system
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m
