@@ -10,17 +10,33 @@ export BASEDIR := /Users/brian/repos/virt-ops/
 
 TC := talosctl --talosconfig ${TALOSCONFIG}
 KC := kubectl
+CP_IPS = 10.28.28.71 10.28.28.72 10.28.28.73
+CP_ARGS = $(addprefix -n ,$(CP_IPS))
+CP_ENDPOINT = 10.28.28.71
+ARGS ?=
+REAPPLY_MODE ?= staged
 
-reset:
-	${TC} reset --endpoints 10.28.28.71 --graceful=false -n 10.28.28.71 -n 10.28.28.72 -n 10.28.28.73 -n 10.28.28.61 -n 10.28.28.62 -n 10.28.28.63 --reboot --wait=false
+dist-clean:
 	rm -rf clusterconfig/*.yaml clusterconfig/talosconfig kubeconfig talsecret.sops.yaml
 
-gen:
+cni-gen:
+	./cni/generate.sh
+
+csr-gen:
+	./kubelet-csr-approver/generate.sh
+
+talsecret.sops.yaml:
 	talhelper gensecret > talsecret.sops.yaml
 	sops -e -i talsecret.sops.yaml
+
+reset:
+	${TC} reset --endpoints $(CP_ENDPOINT) --graceful=false $(CP_ARGS) --reboot --wait=false
+	$(MAKE) dist-clean
+
+gen: talsecret.sops.yaml
 	talhelper genconfig
 
-apply-talos-first:
+first-apply:
 	${TC} apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
@@ -28,15 +44,19 @@ apply-talos-first:
 	${TC} apply-config --insecure --nodes 10.28.28.62 --file clusterconfig/virtops-node-pve2.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.63 --file clusterconfig/virtops-node-pve3.nickeson.net.yaml
 
+
 bootstrap:
 	${TC} bootstrap --nodes 10.28.28.71
+
+kubeconf:
+	${TC} kubeconfig --nodes 10.28.28.71 -f .
 
 extras:
 	
 	${KC} kustomize --enable-helm ./cni | kubectl apply -f -
 	${KC} kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
 
-apply-talos:
+reapply:
 	${TC} apply-config --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
@@ -52,15 +72,12 @@ reboot:
 	${TC} reboot --nodes 10.28.28.62 --wait
 	${TC} reboot --nodes 10.28.28.63 --wait
 
-kubeconf:
-	${TC} kubeconfig --nodes 10.28.28.71 -f .
-
 
 nuke-and-pave:
 	$(MAKE) reset
 	$(MAKE) gen
 	sleep 120
-	$(MAKE) apply-talos-first
+	$(MAKE) first-apply
 	sleep 60
 	$(MAKE) bootstrap
 	sleep 150
@@ -72,7 +89,9 @@ nuke-and-pave:
 ##	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml
-	$(MAKE) apply-talos
+	cni-gen
+	csr-gen
+	$(MAKE) reapply
 	kubectl get no
 	sleep 20
 	kubectl get no
