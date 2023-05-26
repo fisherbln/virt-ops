@@ -1,0 +1,5 @@
+---
+providerRegex: |
+  ^(delta|enigma|felix|node-pve1|node-pve2|node-pve3)$
+
+bypassDnsResolution: true
