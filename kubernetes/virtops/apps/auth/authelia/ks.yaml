@@ -21,6 +21,7 @@ spec:
   #    kind: HelmRelease
   #    name: authelia
   #    namespace: auth
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m
