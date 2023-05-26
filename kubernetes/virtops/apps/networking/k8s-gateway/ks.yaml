@@ -17,6 +17,7 @@ spec:
   #    kind: HelmRelease
   #    name: k8s-gateway
   #    namespace: networking
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m

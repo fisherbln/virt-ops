@@ -28,6 +28,7 @@ spec:
   #    kind: HelmRelease
   #    name: immich-web
   #    namespace: default
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 5m
@@ -53,6 +54,7 @@ spec:
   #    kind: HelmRelease
   #    name: immich-redis
   #    namespace: default
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m

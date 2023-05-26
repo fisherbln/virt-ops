@@ -19,6 +19,7 @@ spec:
   #    kind: HelmRelease
   #    name: weave-gitops
   #    namespace: flux-system
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m

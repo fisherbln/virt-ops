@@ -21,6 +21,7 @@ spec:
   #    kind: HelmRelease
   #    name: loki
   #    namespace: monitoring
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 20m

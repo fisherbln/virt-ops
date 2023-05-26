@@ -21,6 +21,7 @@ spec:
   #    kind: HelmRelease
   #    name: vector-aggregator
   #    namespace: monitoring
+  wait: true
   interval: 15m
   retryInterval: 1m
   timeout: 3m
@@ -46,6 +47,7 @@ spec:
   #    kind: HelmRelease
   #    name: vector-agent
   #    namespace: monitoring
+  wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m

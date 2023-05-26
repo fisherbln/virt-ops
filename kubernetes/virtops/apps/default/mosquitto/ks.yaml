@@ -22,6 +22,7 @@ spec:
   #    kind: HelmRelease
   #    name: mosquitto
   #    namespace: default
+  wait: true
   interval: 15m
   retryInterval: 1m
   timeout: 3m

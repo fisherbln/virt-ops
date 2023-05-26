@@ -23,7 +23,7 @@ spec:
   #    kind: HelmRelease
   #    name: kube-prometheus-stack
   #    namespace: monitoring
+  wait: true
   interval: 10m
   retryInterval: 1m
   timeout: 5m
-  #wait: true

@@ -18,6 +18,7 @@ spec:
   #    kind: HelmRelease
   #    name: smtp-relay
   #    namespace: default
+  wait: true
   interval: 15m
   retryInterval: 1m
   timeout: 3m
