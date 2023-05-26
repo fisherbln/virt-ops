@@ -67,10 +67,9 @@ nuke-and-pave:
 	$(MAKE) kubeconf
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
-### kubectl apply --server-side -f ./cni/install.yaml
     
-	kubectl apply -f ${BASEDIR}/infrastructure/talos/virtops/cni/install.yaml
-	$(MAKE) extras
+##	kubectl apply -f ${BASEDIR}/infrastructure/talos/virtops/cni/install.yaml
+##	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml
 	$(MAKE) apply-talos
