@@ -6,6 +6,9 @@ metadata:
   name: cluster-apps-cloudnative-pg
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-external-secrets-stores
   path: ./kubernetes/virtops/apps/default/cloudnative-pg/app
   prune: true
   sourceRef:

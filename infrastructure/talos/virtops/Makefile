@@ -21,9 +21,11 @@ dist-clean:
 
 cni-gen:
 	./cni/generate.sh
+	rm cilium.yaml
 
 csr-gen:
 	./kubelet-csr-approver/generate.sh
+	rm kubelet-csr-approver.yaml
 
 talsecret.sops.yaml:
 	talhelper gensecret > talsecret.sops.yaml
@@ -89,8 +91,8 @@ nuke-and-pave:
 ##	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml
-	cni-gen
-	csr-gen
+	$(MAKE) cni-gen
+	$(MAKE) csr-gen
 	$(MAKE) reapply
 	kubectl get no
 	sleep 20
