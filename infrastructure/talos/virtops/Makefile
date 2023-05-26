@@ -10,7 +10,7 @@ export BASEDIR := /Users/brian/repos/virt-ops/
 
 TC := talosctl --talosconfig ${TALOSCONFIG}
 KC := kubectl
-CP_IPS = 10.28.28.71 10.28.28.72 10.28.28.73
+CP_IPS = 10.28.28.71 10.28.28.72 10.28.28.73 10.28.28.61 10.28.28.62 10.28.28.63
 CP_ARGS = $(addprefix -n ,$(CP_IPS))
 CP_ENDPOINT = 10.28.28.71
 ARGS ?=
@@ -78,7 +78,7 @@ nuke-and-pave:
 	$(MAKE) gen
 	sleep 120
 	$(MAKE) first-apply
-	sleep 60
+	sleep 90
 	$(MAKE) bootstrap
 	sleep 150
 	$(MAKE) kubeconf
