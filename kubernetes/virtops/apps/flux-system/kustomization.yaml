@@ -9,4 +9,4 @@ resources:
   - ./addons/ks.yaml
  #- ./terraform-registry/ks.yaml
   #- ./tf-controller/ks.yaml
-  - ./weave-gitops/ks.yaml
+  #- ./weave-gitops/ks.yaml
