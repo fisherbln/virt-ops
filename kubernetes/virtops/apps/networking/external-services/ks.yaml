@@ -16,4 +16,4 @@ spec:
     name: home-ops-kubernetes
   interval: 10m
   retryInterval: 1m
-  timeout: 3m
+  timeout: 5m
