@@ -14,13 +14,32 @@ spec:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-      interval: 30m
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+
   values:
     objstoreConfig:
       type: s3
       config:
         insecure: true
-
+    queryFrontend:
+      enabled: true
+      ingress:
+        enabled: true
+        hostname: "thanos.${ORG_DOMAIN}"
+        ingressClassName: "nginx"
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        tls: true
     query:
       enabled: true
       dnsDiscovery:
@@ -34,16 +53,6 @@ spec:
           memory: 64M
         # limits:
         #   memory: 99M
-
-    queryFrontend:
-      enabled: true
-      ingress:
-        enabled: true
-        hostname: "thanos.${ORG_DOMAIN}"
-        ingressClassName: "nginx"
-        annotations:
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-        tls: true
 
     bucketweb:
       enabled: true
