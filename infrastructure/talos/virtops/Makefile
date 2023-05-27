@@ -114,7 +114,7 @@ bootstrap-flux:
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
-	kubectl apply -n kube-system --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap/crds/ --force-conflicts=true
+	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap/crds/ --force-conflicts=true
 	kubectl apply -f ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
