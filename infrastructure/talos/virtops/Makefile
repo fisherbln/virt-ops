@@ -87,8 +87,8 @@ nuke-and-pave:
 	kubectl get no
 	talosctl --nodes 10.28.28.71 get members
     
-##	kubectl apply -f ${BASEDIR}/infrastructure/talos/virtops/cni/install.yaml
-##	$(MAKE) extras
+    ##	kubectl apply -f ${BASEDIR}/infrastructure/talos/virtops/cni/install.yaml
+    ##	$(MAKE) extras
 	sleep 20
 	talhelper genconfig -c talconfig.yaml
 	$(MAKE) cni-gen
@@ -103,7 +103,7 @@ nuke-and-pave:
 
 
 bootstrap-flux:
-###	cd ~/repos/virt-ops/
+    ###	cd ~/repos/virt-ops/
 	kubectl label nodes delta node-role.kubernetes.io/master=master
 	kubectl label nodes enigma node-role.kubernetes.io/master=master
 	kubectl label nodes felix node-role.kubernetes.io/master=master
@@ -114,11 +114,12 @@ bootstrap-flux:
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
-	kubectl apply -f ${BASEDIR}/kubernetes/virtops/bootstrap/crds/
+	kubectl apply --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap/crds/
 	kubectl apply -f ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
 	kubectl get pods -n flux-system
+   	### kubectl apply -k ${BASEDIR}/kubernetes/virtops/bootstrap/crds/
 	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/flux/config
 	sleep 10
 	#task cl:reconcile
