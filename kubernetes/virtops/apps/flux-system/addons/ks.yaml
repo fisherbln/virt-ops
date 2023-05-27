@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/flux-system/addons/monitoring
   prune: true
   sourceRef:
