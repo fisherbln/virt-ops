@@ -114,6 +114,7 @@ bootstrap-flux:
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
+	kubectl apply -f ${BASEDIR}/kubernetes/virtops/bootstrap/crds/
 	kubectl apply -f ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-settings.yaml
 	kubectl get pods -n flux-system
 	sleep 10
@@ -122,7 +123,7 @@ bootstrap-flux:
 	sleep 10
 	#task cl:reconcile
 	flux reconcile -n flux-system source git home-ops-kubernetes
-	sleep 15
+	sleep 20
 	flux reconcile -n flux-system kustomization cluster
 	kubectl get kustomizations -A
 	
