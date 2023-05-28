@@ -39,9 +39,9 @@ gen: talsecret.sops.yaml
 	talhelper genconfig
 
 first-apply:
-	${TC} apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
-	${TC} apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
-	${TC} apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-master-pve1.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-master-pve2.nickeson.net.yaml
+	${TC} apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-master-pve3.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.61 --file clusterconfig/virtops-node-pve1.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.62 --file clusterconfig/virtops-node-pve2.nickeson.net.yaml
 	${TC} apply-config --insecure --nodes 10.28.28.63 --file clusterconfig/virtops-node-pve3.nickeson.net.yaml
@@ -59,9 +59,9 @@ extras:
 	${KC} kustomize --enable-helm ./kubelet-csr-approver | kubectl apply -f -
 
 reapply:
-	${TC} apply-config --nodes 10.28.28.71 --file clusterconfig/virtops-delta.nickeson.net.yaml
-	${TC} apply-config --nodes 10.28.28.72 --file clusterconfig/virtops-enigma.nickeson.net.yaml
-	${TC} apply-config --nodes 10.28.28.73 --file clusterconfig/virtops-felix.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.71 --file clusterconfig/virtops-master-pve1.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.72 --file clusterconfig/virtops-master-pve2.nickeson.net.yaml
+	${TC} apply-config --nodes 10.28.28.73 --file clusterconfig/virtops-master-pve3.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.61 --file clusterconfig/virtops-node-pve1.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.62 --file clusterconfig/virtops-node-pve2.nickeson.net.yaml
 	${TC} apply-config --nodes 10.28.28.63 --file clusterconfig/virtops-node-pve3.nickeson.net.yaml
@@ -104,9 +104,9 @@ nuke-and-pave:
 
 bootstrap-flux:
     ###	cd ~/repos/virt-ops/
-	kubectl label nodes delta node-role.kubernetes.io/master=master
-	kubectl label nodes enigma node-role.kubernetes.io/master=master
-	kubectl label nodes felix node-role.kubernetes.io/master=master
+	kubectl label nodes master-pve1 node-role.kubernetes.io/master=master
+	kubectl label nodes master-pve2 node-role.kubernetes.io/master=master
+	kubectl label nodes master-pve3 node-role.kubernetes.io/master=master
 	kubectl label nodes node-pve1 node-role.kubernetes.io/worker=worker
 	kubectl label nodes node-pve2 node-role.kubernetes.io/worker=worker
 	kubectl label nodes node-pve3 node-role.kubernetes.io/worker=worker

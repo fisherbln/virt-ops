@@ -20,7 +20,7 @@ additionalMachineCertSans:
   - virtops.${net_domain}
 
 nodes:
-  - hostname: delta.${net_domain}
+  - hostname: master-pve1.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.71
     controlPlane: true
@@ -28,53 +28,61 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-    #  - interface: eth1
-    #    dhcp: true
+      - interface: eth1
+        dhcp: true
     #    vlans:
     #      - vlanId: 20
     #        dhcp: false
     #        addresses:
     #          - 10.1.3.141/24
-  - hostname: enigma.${net_domain}
+  - hostname: master-pve2.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.72
     controlPlane: true
     installDisk: /dev/sda
-    #networkInterfaces:
-    #  - interface: eth1
-    #    dhcp: true
-  - hostname: felix.${net_domain}
+    networkInterfaces:
+      - interface: eth1
+        dhcp: true
+  - hostname: master-pve3.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.73
     controlPlane: true
     installDisk: /dev/sda
-   #networkInterfaces:
-   #   - interface: eth1
-   #     dhcp: true
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+      - interface: eth1
+        dhcp: true
   - hostname: node-pve1.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.61
     controlPlane: false
     installDisk: /dev/sda
-    #networkInterfaces:
-    #   - interface: eth1
-    #     dhcp: true
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+      - interface: eth1
+        dhcp: true
   - hostname: node-pve2.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.62
     controlPlane: false
     installDisk: /dev/sda
-    #networkInterfaces:
-    #   - interface: eth1
-    #     dhcp: true
+    networkInterfaces:
+      - interface: eth0
+         dhcp: true
+      - interface: eth1
+        dhcp: true
   - hostname: node-pve3.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.63
     controlPlane: false
     installDisk: /dev/sda
-    #networkInterfaces:
-    #   - interface: eth1
-    #     dhcp: true
+    networkInterfaces:
+      - interface: eth0
+        dhcp: true
+      - interface: eth1
+        dhcp: true
 
 controlPlane:
   patches:

@@ -13,9 +13,9 @@ talhelper genconfig
 ```
 export TALOSCONFIG=~/src/home-lab/talos/clusterconfig/talosconfig
 if using fish shell: set -x TALOSCONFIG ~/repos/virt-ops/infrastructure/talos/virtops/clusterconfig/talosconfig
-talosctl apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
-talosctl apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
-talosctl apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-felix.{NET_DOMAIN}.yaml
+talosctl apply-config --insecure --nodes 10.28.28.71 --file clusterconfig/virtops-master-pve3.{NET_DOMAIN}.yaml
+talosctl apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-master-pve3.{NET_DOMAIN}.yaml
+talosctl apply-config --insecure --nodes 10.28.28.73 --file clusterconfig/virtops-master-pve3.{NET_DOMAIN}.yaml
 ## wait a few seconds
 talosctl bootstrap -n 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
 talosctl kubeconfig -f ./ --nodes 10.28.28.71 --talosconfig ./clusterconfig/talosconfig
@@ -45,4 +45,4 @@ re-run talosctl apply-config as above, except remove the --insecure flag
 
 # Apply Talos Confiig individually when needed
 
-talosctl -n delta apply-config -f cluster-0-delta.yaml --mode reboot
+talosctl -n master-pve1 apply-config -f cluster-0-master-pve1.yaml --mode reboot
