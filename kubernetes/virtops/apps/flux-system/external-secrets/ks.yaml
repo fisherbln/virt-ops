@@ -6,7 +6,7 @@ metadata:
   name: cluster-apps-external-secrets
   namespace: flux-system
 spec:
-  path: ./kubernetes/virtops/apps/kube-system/external-secrets/app
+  path: ./kubernetes/virtops/apps/flux-system/external-secrets/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -25,7 +25,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets
-  path: ./kubernetes/virtops/apps/kube-system/external-secrets/stores
+  path: ./kubernetes/virtops/apps/flux-system/external-secrets/stores
   prune: true
   sourceRef:
     kind: GitRepository
