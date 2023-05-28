@@ -9,17 +9,12 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-kube-prometheus-stack
+    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/kyverno/kyverno/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-  #healthChecks:
-  #  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  #    kind: HelmRelease
-  #    name: kyverno
-  #    namespace: kyverno
   wait: true
   interval: 30m
   retryInterval: 1m
