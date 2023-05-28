@@ -70,7 +70,7 @@ nodes:
     installDisk: /dev/sda
     networkInterfaces:
       - interface: eth0
-         dhcp: true
+        dhcp: true
       - interface: eth1
         dhcp: true
   - hostname: node-pve3.${net_domain}
