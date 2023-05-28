@@ -6,7 +6,7 @@ namespace: default
 resources:
   - ./cluster.yaml
   - ./scheduledbackup.yaml
-  - ./prometheusrule.yaml
+  #- ./prometheusrule.yaml
   - ./service.yaml
 labels:
   - pairs:
