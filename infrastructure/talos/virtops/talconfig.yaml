@@ -28,8 +28,8 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-      - interface: eth1
-        dhcp: true
+      #- interface: eth1
+      #  dhcp: true
     #    vlans:
     #      - vlanId: 20
     #        dhcp: false
@@ -41,8 +41,10 @@ nodes:
     controlPlane: true
     installDisk: /dev/sda
     networkInterfaces:
-      - interface: eth1
+      - interface: eth0
         dhcp: true
+      #- interface: eth1
+      #  dhcp: true
   - hostname: master-pve3.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.73
@@ -51,8 +53,8 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-      - interface: eth1
-        dhcp: true
+      #- interface: eth1
+      #  dhcp: true
   - hostname: node-pve1.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.61
@@ -61,8 +63,8 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-      - interface: eth1
-        dhcp: true
+      #- interface: eth1
+      #  dhcp: true
   - hostname: node-pve2.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.62
@@ -71,8 +73,8 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-      - interface: eth1
-        dhcp: true
+      #- interface: eth1
+      #  dhcp: true
   - hostname: node-pve3.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.63
@@ -81,8 +83,8 @@ nodes:
     networkInterfaces:
       - interface: eth0
         dhcp: true
-      - interface: eth1
-        dhcp: true
+      #- interface: eth1
+      #  dhcp: true
 
 controlPlane:
   patches:
