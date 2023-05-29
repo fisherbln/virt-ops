@@ -21,8 +21,8 @@ spec:
       name: cilium-values
 
   values:
-    #bgp:
-    #  enabled: true
+    bgp:
+      enabled: true
 
     hubble:
       metrics:
