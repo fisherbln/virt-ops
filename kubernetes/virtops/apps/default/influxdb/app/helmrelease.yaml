@@ -40,7 +40,7 @@ spec:
       create: false
     service:
       type: LoadBalancer
-      #loadBalancerIP: "${SVC_INFLUX_ADDR_V4}"
+      loadBalancerIP: "${SVC_INFLUX_ADDR_V4}"
       #annotations:
       #  coredns.io/hostname: influx.${ORG_DOMAIN}
 
