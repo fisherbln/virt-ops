@@ -138,11 +138,11 @@ kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
 loadBalancer:
   # -- algorithm is the name of the load balancing algorithm for backend
   # selection e.g. random or maglev
-  algorithm: random
+  algorithm: maglev
 
   # -- mode is the operation mode of load balancing for remote backends
   # e.g. snat, dsr, hybrid
-  mode: snat
+  mode: hybrid
 
 # -- Enable Local Redirect Policy.
 localRedirectPolicy: true
