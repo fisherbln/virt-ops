@@ -110,7 +110,7 @@ bootstrap-flux:
 	kubectl label nodes node-pve1 node-role.kubernetes.io/worker=worker
 	kubectl label nodes node-pve2 node-role.kubernetes.io/worker=worker
 	kubectl label nodes node-pve3 node-role.kubernetes.io/worker=worker
-	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap
+	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap --force-conflicts=true
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/flux/vars/cluster-secrets.sops.yaml  | kubectl apply -f -
