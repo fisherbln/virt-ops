@@ -9,7 +9,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
-  loadBalancerIP: ${SVC_ZOLANDO_ADDR_V4}
+  loadBalancerIP: ${SVC_ZALANDO_ADDR_V4}
   ports:
     - name: postgres
       port: 5432
