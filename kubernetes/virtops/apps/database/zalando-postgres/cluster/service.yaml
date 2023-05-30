@@ -6,10 +6,10 @@ metadata:
   namespace: database
   annotations:
     external-dns.alpha.kubernetes.io/hostname: "postgres-zalando.${ORG_DOMAIN}"
-    #metallb.universe.tf/loadBalancerIPs: "10.45.0.24"
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
+  loadBalancerIP: ${SVC_ZOLANDO_ADDR_V4}
   ports:
     - name: postgres
       port: 5432
