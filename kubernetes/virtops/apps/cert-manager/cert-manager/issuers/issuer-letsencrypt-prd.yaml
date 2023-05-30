@@ -19,4 +19,4 @@ spec:
         selector:
           dnsZones:
             - ${ORG_DOMAIN}
-            #- ${NET_DOMAIN}
+            - ${NET_DOMAIN}
