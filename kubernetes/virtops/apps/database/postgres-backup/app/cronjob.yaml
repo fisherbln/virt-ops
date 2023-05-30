@@ -14,9 +14,9 @@ spec:
           automountServiceAccountToken: false
           enableServiceLinks: false
           securityContext:
-            runAsUser: 1031
-            runAsGroup: 1031
-            fsGroup: 1031
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
             supplementalGroups:
               - 65541
 
@@ -53,4 +53,4 @@ spec:
             - name: nas-backups
               nfs:
                 server: expanse.${ORG_DOMAIN}
-                path: /volume1/Backup/Databases/postgresql
+                path: /eros/Backup/Databases/postgresql
