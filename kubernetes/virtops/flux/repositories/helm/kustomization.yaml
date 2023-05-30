@@ -11,6 +11,7 @@ resources:
   - ./cilium.yaml
   - ./cloudnative-pg.yaml
   - ./emqx.yaml
+  - ./ext-postgres-operator.yaml
   - ./external-dns.yaml
   - ./external-secrets.yaml
   - ./fairwinds.yaml
