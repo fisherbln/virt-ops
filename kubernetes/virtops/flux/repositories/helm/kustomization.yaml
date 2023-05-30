@@ -31,4 +31,4 @@ resources:
   - ./tf-controller.yaml
   - ./vector.yaml
   - ./weave-gitops.yaml
-  - ./ZALANDO-postgres-operator.yaml
+  - ./zalando-postgres-operator.yaml
