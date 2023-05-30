@@ -262,6 +262,14 @@ spec:
             static_configs:
               - targets:
                   - gateway.${NET_DOMAIN}:9798
+                  
+          - job_name: smtp-relay
+            scrape_interval: 1m
+            scrape_timeout: 10s
+            honor_timestamps: true
+            static_configs:
+              - targets:
+                  - "smtp-relay.${NET_DOMAIN}:9749"
 
         enableAdminAPI: true
         walCompression: true
