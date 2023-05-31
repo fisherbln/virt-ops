@@ -39,13 +39,21 @@ spec:
 
     grafana:
       enabled: true
-    serviceMonitor:
-      enabled: true
-      interval: 1m
+      annotations:
+        grafana_folder: Kyverno
+      
     backgroundController:
       serviceMonitor:
         enabled: true
         interval: 1m
+      rbac:
+        clusterRole:
+          extraResources:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+
     cleanupController:
       serviceMonitor:
         enabled: true
@@ -54,7 +62,26 @@ spec:
       serviceMonitor:
         enabled: true
         interval: 1m
+    
+    admissionController:
+      replicas: 3
 
+      rbac:
+        clusterRole:
+          extraResources:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - create
+                - update
+                - delete
+
+      serviceMonitor:
+        enabled: true
+        interval: 1m
+        
     #resources:
     #  requests:
     #    cpu: 247m
