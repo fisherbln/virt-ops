@@ -27,13 +27,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    initContainers:
-      01-init-db:
-        image: ghcr.io/onedr0p/postgres-init:14.8@sha256:d8391076d2c6449927a6409c4e72aaa5607c95be51969036f4feeb7c999638ea
-        imagePullPolicy: Always
-        envFrom:
-          - secretRef:
-              name: authelia-secret
+    #initContainers:
+    #  01-init-db:
+    #    image: ghcr.io/onedr0p/postgres-init:14.8@sha256:d8391076d2c6449927a6409c4e72aaa5607c95be51969036f4feeb7c999638ea
+    #    imagePullPolicy: Always
+    #    envFrom:
+    #      - secretRef:
+    #          name: authelia-secret
     controller:
       replicas: 2
       strategy: RollingUpdate
@@ -73,6 +73,26 @@ spec:
       AUTHELIA_THEME: grey
       AUTHELIA_TOTP_ISSUER: authelia.com
       AUTHELIA_WEBAUTHN_DISABLE: "true"
+      AUTHELIA_STORAGE_POSTGRES_DATABASE:
+        valueFrom:
+          secretKeyRef:
+            name: database-authelia-user
+            key: DATABASE_NAME
+      AUTHELIA_STORAGE_POSTGRES_HOST:
+        valueFrom:
+          secretKeyRef:
+            name: database-authelia-user
+            key: HOST
+      AUTHELIA_STORAGE_POSTGRES_PASSWORD:
+        valueFrom:
+          secretKeyRef:
+            name: database-authelia-user
+            key: PASSWORD
+      AUTHELIA_STORAGE_POSTGRES_USERNAME:
+        valueFrom:
+          secretKeyRef:
+            name: database-authelia-user
+            key: LOGIN
     envFrom:
       - secretRef:
           name: authelia-secret
@@ -85,15 +105,6 @@ spec:
           metrics:
             enabled: true
             port: 8080
-     #serviceMonitor:
-     #  main:
-     #    enabled: true
-     #    endpoints:
-     #      - port: metrics
-     #        scheme: http
-     #        path: /metrics
-     #        interval: 1m
-     #        scrapeTimeout: 10s
     probes:
       liveness: &probes
         enabled: true
