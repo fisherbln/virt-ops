@@ -2,18 +2,18 @@
 apiVersion: db.movetokube.com/v1alpha1
 kind: Postgres
 metadata:
-  name: immich-db
-  namespace: default
+  name: authelia-db
+  namespace: auth
 spec:
-  database: immich
+  database: authelia
 ---
 apiVersion: db.movetokube.com/v1alpha1
 kind: PostgresUser
 metadata:
-  name: immich-user
-  namespace: default
+  name: authelia-user
+  namespace: auth
 spec:
-  role: immich
-  database: immich-db
+  role: authelia
+  database: authelia-db
   secretName: database
   privileges: OWNER
