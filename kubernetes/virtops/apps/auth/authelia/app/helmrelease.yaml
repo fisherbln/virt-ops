@@ -73,26 +73,26 @@ spec:
       AUTHELIA_THEME: grey
       AUTHELIA_TOTP_ISSUER: authelia.com
       AUTHELIA_WEBAUTHN_DISABLE: "true"
-      AUTHELIA_STORAGE_POSTGRES_DATABASE:
-        valueFrom:
-          secretKeyRef:
-            name: database-authelia-user
-            key: DATABASE_NAME
-      AUTHELIA_STORAGE_POSTGRES_HOST:
-        valueFrom:
-          secretKeyRef:
-            name: database-authelia-user
-            key: HOST
-      AUTHELIA_STORAGE_POSTGRES_PASSWORD:
-        valueFrom:
-          secretKeyRef:
-            name: database-authelia-user
-            key: PASSWORD
-      AUTHELIA_STORAGE_POSTGRES_USERNAME:
-        valueFrom:
-          secretKeyRef:
-            name: database-authelia-user
-            key: LOGIN
+      #AUTHELIA_STORAGE_POSTGRES_DATABASE:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-authelia-user
+      #      key: DATABASE_NAME
+      #AUTHELIA_STORAGE_POSTGRES_HOST:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-authelia-user
+      #      key: HOST
+      #AUTHELIA_STORAGE_POSTGRES_PASSWORD:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-authelia-user
+      #      key: PASSWORD
+      #AUTHELIA_STORAGE_POSTGRES_USERNAME:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-authelia-user
+      #      key: LOGIN
     envFrom:
       - secretRef:
           name: authelia-secret
