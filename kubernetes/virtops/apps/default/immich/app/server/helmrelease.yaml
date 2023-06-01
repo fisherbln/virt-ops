@@ -29,13 +29,13 @@ spec:
   dependsOn:
     - name: immich-typesense
   values:
-    initContainers:
-      01-init-db:
-        image: ghcr.io/onedr0p/postgres-init:14.8
-        imagePullPolicy: IfNotPresent
-        envFrom:
-          - secretRef:
-              name: immich-secret
+    #initContainers:
+    #  01-init-db:
+    #    image: ghcr.io/onedr0p/postgres-init:14.8
+    #    imagePullPolicy: IfNotPresent
+    #    envFrom:
+    #      - secretRef:
+    #          name: immich-secret
     controller:
       replicas: 2
       strategy: RollingUpdate
@@ -48,6 +48,27 @@ spec:
     command: /bin/sh
     args:
       - ./start-server.sh
+    env:
+      DB_HOSTNAME:
+        valueFrom:
+          secretKeyRef:
+            name: database-immich-user
+            key: HOST
+      DB_USERNAME:
+        valueFrom:
+          secretKeyRef:
+            name: database-immich-user
+            key: LOGIN
+      DB_PASSWORD:
+        valueFrom:
+          secretKeyRef:
+            name: database-immich-user
+            key: PASSWORD
+      DB_DATABASE_NAME:
+        valueFrom:
+          secretKeyRef:
+            name: database-immich-user
+            key: DATABASE_NAME
     envFrom:
       - secretRef:
           name: immich-secret
