@@ -43,7 +43,7 @@ spec:
                       key: password
                 - name: POSTGRES_DB
                   #value: "dsmr-reader,home-assistant,immich,miniflux"
-                  value: "immich"
+                  value: "immich,homeassistant"
               volumeMounts:
                 - name: nas-backups
                   mountPath: /backups
