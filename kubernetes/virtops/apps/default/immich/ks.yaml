@@ -15,19 +15,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-  #healthChecks:
-  #  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  #    kind: HelmRelease
-  #    name: immich-microservices
-  #    namespace: default
-  #  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  #    kind: HelmRelease
-  #    name: immich-server
-  #    namespace: default
-  #  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  #    kind: HelmRelease
-  #    name: immich-web
-  #    namespace: default
   wait: true
   interval: 30m
   retryInterval: 1m
@@ -43,17 +30,11 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/default/immich/redis
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-ops-kubernetes
-  #healthChecks:
-  #  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  #    kind: HelmRelease
-  #    name: immich-redis
-  #    namespace: default
   wait: true
   interval: 30m
   retryInterval: 1m
