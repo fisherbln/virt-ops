@@ -57,7 +57,7 @@ resource "kubernetes_stateful_set_v1" "minio" {
           }
           env {
             name  = "MINIO_PROMETHEUS_URL"
-            value = "${data.sops_file.secrets.data["prometheus_url"]}"
+            value = "prometheus.nickeson.org"
           }
           env {
             name  = "MINIO_PROMETHEUS_AUTH_TYPE"
