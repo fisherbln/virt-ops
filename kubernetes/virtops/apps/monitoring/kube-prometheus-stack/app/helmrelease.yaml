@@ -270,6 +270,11 @@ spec:
             static_configs:
               - targets:
                   - "smtp-relay.${NET_DOMAIN}:9749"
+          - job_name: minio
+            metrics_path: /minio/v2/metrics/cluster
+            static_configs:
+              - targets: 
+                  - "expanse.${NET_DOMAIN}:9000" # nas
 
         enableAdminAPI: true
         walCompression: true
