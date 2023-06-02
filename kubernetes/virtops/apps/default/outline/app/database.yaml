@@ -1,0 +1,19 @@
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: Postgres
+metadata:
+  name: outline-db
+  namespace: default
+spec:
+  database: outline
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: PostgresUser
+metadata:
+  name: outline-user
+  namespace: default
+spec:
+  role: outline
+  database: outline-db
+  secretName: database
+  privileges: OWNER

@@ -7,10 +7,10 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-cloudnative-pg-cluster
+    #- name: cluster-apps-cloudnative-pg-cluster
+    - name: cluster-apps-zalando-postgres-cluster
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-outline-redis
-    #- name: cluster-apps-redis
   path: ./kubernetes/virtops/apps/default/outline/app
   prune: true
   sourceRef:
@@ -31,7 +31,6 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/default/outline/redis
   prune: true
   sourceRef:
