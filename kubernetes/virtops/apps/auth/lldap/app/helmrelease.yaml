@@ -27,13 +27,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    initContainers:
-      01-init-db:
-        image: ghcr.io/onedr0p/postgres-init:14.8@sha256:d8391076d2c6449927a6409c4e72aaa5607c95be51969036f4feeb7c999638ea
-        imagePullPolicy: IfNotPresent
-        envFrom:
-          - secretRef:
-              name: lldap-secret
+    #initContainers:
+    #  01-init-db:
+    #    image: ghcr.io/onedr0p/postgres-init:14.8@sha256:d8391076d2c6449927a6409c4e72aaa5607c95be51969036f4feeb7c999638ea
+    #    imagePullPolicy: IfNotPresent
+    #    envFrom:
+    #      - secretRef:
+    #          name: lldap-secret
     controller:
       replicas: 2
       strategy: RollingUpdate
@@ -50,6 +50,11 @@ spec:
       LLDAP_LDAP_PORT: &ldap-port 389
       LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
       LLDAP_IGNORED_GROUP_ATTRIBUTES: '[ "mail", "userPrincipalName", "ou" ]'
+      LLDAP_DATABASE_URL:
+        valueFrom:
+          secretKeyRef:
+            name: database-lldap-user
+            key: POSTGRES_URL
     envFrom:
       - secretRef:
           name: lldap-secret
