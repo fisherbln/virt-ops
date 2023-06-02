@@ -66,11 +66,7 @@ spec:
           secretKeyRef:
             name: database-grafana-user
             key: PASSWORD
-      GF_DATABASE_HOST:
-        valueFrom:
-          secretKeyRef:
-            name: database-grafana-user
-            key: HOST
+      GF_DATABASE_HOST: "postgres.database.svc.cluster.local"
       GF_DATABASE_NAME:
         valueFrom:
           secretKeyRef:
