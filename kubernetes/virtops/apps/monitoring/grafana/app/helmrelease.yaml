@@ -178,6 +178,12 @@ spec:
           datasource:
             - name: "DS_PROMETHEUS"
               value: Prometheus
+        blocky:
+          gnetId: 13768
+          revision: 3
+          datasource:
+            - name: "DS_PROMETHEUS"
+              value: Prometheus
         # Ref: https://grafana.com/grafana/dashboards/763-redis-dashboard-for-prometheus-redis-exporter-1-x/
         redis:
           gnetId: 763
