@@ -6,8 +6,9 @@ vars:
     sh: "git rev-parse --show-toplevel"
   CLUSTER_DIR: "{{.ROOT_DIR}}/kubernetes/virtops"
   PROVISION_DIR: "{{.ROOT_DIR}}/infrastructure"
-  TALOS_CONTROL_NODES: "10.28.28.71, 10.28.28.72, 10.28.28.73"
-  TALOS_WORKER_NODES: "10.28.28.61, 10.28.28.62, 10.28.28.63"
+  TALOS_PRIMARY_NODE: "10.28.28.71"
+  TALOS_CONTROL_NODES: "10.28.28.71,10.28.28.72,10.28.28.73"
+  TALOS_WORKER_NODES: "10.28.28.61,10.28.28.62,10.28.28.63"
 
 env:
   KUBECONFIG: ./infrastructure/talos/virtops/kubeconfig

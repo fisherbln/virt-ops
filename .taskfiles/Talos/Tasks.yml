@@ -2,11 +2,23 @@
 version: "3"
 
 tasks:
+  upgrade-talosctl:
+    desc: Upgrade talosctl on client 
+    cmds:
+      - |
+        curl -Lo /usr/local/bin/talosctl https://github.com/talos-systems/talos/releases/latest/download/talosctl-$(uname -s | tr "[:upper:]" "[:lower:]")-amd64 
+
+  get-nodes:
+    desc: Get basic node for cluster info
+    cmds:
+      - talosctl --nodes {{.TALOS_PRIMARY_NODE}} get members
+      - kubectl get nodes
+
   etc-status:
     desc: Sync all Flux GitRepositories
     cmds:
       - |
-        talosctl -n {{TALOS_CONTROL_NODES}} etc status
+        talosctl -n {{.TALOS_CONTROL_NODES}} etcd status  
 
   etc-defrag:
     desc: Sync all Flux Kustomizations

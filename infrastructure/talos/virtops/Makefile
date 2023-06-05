@@ -74,6 +74,21 @@ reboot:
 	${TC} reboot --nodes 10.28.28.62 --wait
 	${TC} reboot --nodes 10.28.28.63 --wait
 
+label-nodes:
+	${KC} label nodes master-pve1 node-role.kubernetes.io/master=master
+	${KC} label nodes master-pve2 node-role.kubernetes.io/master=master
+	${KC} label nodes master-pve3 node-role.kubernetes.io/master=master
+	${KC} label nodes node-pve1 node-role.kubernetes.io/worker=worker
+	${KC} label nodes node-pve2 node-role.kubernetes.io/worker=worker
+	${KC} label nodes node-pve3 node-role.kubernetes.io/worker=worker
+
+rebuild-node:
+	${TC} apply-config --insecure --nodes 10.28.28.72 --file clusterconfig/virtops-master-pve2.nickeson.net.yaml
+	sleep 120
+	kubectl get no
+	talosctl --nodes 10.28.28.71 get members
+	${TC} apply-config --nodes 10.28.28.72 --file clusterconfig/virtops-master-pve2.nickeson.net.yaml
+
 
 nuke-and-pave:
 	$(MAKE) reset
@@ -104,12 +119,7 @@ nuke-and-pave:
 
 bootstrap-flux:
     ###	cd ~/repos/virt-ops/
-	kubectl label nodes master-pve1 node-role.kubernetes.io/master=master
-	kubectl label nodes master-pve2 node-role.kubernetes.io/master=master
-	kubectl label nodes master-pve3 node-role.kubernetes.io/master=master
-	kubectl label nodes node-pve1 node-role.kubernetes.io/worker=worker
-	kubectl label nodes node-pve2 node-role.kubernetes.io/worker=worker
-	kubectl label nodes node-pve3 node-role.kubernetes.io/worker=worker
+	$(MAKE) label-nodes
 	kubectl apply --server-side --kustomize ${BASEDIR}/kubernetes/virtops/bootstrap --force-conflicts=true
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/age-key.sops.yaml | kubectl apply -f -
 	sops -d ${BASEDIR}/kubernetes/virtops/bootstrap/github-deploy-key.sops.yaml | kubectl apply -f -
