@@ -275,6 +275,12 @@ spec:
             static_configs:
               - targets: 
                   - "expanse.${NET_DOMAIN}:9000" # nas
+          - job_name: blocky
+            scrape_interval: 15s
+            scrape_timeout: 15s
+            static_configs:
+              - targets:
+                  - blocky.${NET_DOMAIN}:4000
 
         enableAdminAPI: true
         walCompression: true
