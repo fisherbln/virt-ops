@@ -11,7 +11,7 @@ resources:
   - ./glauth/ks.yaml
   - ./immich/ks.yaml
   - ./influxdb/ks.yaml
-  #- ./linkding/ks.yaml
+  - ./linkding/ks.yaml
   - ./mosquitto/ks.yaml
   - ./node-red/ks.yaml
   - ./outline/ks.yaml
