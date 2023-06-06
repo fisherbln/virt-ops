@@ -35,17 +35,40 @@ spec:
       #LD_AUTH_PROXY_USERNAME_HEADER: HTTP_REMOTE_USER
       #LD_AUTH_PROXY_LOGOUT_URL: "https://auth.${SECRET_DOMAIN}/logout"
       #LD_CSRF_TRUSTED_ORIGINS: "https://link.${SECRET_DOMAIN}"
+      LD_DB_ENGINE: postgres
+      LD_DB_DATABASE:
+        valueFrom:
+          secretKeyRef:
+            name: &db_secret database-linkding-user
+            key: DATABASE_NAME
+      LD_DB_USER:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret
+            key: LOGIN
+      LD_DB_PASSWORD:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret
+            key: PASSWORD
+      LD_DB_HOST:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret
+            key: HOST
+      LD_DB_PORT:
+        value: 5432
     envFrom:
       - secretRef:
           name: *app
     # TODO: fix chown on mounted directory
     # https://github.com/sissbruecker/linkding/issues/145
-    persistence:
-      data:
-        enabled: true
-        mountPath: /etc/linkding/data
-        existingClaim: ld-config-pvc
-        subPath: linkding
+    #persistence:
+    #  data:
+    #    enabled: true
+    #    mountPath: /etc/linkding/data
+    #    existingClaim: ld-config-pvc
+    #    subPath: linkding
     service:
       main:
         ports:

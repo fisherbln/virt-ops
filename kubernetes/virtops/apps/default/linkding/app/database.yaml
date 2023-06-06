@@ -1,0 +1,19 @@
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: Postgres
+metadata:
+  name: linkding-db
+  namespace: default
+spec:
+  database: linkding
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: PostgresUser
+metadata:
+  name: linkding-user
+  namespace: default
+spec:
+  role: linkding
+  database: linkding-db
+  secretName: database
+  privileges: OWNER
