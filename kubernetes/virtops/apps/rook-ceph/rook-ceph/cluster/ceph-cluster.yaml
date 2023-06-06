@@ -18,10 +18,10 @@ spec:
         disabled: false
         interval: 45s
   monitoring:
-    enabled: true
-    externalMgrEndpoints:
-      # these are the PVE nodes
-      - ip: "10.28.1.51"
-      - ip: "10.28.1.52"
-      - ip: "10.28.1.53"
-    externalMgrPrometheusPort: 9283
+    enabled: false
+    #externalMgrEndpoints:
+    #  # these are the PVE nodes
+    #  - ip: "10.28.1.51"
+    #  - ip: "10.28.1.52"
+    #  - ip: "10.28.1.53"
+    #externalMgrPrometheusPort: 9283
