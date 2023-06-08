@@ -9,6 +9,7 @@ resources:
   - ./adminer/ks.yaml
   - ./esphome/ks.yaml
   - ./glauth/ks.yaml
+  - ./grocy/ks.yaml
   - ./immich/ks.yaml
   - ./influxdb/ks.yaml
   - ./linkding/ks.yaml
