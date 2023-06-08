@@ -5,7 +5,7 @@ metadata:
   name: radarr-db-main
   namespace: media
 spec:
-  database: radarr
+  database: radarr-main
   masterRole: radarr-group
 ---
 apiVersion: db.movetokube.com/v1alpha1
@@ -14,7 +14,7 @@ metadata:
   name: radarr-db-logs
   namespace: media
 spec:
-  database: radarr
+  database: radarr-logs
   masterRole: radarr-group
 ---
 apiVersion: db.movetokube.com/v1alpha1
@@ -24,7 +24,7 @@ metadata:
   namespace: media
 spec:
   role: radarr
-  database: radarr-db-main
+  database: radarr-main
   secretName: database
   privileges: OWNER
 #---
