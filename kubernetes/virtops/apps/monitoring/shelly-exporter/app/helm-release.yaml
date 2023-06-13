@@ -1,0 +1,45 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app shelly-exporter
+  namespace: monitoring
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  # this repo: https://github.com/geerlingguy/shelly-plug-prometheus
+  # https://github.com/d1ceward/shellyplug-exporter
+  values:
+    global:
+      nameOverride: *app
+    image:
+      repository: d1ceward/shellyplug-exporter
+      tag: 1.5.0
+    service:
+      main:
+        ports:
+          http:
+            port: 5000
+    envFrom:
+      - secretRef:
+          name: shelly-exporter-secret
+    env:
+      SHELLYPLUG_HOST=frontyardShellyLandscape.${NET_DOMAIN}
+      SHELLYPLUG_PORT=80
+      SHELLYPLUG_AUTH_USERNAME=username-for-http-auth
+      SHELLYPLUG_AUTH_PASSWORD=password-for-http-auth
+      EXPORTER_PORT=5000
