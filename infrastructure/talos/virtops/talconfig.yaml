@@ -90,6 +90,9 @@ controlPlane:
   patches:
     - |-
       cluster:
+        etcd:
+          advertisedSubnets:
+            - 10.28.28.0/24
         allowSchedulingOnMasters: false
         proxy:
           disabled: true
