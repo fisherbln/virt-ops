@@ -24,12 +24,12 @@ spec:
   # this repo: https://github.com/geerlingguy/shelly-plug-prometheus
   # https://github.com/d1ceward/shellyplug-exporter
   values:
-    #global:
-    #  nameOverride: *app
-    controller:
-      type: statefulset
-      annotations:
-        reloader.stakater.com/auto: "true"
+    global:
+      nameOverride: *app
+    #controller:
+    #  type: statefulset
+    #  annotations:
+    #    reloader.stakater.com/auto: "true"
     image:
       repository: d1ceward/shellyplug-exporter
       tag: v1.5.0
