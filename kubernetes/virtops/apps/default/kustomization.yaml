@@ -20,5 +20,6 @@ resources:
   - ./pgadmin/ks.yaml
   - ./redis/ks.yaml
   - ./scrypted/ks.yaml
+  - ./semaphore/ks.yaml
   - ./vnc/ks.yaml
   
