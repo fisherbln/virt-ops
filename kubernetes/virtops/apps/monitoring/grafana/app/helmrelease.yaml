@@ -254,6 +254,7 @@ spec:
       - natel-discrete-panel
       - pr0ps-trackmap-panel
       - vonage-status-panel
+      - golioth-websocket-datasource
     serviceMonitor:
       enabled: true
     ingress:
