@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: angelnu
+  name: budibase
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://angelnu.github.io/helm-charts
+  url: https://budibase.github.io/budibase/
   timeout: 5m
