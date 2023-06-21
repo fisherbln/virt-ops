@@ -7,7 +7,7 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: 'true'
 spec:
-  path: './kubernetes/apps/monitoring/nextdns-exporter/trusted/'
+  path: './kubernetes/virtops/apps/monitoring/nextdns-exporter/trusted/'
   prune: true
   sourceRef:
     kind: GitRepository
