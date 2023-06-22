@@ -12,6 +12,7 @@ resources:
   - ./node-exporter/ks.yaml
   - ./loki/ks.yaml
   #- ./shelly-exporter/ks.yaml
+  - ./snmp-exporter/ks.yaml
   - ./thanos/ks.yaml
   - ./vector/ks.yaml
   # Standard Resources
