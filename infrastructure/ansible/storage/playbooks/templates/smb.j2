@@ -1,0 +1,49 @@
+# https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
+
+[global]
+## Browsing/Identification ###
+
+# Change this to the workgroup/NT-domain name your Samba server will part of
+  workgroup = PANDANET
+  min protocol = SMB2
+  ea support = yes
+
+# server string is the equivalent of the NT Description field
+#   server string = %h server (Samba, Ubuntu)
+
+# security
+#  security = user
+#  passdb backend = tdbsam
+#  map to guest = Bad User
+
+# mac Support
+#  vfs objects = fruit, streams_xattr
+  vfs objects = fruit
+  fruit:metadata = stream
+  fruit:model = MacSamba
+  fruit:posix_rename = yes
+  fruit:veto_appledouble = no
+  #fruit:zero_file_id = yes
+  fruit:nfs_aces = no
+  fruit:wipe_intentionally_left_blank_rfork = yes
+  fruit:delete_empty_adfiles = yes
+  #fruit:aapl = yes
+
+
+# Logging
+  log file = /var/log/samba/%m
+  log level = 1
+
+#NetShares
+
+[TimeMachine]
+  comment = Time Machine
+  path = /eros/timemachine
+  fruit:time machine = yes
+  #spotlight backend = elasticsearch
+  valid users = @users
+  browsable = yes
+  writable = yes
+  read only = no
+  create mask = 0644
+  directory mask = 0755

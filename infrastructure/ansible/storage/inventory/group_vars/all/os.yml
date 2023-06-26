@@ -1,0 +1,71 @@
+---
+timezone: "America/Chicago"
+
+create_user:
+  id: 568
+  name: brian_k8s
+  group: brian_k8s
+  additional_groups: ["users"]
+
+create_group:
+  id: 568
+  name: brian_k8s
+
+os_smtp_account_name: mailgun
+os_smtp_port: 587
+os_timezone: "America/Chicago"
+os_ssh_authorized_keys:
+  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILmwUhA+7/uX88OvD6djnCR7xAFp3Hi6DZSeM1LQZb55 brian@macbook"
+  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWM7O+oD5nRxk3iL6LAhZIZzVm1xUX7nmkWCI3P2ZMT brian@panic"
+os_packages_repositories:
+  - ppa:fish-shell/release-3
+
+packages_install:
+  - apt-transport-https
+  - ca-certificates
+  - containernetworking-plugins
+  - curl
+  - ffmpeg
+  - figlet
+  - fish
+  - fzf
+  - gettext
+  - git
+  - gnupg
+  - htop
+  - iputils-ping
+  - net-tools
+  - lolcat
+  - msmtp
+  - msmtp-mta
+  - nano
+  - neofetch
+  - neovim
+  - ntpdate
+  - podman
+  - psmisc
+  - rclone
+  - rsync
+  - screen
+  - software-properties-common
+  - tmux
+  - tree
+  - uidmap
+  - unzip
+  - zfs-zed
+  - zfsutils-linux
+  - dmraid
+  - gdisk
+  - hdparm
+  - lvm2
+  - nfs-common
+  - nfs-kernel-server
+  - nvme-cli
+  - open-iscsi
+  - samba
+  - smartmontools
+  - socat
+
+packages_remove:
+  - apparmor
+  - ufw

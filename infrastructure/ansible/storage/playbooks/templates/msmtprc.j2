@@ -1,0 +1,15 @@
+defaults
+auth off
+tls  off
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile /var/log/msmtp
+
+account        smtp-relay
+host           10.5.0.11
+port           2525
+from           noreply@{{ NET_DOMAIN }}
+tls_starttls   on
+
+account default: smtp-relay
+
+aliases /etc/al iases
