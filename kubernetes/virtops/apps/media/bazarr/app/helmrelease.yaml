@@ -103,7 +103,7 @@ spec:
         memory: 2000Mi
     sidecars:
       subcleaner:
-        image: registry.k8s.io/git-sync/git-sync:v3.6.7@sha256:28b54badbcff1c7af7092b00acf8f949d1a4460e2b463a207ae02ce2f7c26002
+        image: registry.k8s.io/git-sync/git-sync:v3.6.8@sha256:f7e322a5a55398f26fd5e335687fee5193c48c35f54bc5183d281d9ed0402a34
         imagePullPolicy: IfNotPresent
         args:
           - --repo=https://github.com/KBlixt/subcleaner.git
