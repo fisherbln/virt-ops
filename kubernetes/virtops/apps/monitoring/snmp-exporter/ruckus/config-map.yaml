@@ -12,7 +12,6 @@ data:
         security_level: noAuthNoPriv
         auth_protocol: MD5
         priv_protocol: DES
-        version: 2
       retries: 5
       timeout: 60s
       version: 2
