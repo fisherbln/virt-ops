@@ -44,16 +44,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifType
         oid: 1.3.6.1.2.1.2.2.1.3
         type: EnumAsInfo
@@ -66,16 +56,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
         enum_values:
           1: other
@@ -391,16 +371,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifSpeed
         oid: 1.3.6.1.2.1.2.2.1.5
         type: gauge
@@ -415,16 +385,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifPhysAddress
         oid: 1.3.6.1.2.1.2.2.1.6
         type: PhysAddress48
@@ -438,16 +398,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifAdminStatus
         oid: 1.3.6.1.2.1.2.2.1.7
         type: gauge
@@ -460,16 +410,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
         enum_values:
           1: up
@@ -487,16 +427,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
         enum_values:
           1: up
@@ -520,16 +450,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifInOctets
         oid: 1.3.6.1.2.1.2.2.1.10
         type: counter
@@ -543,16 +463,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifInUcastPkts
         oid: 1.3.6.1.2.1.2.2.1.11
@@ -569,16 +479,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifInNUcastPkts
         oid: 1.3.6.1.2.1.2.2.1.12
         type: counter
@@ -593,16 +493,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifInDiscards
         oid: 1.3.6.1.2.1.2.2.1.13
@@ -619,16 +509,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifInErrors
         oid: 1.3.6.1.2.1.2.2.1.14
         type: counter
@@ -643,16 +523,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifInUnknownProtos
         oid: 1.3.6.1.2.1.2.2.1.15
@@ -669,16 +539,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifOutOctets
         oid: 1.3.6.1.2.1.2.2.1.16
         type: counter
@@ -692,16 +552,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifOutUcastPkts
         oid: 1.3.6.1.2.1.2.2.1.17
@@ -718,16 +568,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifOutNUcastPkts
         oid: 1.3.6.1.2.1.2.2.1.18
         type: counter
@@ -743,16 +583,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifOutDiscards
         oid: 1.3.6.1.2.1.2.2.1.19
         type: counter
@@ -766,16 +596,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifOutErrors
         oid: 1.3.6.1.2.1.2.2.1.20
@@ -791,16 +611,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifOutQLen
         oid: 1.3.6.1.2.1.2.2.1.21
         type: gauge
@@ -813,16 +623,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifSpecific
         oid: 1.3.6.1.2.1.2.2.1.22
@@ -838,16 +638,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifInMulticastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.2
         type: counter
@@ -862,16 +652,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifInBroadcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.3
         type: counter
@@ -885,16 +665,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifOutMulticastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.4
@@ -911,16 +681,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifOutBroadcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.5
         type: counter
@@ -936,16 +696,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifHCInOctets
         oid: 1.3.6.1.2.1.31.1.1.1.6
         type: counter
@@ -959,16 +709,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifHCInUcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.7
@@ -985,16 +725,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifHCInMulticastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.8
         type: counter
@@ -1008,16 +738,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifHCInBroadcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.9
@@ -1033,16 +753,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifHCOutOctets
         oid: 1.3.6.1.2.1.31.1.1.1.10
         type: counter
@@ -1056,16 +766,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifHCOutUcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.11
@@ -1082,16 +782,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifHCOutMulticastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.12
         type: counter
@@ -1106,16 +796,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
       - name: ifHCOutBroadcastPkts
         oid: 1.3.6.1.2.1.31.1.1.1.13
@@ -1132,16 +812,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifLinkUpDownTrapEnable
         oid: 1.3.6.1.2.1.31.1.1.1.14
         type: gauge
@@ -1155,16 +825,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
         enum_values:
           1: enabled
@@ -1183,16 +843,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ifPromiscuousMode
         oid: 1.3.6.1.2.1.31.1.1.1.16
         type: gauge
@@ -1206,16 +856,6 @@ data:
           - ifIndex
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
           type: DisplayString
         enum_values:
           1: "true"
@@ -1234,16 +874,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
         enum_values:
           1: "true"
           2: "false"
@@ -1261,16 +891,6 @@ data:
           labelname: ifAlias
           oid: 1.3.6.1.2.1.31.1.1.1.18
           type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-        - labels:
-          - ifIndex
-          labelname: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
       - name: ruckusUnleashedSystemName
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.1
         type: DisplayString
@@ -1281,7 +901,7 @@ data:
         help: IP Address - 1.3.6.1.4.1.25053.1.15.1.1.1.1.2
       - name: ruckusUnleashedSystemMacAddr
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.3
-        type: PhysAddress48
+        type: OctetString
         help: MAC Address - 1.3.6.1.4.1.25053.1.15.1.1.1.1.3
       - name: ruckusUnleashedSystemUptime
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.8
@@ -1309,7 +929,7 @@ data:
         help: Software version - 1.3.6.1.4.1.25053.1.15.1.1.1.1.18
       - name: ruckusUnleashedSystemCountryCode
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.20
-        type: DisplayString
+        type: OctetString
         help: Specifies the country code - 1.3.6.1.4.1.25053.1.15.1.1.1.1.20
       - name: ruckusUnleashedSystemStatsNumAP
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.1
@@ -1482,7 +1102,7 @@ data:
           type: gauge
       - name: ruckusUnleashedWLANAPEthIfname
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
-        type: DisplayString
+        type: OctetString
         help: The name of interface. - 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
         indexes:
         - labelname: ruckusUnleashedWLANAPMacAddress
@@ -1528,7 +1148,7 @@ data:
           2: half
       - name: ruckusUnleashedWLANAPEthLabel
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-        type: DisplayString
+        type: OctetString
         help: The ap ethernet port label. - 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
         indexes:
         - labelname: ruckusUnleashedWLANAPMacAddress
