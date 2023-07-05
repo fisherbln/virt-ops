@@ -1103,6 +1103,11 @@ data:
           fixed_size: 6
         - labelname: ruckusUnleashedWLANAPEthPortId
           type: gauge
+        lookups:
+        - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
+          labelname:  ruckusUnleashedWLANAPEthIfname
+          oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthIfname
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
         type: OctetString
