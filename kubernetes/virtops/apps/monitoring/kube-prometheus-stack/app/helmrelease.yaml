@@ -292,6 +292,21 @@ spec:
             static_configs:
               - targets: 
                   - "expanse.${NET_DOMAIN}:9633" # nas
+          - job_name: snmp-exporter-ruckus
+            static_configs:
+              - targets: 
+                  - "ruckus.${NET_DOMAIN}"
+            metrics_path: /snmp
+            params:
+              auth: [public_v2]
+              module: [if_mib]
+            relabel_configs:
+              - source_labels: [__address__]
+                target_label: __param_target
+              - source_labels: [__param_target]
+                target_label: instance
+              - target_label: __address__
+                replacement: "snmp-exporter-ruckus.monitoring.svc.cluster.local:9116" # ruckus
 
         enableAdminAPI: true
         walCompression: true
