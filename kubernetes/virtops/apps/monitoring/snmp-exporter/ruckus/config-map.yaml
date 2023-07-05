@@ -904,7 +904,7 @@ data:
         help: IP Address - 1.3.6.1.4.1.25053.1.15.1.1.1.1.2
       - name: ruckusUnleashedSystemMacAddr
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.3
-        type: OctetString
+        type: PhysAddress48
         help: MAC Address - 1.3.6.1.4.1.25053.1.15.1.1.1.1.3
       - name: ruckusUnleashedSystemUptime
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.8
@@ -932,7 +932,7 @@ data:
         help: Software version - 1.3.6.1.4.1.25053.1.15.1.1.1.1.18
       - name: ruckusUnleashedSystemCountryCode
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.1.20
-        type: OctetString
+        type: DisplayString
         help: Specifies the country code - 1.3.6.1.4.1.25053.1.15.1.1.1.1.20
       - name: ruckusUnleashedSystemStatsNumAP
         oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.1
@@ -1097,7 +1097,7 @@ data:
         - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
           labelname:   ruckusUnleashedWLANAPEthLabel
           oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-          type: OctetString
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthPortId
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.2
         type: gauge
@@ -1115,7 +1115,7 @@ data:
           type: OctetString
       - name: ruckusUnleashedWLANAPEthIfname
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
-        type: OctetString
+        type: DisplayString
         help: The name of interface. - 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
         indexes:
         - labelname: ruckusUnleashedWLANAPMacAddress
