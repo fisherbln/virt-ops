@@ -1112,7 +1112,7 @@ data:
         - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
           labelname:   ruckusUnleashedWLANAPEthLabel
           oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-          type: OctetString
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthIfname
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.5
         type: DisplayString
@@ -1140,7 +1140,7 @@ data:
         - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
           labelname:   ruckusUnleashedWLANAPEthLabel
           oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-          type: OctetString
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthPhyIfSpeed
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.9
         type: gauge
@@ -1155,7 +1155,7 @@ data:
         - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
           labelname:   ruckusUnleashedWLANAPEthLabel
           oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-          type: OctetString
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthPhyLinkStatus
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.10
         type: gauge
@@ -1173,7 +1173,7 @@ data:
         - labels: [ruckusUnleashedWLANAPMacAddress, ruckusUnleashedWLANAPEthPortId]
           labelname:   ruckusUnleashedWLANAPEthLabel
           oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
-          type: OctetString
+          type: DisplayString
       - name: ruckusUnleashedWLANAPEthLabel
         oid: 1.3.6.1.4.1.25053.1.15.2.1.1.2.8.1.11
         type: OctetString
