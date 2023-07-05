@@ -34,7 +34,7 @@ spec:
     fullnameOverride: *app
     image:
       repository: influxdb
-      tag: 2.7.1
+      tag: 2.7.1@sha256:fb17637a4bbe5a3367e080bc4a6ff44a40fcb39c85be7c879c1821fdd436ab1f
 
     pdb:
       create: false
