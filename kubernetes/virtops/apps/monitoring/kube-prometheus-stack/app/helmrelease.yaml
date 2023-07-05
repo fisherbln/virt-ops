@@ -298,11 +298,10 @@ spec:
             params:
               #auth: [public_v2]
               #module: [ruckus]
-              module: [if_mib]
+              module: [ruckus]
             static_configs:
               - targets: 
-                  #- "ruckus.${NET_DOMAIN}"
-                  - 10.28.1.4
+                  - "ruckus.${NET_DOMAIN}"
             relabel_configs:
               - source_labels: [__address__]
                 target_label: __param_target
