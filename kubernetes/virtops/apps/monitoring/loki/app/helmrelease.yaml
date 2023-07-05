@@ -201,8 +201,6 @@ spec:
       extraVolumes:
         - name: rules
           emptyDir: {}
-        #  configMap:
-        #    name: loki-alerting-rules
         - name: scratch
           emptyDir: {}
           
