@@ -37,6 +37,7 @@ spec:
       GROCY_AUTH_CLASS: Grocy\Middleware\ReverseProxyAuthMiddleware
       PUID: "1000"
       PGID: "1000"
+      # See here for env vars: https://github.com/grocy/grocy/blob/master/config-dist.php
 
     service:
       main:
