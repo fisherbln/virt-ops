@@ -7,6 +7,11 @@ metadata:
 data:
   snmp.yaml: |
     ruckus:
+      auth:
+        community: public
+        security_level: noAuthNoPriv
+        auth_protocol: MD5
+        priv_protocol: DES
       retries: 5
       timeout: 60s
       version: 2
