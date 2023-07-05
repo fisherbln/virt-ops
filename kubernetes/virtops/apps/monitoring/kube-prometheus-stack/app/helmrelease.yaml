@@ -293,13 +293,16 @@ spec:
               - targets: 
                   - "expanse.${NET_DOMAIN}:9633" # nas
           - job_name: snmp-exporter-ruckus
+            metrics_path: /snmp
+            
+            params:
+              #auth: [public_v2]
+              #module: [ruckus]
+              module: [if_mib]
             static_configs:
               - targets: 
-                  - "ruckus.${NET_DOMAIN}"
-            metrics_path: /snmp
-            params:
-              auth: [public_v2]
-              module: [ruckus]
+                  #- "ruckus.${NET_DOMAIN}"
+                  - 10.28.1.4
             relabel_configs:
               - source_labels: [__address__]
                 target_label: __param_target
