@@ -195,7 +195,7 @@ spec:
         storageClass: ceph-block
       extraVolumeMounts:
         - name: rules
-          mountPath: /rules/fake
+          mountPath: /rules
         - name: scratch
           mountPath: /tmp/scratch
       extraVolumes:
