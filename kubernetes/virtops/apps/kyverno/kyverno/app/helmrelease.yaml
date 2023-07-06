@@ -45,7 +45,7 @@ spec:
     backgroundController:
       serviceMonitor:
         enabled: true
-        interval: 1m
+
       rbac:
         clusterRole:
           extraResources:
@@ -53,6 +53,10 @@ spec:
                 - ""
               resources:
                 - pods
+              verbs:
+                - create
+                - update
+                - delete
 
     cleanupController:
       serviceMonitor:
