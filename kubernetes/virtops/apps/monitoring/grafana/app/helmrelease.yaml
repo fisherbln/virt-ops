@@ -56,6 +56,24 @@ spec:
       GF_SECURITY_ALLOW_EMBEDDING: true
       GF_SECURITY_COOKIE_SAMESITE: grafana
       GF_SERVER_ROOT_URL: https://grafana.${ORG_DOMAIN}
+      #GF_DATABASE_USER:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-grafana-user
+      #      key: LOGIN
+      #GF_DATABASE_PASSWORD:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-grafana-user
+      #      key: PASSWORD
+      #GF_DATABASE_HOST: "postgres.database.svc.cluster.local"
+      #GF_DATABASE_NAME:
+      #  valueFrom:
+      #    secretKeyRef:
+      #      name: database-grafana-user
+      #      key: DATABASE_NAME
+      GF_DATABASE_SSL_MODE: disable
+      GF_DATABASE_TYPE: postgres
     envFromSecrets:
       - name: grafana-secret
     grafana.ini:
@@ -63,7 +81,6 @@ spec:
         signout_redirect_url: https://auth.${ORG_DOMAIN}/logout
         oauth_auto_login: false
         oauth_allow_insecure_email_lookup: true
-
       auth.generic_oauth:
         enabled: true
         name: Authelia
