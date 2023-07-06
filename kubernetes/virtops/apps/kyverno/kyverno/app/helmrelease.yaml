@@ -86,13 +86,6 @@ spec:
         enabled: true
         interval: 1m
         
-    #resources:
-    #  requests:
-    #    cpu: 247m
-    #    memory: 443M
-    #  limits:
-    #    memory: 1336M
-
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
