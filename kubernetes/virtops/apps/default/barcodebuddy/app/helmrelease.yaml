@@ -29,7 +29,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: f0rc3/barcodebuddy
-      tag: v1.8.1.5
+      tag: v1.8.1.6@sha256:94ad15dc4ce57f64762a3ae7a85c5bb4bd9f5fc28448f0859fdf90063bdaaa0d
     env:
       TZ: "${TIMEZONE}"
       PUID: "1000"
