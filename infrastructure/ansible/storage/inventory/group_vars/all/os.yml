@@ -11,6 +11,10 @@ create_group:
   id: 568
   name: brian_k8s
 
+create_group_media:
+  id: 1500
+  name: media
+
 os_smtp_account_name: mailgun
 os_smtp_port: 587
 os_timezone: "America/Chicago"
@@ -25,7 +29,7 @@ packages_install:
   - ca-certificates
   - containernetworking-plugins
   - curl
-  - ffmpeg
+  #- ffmpeg
   - figlet
   - fish
   - fzf
@@ -36,9 +40,8 @@ packages_install:
   - iputils-ping
   - net-tools
   - lolcat
-  - msmtp
-  - msmtp-mta
-  - nano
+  #- msmtp
+  #- msmtp-mta
   - neofetch
   - neovim
   - ntpdate

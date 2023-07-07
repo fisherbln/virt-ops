@@ -38,6 +38,11 @@
             gid: "{{ create_group.id }}"
             name: "{{ create_group.name }}"
             state: present
+        - name: User | Create media group
+          ansible.builtin.group:
+            gid: "{{ create_group_media.id }}"
+            name: "{{ create_group_media.name }}"
+            state: present
         - name: User | Create user
           ansible.builtin.user:
             uid: "{{ create_user.id }}"
@@ -126,24 +131,24 @@
             src: aliases.j2
             dest: /etc/aliases
             mode: 0644
-        - name: Notifications | Copy /etc/msmtprc
-          notify: Restart msmtpd
-          ansible.builtin.template:
-            src: msmtprc.j2
-            dest: /etc/msmtprc
-            mode: 0644
-        - name: Notifications | Copy /etc/smartd.conf
-          notify: Restart smartd
-          ansible.builtin.template:
-            src: smartd.conf.j2
-            dest: /etc/smartd.conf
-            mode: 0644
-        - name: Notifications | Copy /etc/zfs/zed.d/zed.rc
-          notify: Restart zed
-          ansible.builtin.template:
-            src: zed.rc.j2
-            dest: /etc/zfs/zed.d/zed.rc
-            mode: 0644
+        #- name: Notifications | Copy /etc/msmtprc
+        #  notify: Restart msmtpd
+        #  ansible.builtin.template:
+        #    src: msmtprc.j2
+        #    dest: /etc/msmtprc
+        #    mode: 0644
+        #- name: Notifications | Copy /etc/smartd.conf
+        #  notify: Restart smartd
+        #  ansible.builtin.template:
+        #    src: smartd.conf.j2
+        #    dest: /etc/smartd.conf
+        #    mode: 0644
+        #- name: Notifications | Copy /etc/zfs/zed.d/zed.rc
+        #  notify: Restart zed
+        #  ansible.builtin.template:
+        #    src: zed.rc.j2
+        #    dest: /etc/zfs/zed.d/zed.rc
+        #    mode: 0644
         - name: Notifications | Copy /etc/exports
           notify: Restart nfs-kernel-server
           ansible.builtin.template:
@@ -189,11 +194,11 @@
       ansible.builtin.reboot:
         msg: Rebooting nodes
         reboot_timeout: 3600
-    - name: Restart msmtpd
-      ansible.builtin.service:
-        name: msmtpd.service
-        enabled: true
-        state: restarted
+    #- name: Restart msmtpd
+    #  ansible.builtin.service:
+    #    name: msmtpd.service
+    #    enabled: true
+    #    state: restarted
     - name: Restart smartd
       ansible.builtin.service:
         name: smartd.service
