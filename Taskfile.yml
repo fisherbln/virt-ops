@@ -6,6 +6,7 @@ vars:
     sh: "git rev-parse --show-toplevel"
   CLUSTER_DIR: "{{.ROOT_DIR}}/kubernetes/virtops"
   PROVISION_DIR: "{{.ROOT_DIR}}/infrastructure"
+  ANSIBLE_DIR: "{{.ROOT_DIR}}/infrastructure/ansible"
   TERRAFORM_DIR: "{{.PROJECT_DIR}}/infrastructure/terraform"
   TALOS_DIR: "{{.PROJECT_DIR}}/infrastructure/talos/virtops"
   TALOS_PRIMARY_NODE: "10.28.28.71"
@@ -26,6 +27,7 @@ includes:
   ku: .taskfiles/Kubernetes/Tasks.yml
   vs: .taskfiles/VolSync/Tasks.yml
   ta: .taskfiles/Talos/Tasks.yml
+  an: .taskfiles/Ansible/Tasks.yml
 
 tasks:
 

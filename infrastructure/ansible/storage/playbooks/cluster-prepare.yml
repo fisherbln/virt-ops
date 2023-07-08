@@ -67,19 +67,19 @@
             state: touch
             owner: "{{ create_user.name }}"
             mode: "0775"
-    - name: Network
-      block:
-        - name: Network | Set hostname to inventory hostname
-          ansible.builtin.hostname:
-            name: "{{ inventory_hostname }}"
-        - name: Network | Update /etc/hosts to include hostname
-          ansible.builtin.blockinfile:
-            path: /etc/hosts
-            mode: 0644
-            create: true
-            block: |
-              127.0.0.1 localhost
-              127.0.1.1 {{ inventory_hostname }}
+    #- name: Network
+    #  block:
+    #    - name: Network | Set hostname to inventory hostname
+    #      ansible.builtin.hostname:
+    #        name: "{{ inventory_hostname }}"
+    #    - name: Network | Update /etc/hosts to include hostname
+    #      ansible.builtin.blockinfile:
+    #        path: /etc/hosts
+    #        mode: 0644
+    #        create: true
+    #        block: |
+    #          127.0.0.1 localhost
+    #          127.0.1.1 {{ inventory_hostname }}
     - name: NFS
       block:
         - name: NFS | Update configuration
@@ -125,12 +125,12 @@
             - grub_status.changed
     - name: Notifications
       block:
-        - name: Notifications | Copy /etc/aliases
-          notify: Restart msmtpd
-          ansible.builtin.template:
-            src: aliases.j2
-            dest: /etc/aliases
-            mode: 0644
+        #- name: Notifications | Copy /etc/aliases
+        #  notify: Restart msmtpd
+        #  ansible.builtin.template:
+        #    src: aliases.j2
+        #    dest: /etc/aliases
+        #    mode: 0644
         #- name: Notifications | Copy /etc/msmtprc
         #  notify: Restart msmtpd
         #  ansible.builtin.template:
@@ -158,8 +158,8 @@
         - name: Notifications | Copy /etc/exports
           notify: Restart nfs-kernel-server
           ansible.builtin.template:
-            src: local.exports
-            dest: /etc/exports/local.exports
+            src: local.exports.j2
+            dest: /etc/exports.d/local.exports
             mode: 0644
         - name: Restart nfs-kernel-server.service
           ansible.builtin.systemd:
