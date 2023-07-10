@@ -31,9 +31,9 @@ spec:
     env:
       TZ: "${TIMEZONE}"
       LD_DISABLE_URL_VALIDATION: false
-      #LD_ENABLE_AUTH_PROXY: true
-      #LD_AUTH_PROXY_USERNAME_HEADER: HTTP_REMOTE_USER
-      #LD_AUTH_PROXY_LOGOUT_URL: "https://auth.${SECRET_DOMAIN}/logout"
+      LD_ENABLE_AUTH_PROXY: true
+      LD_AUTH_PROXY_USERNAME_HEADER: HTTP_REMOTE_USER
+      LD_AUTH_PROXY_LOGOUT_URL: "https://auth.${ORG_DOMAIN}/logout"
       LD_CSRF_TRUSTED_ORIGINS: "https://link.${ORG_DOMAIN}"
       LD_DB_ENGINE: postgres
       LD_DB_DATABASE:
