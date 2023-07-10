@@ -30,8 +30,8 @@ spec:
     # https://github.com/sissbruecker/linkding/blob/master/docs/Options.md
     env:
       TZ: "${TIMEZONE}"
-      LD_DISABLE_URL_VALIDATION: False
-      LD_ENABLE_AUTH_PROXY: True
+      LD_DISABLE_URL_VALIDATION: "False"
+      LD_ENABLE_AUTH_PROXY: "True"
       LD_AUTH_PROXY_USERNAME_HEADER: HTTP_REMOTE_USER
       LD_AUTH_PROXY_LOGOUT_URL: "https://auth.${ORG_DOMAIN}/logout"
       LD_CSRF_TRUSTED_ORIGINS: "https://link.${ORG_DOMAIN}"
