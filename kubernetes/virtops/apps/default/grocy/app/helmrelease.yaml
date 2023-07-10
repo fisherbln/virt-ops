@@ -40,10 +40,13 @@ spec:
       # See here for env vars: https://github.com/grocy/grocy/blob/master/config-dist.php
       GROCY_LDAP_ADDRESS: ldap://lldap.auth.svc.cluster.local:389
       GROCY_LDAP_BASE_DN: dc=home,dc=arpa
-      #GROCY_LDAP_BIND_DN: 
+      GROCY_LDAP_BIND_DN: uid=admin,ou=people,dc=home,dc=arpa
       #GROCY_LDAP_BIND_PW:
       GROCY_LDAP_USER_FILTER: "(OU=grocy_users)"
       GROCY_LDAP_UID_ATTR: uid
+    envFrom:
+      - secretRef:
+          name: "grocy-secret"
 
     service:
       main:

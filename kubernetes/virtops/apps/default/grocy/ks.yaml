@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
+    - name: cluster-apps-lldap
   path: ./kubernetes/virtops/apps/default/grocy/app
   prune: true
   sourceRef:
