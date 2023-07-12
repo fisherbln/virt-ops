@@ -1,0 +1,19 @@
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: Postgres
+metadata:
+  name: bazarr-db
+  namespace: media
+spec:
+  database: bazarr
+---
+apiVersion: db.movetokube.com/v1alpha1
+kind: PostgresUser
+metadata:
+  name: bazarr-user
+  namespace: media
+spec:
+  role: bazarr
+  database: bazarr-db
+  secretName: database
+  privileges: OWNER
