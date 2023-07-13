@@ -28,12 +28,6 @@ spec:
     keepHistory: false
   values:
     initContainers:
-      #01-init-db:
-      #  image: ghcr.io/onedr0p/postgres-init:14.8
-      #  imagePullPolicy: IfNotPresent
-      #  envFrom: &envFrom
-      #    - secretRef:
-      #        name: gatus-secret
       02-config-sync:
         image: ghcr.io/kiwigrid/k8s-sidecar:1.24.6
         imagePullPolicy: IfNotPresent
@@ -56,7 +50,11 @@ spec:
       TZ: ${TIMEZONE}
       GATUS_CONFIG_PATH: /config
       CUSTOM_WEB_PORT: &port 80
-    envFrom: *envFrom
+    envFrom: 
+      - secretRef:
+          name: gatus-secret
+      - secretRef:
+          name: database-gatus-user
     service:
       main:
         ports:
