@@ -17,18 +17,20 @@ spec:
         name: prometheus-community
         namespace: flux-system
       interval: 30m
-  install:
-    createNamespace: true
-    crds: CreateReplace
-    remediation: # perform remediation when helm install fails
-      retries: 5
-  upgrade:
-    crds: CreateReplace
-    remediation: # perform remediation when helm install fails
-      retries: 5
-      remediateLastFailure: true # remediate the last failure, when no retries remain
-    cleanupOnFail: true
+  #install:
+  #  createNamespace: true
+  #  crds: CreateReplace
+  #  remediation: # perform remediation when helm install fails
+  #    retries: 5
+  #upgrade:
+  #  crds: CreateReplace
+  #  remediation: # perform remediation when helm install fails
+  #    retries: 5
+  #    remediateLastFailure: true # remediate the last failure, when no retries remain
+  #  cleanupOnFail: true
   values:
+    crds:
+      enabled: true
     cleanPrometheusOperatorObjectNames: true
     ###
     ### Component values
