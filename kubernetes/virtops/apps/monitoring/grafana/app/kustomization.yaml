@@ -6,8 +6,5 @@ namespace: monitoring
 resources:
   - ./database.yaml
   - ./externalsecret.yaml
+  - ./gatus.yaml
   - ./helmrelease.yaml
-labels:
-  - pairs:
-      app.kubernetes.io/name: grafana
-      app.kubernetes.io/instance: grafana
