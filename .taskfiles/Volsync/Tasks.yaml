@@ -3,11 +3,18 @@ version: "3"
 
 x-task-vars: &task-vars
   rsrc: '{{.rsrc}}'
+  RSRC: "{{.rsrc}}"
   controller: '{{.controller}}'
+  CONTROLLER: "{{.controller}}"
   namespace: '{{.namespace}}'
+  NAMESPACE: "{{.namespace}}"
   claim: '{{.claim}}'
+  CLAIM: "{{.claim}}"
   ts: '{{.ts}}'
+  TS: "{{.ts}}"
   kustomization: '{{.kustomization}}'
+  KUSTOMIZATION: "{{.kustomization}}"
+  PREVIOUS: "{{.previous}}"
 
 vars:
   destinationTemplate: "{{.PROJECT_DIR}}/.taskfiles/Volsync/ReplicationDestination.tmpl.yaml"

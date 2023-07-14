@@ -1,0 +1,4 @@
+.vscode
+**/*.sops.*
+archive/
+**/.terraform/*

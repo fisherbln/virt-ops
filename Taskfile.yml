@@ -21,16 +21,24 @@ env:
   KUBECONFIG: ./infrastructure/talos/virtops/kubeconfig
 
 includes:
-  cl: .taskfiles/Cluster/Tasks.yml
-  es: .taskfiles/ExternalSecrets/Tasks.yml
-  fx: .taskfiles/Flux/Tasks.yml
-  ku: .taskfiles/Kubernetes/Tasks.yml
-  vs: .taskfiles/VolSync/Tasks.yml
-  ta: .taskfiles/Talos/Tasks.yml
-  an: .taskfiles/Ansible/Tasks.yml
+  an: .taskfiles/Ansible/Tasks.yaml
+  cl: .taskfiles/Cluster/Tasks.yaml
+  es: .taskfiles/ExternalSecrets/Tasks.yaml
+  fx: .taskfiles/Flux/Tasks.yaml
+  ku: .taskfiles/Kubernetes/Tasks.yaml
+  ta: .taskfiles/Talos/Tasks.yaml
+  vs: .taskfiles/VolSync/Tasks.yaml
+
+
 
 tasks:
 
   default:
     silent: true
     cmds: ["task -l"]
+
+  secrets:
+    desc: Encode config and secrets
+    cmds:
+      - |
+        infrastructure/setup/build-config.sh
