@@ -37,7 +37,7 @@ spec:
         secret.reloader.stakater.com/reload: &secret immich-secret
     image:
       repository: ghcr.io/immich-app/immich-web
-      tag: v1.66.1@sha256:61611ce73dc2c9d47005cb7a033ac5fb0a558991e24ba51dd7630bb51915fba6
+      tag: v1.67.0@sha256:3a81bc52be6aa076c580c7ddc2ff42a263a6ac8872b5a9722ff32391f507078b
     command: /bin/sh
     args:
       - ./entrypoint.sh
