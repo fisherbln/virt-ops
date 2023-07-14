@@ -37,7 +37,7 @@ spec:
         secret.reloader.stakater.com/reload: &secret immich-secret
     image:
       repository: ghcr.io/immich-app/immich-machine-learning
-      tag: v1.67.0@sha256:b13099d00b4f36715d1489e79022474b7d4176c7cce45b5b371bc13877a61bde
+      tag: v1.67.1@sha256:dc687c5f2778acc274527e4cd64aa0cedb557d8364628d3ecbac961b330570ad
     env:
       DB_HOSTNAME:
         valueFrom:
