@@ -50,6 +50,7 @@ spec:
       TZ: ${TIMEZONE}
       GATUS_CONFIG_PATH: /config
       CUSTOM_WEB_PORT: &port 80
+      ORG_DOMAIN: ${ORG_DOMAIN}
     envFrom: 
       - secretRef:
           name: gatus-secret

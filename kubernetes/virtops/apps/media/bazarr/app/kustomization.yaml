@@ -5,10 +5,6 @@ kind: Kustomization
 namespace: media
 resources:
   - ./database.yaml
-  - ./externalsecret.yaml
   - ./helmrelease.yaml
-  - ./volsync.yaml
-labels:
-  - pairs:
-      app.kubernetes.io/name: bazarr
-      app.kubernetes.io/instance: bazarr
+  #- ./volsync.yaml
+
