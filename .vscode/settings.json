@@ -1,0 +1,38 @@
+{
+    "files.associations": {
+        "*.json5": "jsonc",
+        "**/terraform/**/*.tf": "terraform",
+        "**/kubernetes/**/*.sops.toml": "plaintext"
+    },
+    "material-icon-theme.folders.associations": {
+        ".taskfiles": "utils",
+        "dbms": "database",
+        "dev": "less",
+        "flux-system": "kubernetes",
+        "kopia": "server",
+        "kube-system": "kubernetes",
+        "media": "video",
+        "monitoring": "event",
+        "networking": "connection",
+        "outline": "docs",
+        "security": "keys",
+        "self-hosted": "app",
+        "setup": "import",
+        "hack": "scripts",
+        "config": "environment"
+        },
+    "prettier.configPath": ".github/linters/prettier/.prettierrc.yaml",
+    "prettier.ignorePath": ".github/linters/prettier/.prettierignore",
+    "yaml.schemas": {
+        "https://json.schemastore.org/taskfile.json": [
+            "Taskfile.yml",
+            ".taskfiles/*.yml"
+        ],
+        "Kubernetes": "kubernetes/*.yaml",
+        "https://json.schemastore.org/kustomization.json": "file:///Users/scotte/Development/k8s-homelab/kubernetes/apps/tekton/tasks/kustomization.yaml"
+    },
+    "yaml.customTags": [
+        "!env_var"
+    ],
+    "explorer.autoReveal": false
+}
