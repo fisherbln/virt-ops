@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
-  #- ./networkattachmentdefinition.yaml
   - ./externalsecret.yaml
   - ./volsync.yaml
 commonLabels:
