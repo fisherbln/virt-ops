@@ -118,8 +118,10 @@ GitRepository :: home-ops-kubernetes
 | Management VLAN                               | `10.28.10.0/24`  |
 | Kubernetes Nodes VLAN                         | `10.28.28.0/24` |
 | Kubernetes external services (Cilium w/ BGP)  | `10.45.0.0/24` |
-| Kubernetes pods (Cilium w/ BGP)               | `172.17.0.0/16`    |
-| Kubernetes services (Cilium w/ BGP)           | `172.18.0.0/16`    |
+| Kubernetes pods (Cilium w/ BGP)               | `172.22.0.0/16`    |
+| Kubernetes services (Cilium w/ BGP)           | `172.24.0.0/14`    |
+| Storage Cluster CIDR (k3s)               | `172.30.0.0/16`    |
+| Storage Services CIDR (k3s)           | `172.31.0.0/16`    |
 
 - HAProxy is configured on my `VyOS` router for the Kubernetes Control Plane Load Balancer.
 - Cilium is configured with `externalIPs` to expose Kubernetes services with their own IP over BGP which is configured on my router.
