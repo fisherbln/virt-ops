@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/koush/scrypted
-      tag: 18-bullseye-full-v0.12.1
+      tag: 18-jammy-full-v0.39.0
     env:
       TZ: ${TIMEZONE}
     service:
@@ -51,14 +51,12 @@ spec:
         tls:
           - hosts:
               - *host
-    #podSecurityContext:
-    #  runAsUser: 568
-    #  runAsGroup: 568
-    #  fsGroup: 568
-    #  fsGroupChangePolicy: OnRootMismatch
-    #  supplementalGroups: [44, 109]
     persistence:
       cache:
+        enabled: true
+        mountPath: /.cache
+        type: emptyDir
+      cache-npm:
         enabled: true
         mountPath: /.npm
         type: emptyDir
