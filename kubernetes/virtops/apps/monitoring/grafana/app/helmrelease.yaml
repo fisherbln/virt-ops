@@ -27,13 +27,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    #extraInitContainers:
-    #  - name: init-db
-    #    image: ghcr.io/onedr0p/postgres-init:14.8
-    #    imagePullPolicy: IfNotPresent
-    #    envFrom:
-    #      - secretRef:
-    #          name: grafana-secret
     replicas: 3
     rbac:
       pspEnabled: false
@@ -56,22 +49,6 @@ spec:
       GF_SECURITY_ALLOW_EMBEDDING: true
       GF_SECURITY_COOKIE_SAMESITE: grafana
       GF_SERVER_ROOT_URL: https://grafana.${ORG_DOMAIN}
-      #GF_DATABASE_USER:
-      #  valueFrom:
-      #    secretKeyRef:
-      #      name: database-grafana-user
-      #      key: LOGIN
-      #GF_DATABASE_PASSWORD:
-      #  valueFrom:
-      #    secretKeyRef:
-      #      name: database-grafana-user
-      #      key: PASSWORD
-      #GF_DATABASE_HOST: "postgres.database.svc.cluster.local"
-      #GF_DATABASE_NAME:
-      #  valueFrom:
-      #    secretKeyRef:
-      #      name: database-grafana-user
-      #      key: DATABASE_NAME
       GF_DATABASE_SSL_MODE: disable
       GF_DATABASE_TYPE: postgres
     envFromSecrets:
@@ -132,7 +109,6 @@ spec:
             type: prometheus
             access: proxy
             url: http://thanos-query-frontend.monitoring.svc.cluster.local:9090
-            # url: http://thanos-query-frontend.monitoring.svc.cluster.local:10902
             isDefault: true
           - name: Loki
             type: loki
