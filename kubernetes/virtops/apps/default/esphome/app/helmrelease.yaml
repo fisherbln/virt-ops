@@ -63,6 +63,10 @@ spec:
         enabled: true
         type: emptyDir
         mountPath: /config/.esphome
+      esphome-config:
+        enabled: true
+        type: emptyDir
+        mountPath: /esphome-config
       deploy-key:
         enabled: true
         type: secret
@@ -79,6 +83,19 @@ spec:
         memory: 512M
       limits:
         memory: 2048M
+
+    sidecars:
+      subcleaner:
+        image: registry.k8s.io/git-sync/git-sync:v3.6.8@sha256:f7e322a5a55398f26fd5e335687fee5193c48c35f54bc5183d281d9ed0402a34
+        imagePullPolicy: IfNotPresent
+        args:
+          - --repo=https://github.com/fisherbln/esphome-config
+          - --branch=main
+          - --wait=86400 # 1 day
+          - --root=/esphome-config
+        volumeMounts:
+          - { name: esphome-config, mountPath: /esphome-config }
+
 
     volumeClaimTemplates:
       - name: config
