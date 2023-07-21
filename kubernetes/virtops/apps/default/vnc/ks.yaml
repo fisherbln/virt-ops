@@ -8,8 +8,6 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-authelia
-    #- name: cluster-apps-kube-prometheus-stack
   path: ./kubernetes/virtops/apps/default/vnc/app
   prune: true
   sourceRef:
