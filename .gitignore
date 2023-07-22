@@ -24,6 +24,7 @@ Thumbs.db
 
 # Other files
 kubeconfig
+*kubeconfig
 
 # Talos clusterconfigs
 infrastructure/talos/**/clusterconfig

@@ -1,7 +1,7 @@
 ---
 - name: Cluster Prepare
   hosts:
-    - expanse_testing
+    - pbs
   become: true
   gather_facts: true
   any_errors_fatal: true
@@ -80,21 +80,21 @@
             block: |
               127.0.0.1 localhost
               127.0.1.1 {{ inventory_hostname }}
-    - name: NFS
-      block:
-        - name: NFS | Update configuration
-          ansible.builtin.blockinfile:
-            path: /etc/nfs.conf.d/local.conf
-            mode: 0644
-            create: true
-            block: |
-              [nfsd]
-              vers2 = n
-              vers3 = n
-              threads = 16
+    #- name: NFS
+    #  block:
+    #    - name: NFS | Update configuration
+    #      ansible.builtin.blockinfile:
+    #        path: /etc/nfs.conf.d/local.conf
+    #        mode: 0644
+    #        create: true
+    #        block: |
+    #          [nfsd]
+    #          vers2 = n
+    #          vers3 = n
+    #          threads = 16
 
-              [mountd]
-              manage-gids = 1
+    #          [mountd]
+    #          manage-gids = 1
     - name: File System
       block:
         - name: File System | Disable swap
@@ -149,23 +149,23 @@
         #    src: zed.rc.j2
         #    dest: /etc/zfs/zed.d/zed.rc
         #    mode: 0644
-        - name: Notifications | Copy /etc/exports
-          notify: Restart nfs-kernel-server
-          ansible.builtin.template:
-            src: exports.j2
-            dest: /etc/exports
-            mode: 0644
-        - name: Notifications | Copy /etc/exports
-          notify: Restart nfs-kernel-server
-          ansible.builtin.template:
-            src: local.exports
-            dest: /etc/exports/local.exports
-            mode: 0644
-        - name: Restart nfs-kernel-server.service
-          ansible.builtin.systemd:
-            daemon_reload: yes
-            state: started
-            name: nfs-kernel-server.service
+        #- name: Notifications | Copy /etc/exports
+        #  notify: Restart nfs-kernel-server
+        #  ansible.builtin.template:
+        #    src: exports.j2
+        #    dest: /etc/exports
+        #    mode: 0644
+        #- name: Notifications | Copy /etc/exports
+        #  notify: Restart nfs-kernel-server
+        #  ansible.builtin.template:
+        #    src: local.exports
+        #    dest: /etc/exports/local.exports
+        #    mode: 0644
+        #- name: Restart nfs-kernel-server.service
+        #  ansible.builtin.systemd:
+        #    daemon_reload: yes
+        #    state: started
+        #    name: nfs-kernel-server.service
 
         - name: Re-export the share
           command: exportfs -rav

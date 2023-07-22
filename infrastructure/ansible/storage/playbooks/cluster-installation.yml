@@ -1,7 +1,8 @@
 ---
 - name: Cluster Installation
   hosts:
-    - storage
+    # storage
+    - pbs
   become: true
   gather_facts: true
   any_errors_fatal: true
@@ -20,7 +21,8 @@
     - name: Copy kubeconfig to provision folder
       ansible.builtin.fetch:
         src: "/etc/rancher/k3s/k3s.yaml"
-        dest: "{{ playbook_dir }}/../../../ansible/storage/kubeconfig"
+        #dest: "{{ playbook_dir }}/../../../ansible/storage/kubeconfig"
+        dest: "{{ playbook_dir }}/../../../ansible/storage/pbskubeconfig"
         flat: true
       when:
         - k3s_control_node is defined
@@ -30,6 +32,7 @@
       delegate_to: localhost
       become: false
       ansible.builtin.replace:
-        dest: "{{ playbook_dir }}/../../../ansible/storage/kubeconfig"
+        #dest: "{{ playbook_dir }}/../../../ansible/storage/kubeconfig"
+        dest: "{{ playbook_dir }}/../../../ansible/storage/pbskubeconfig"
         regexp: "https://127.0.0.1:6443"
         replace: "https://{{ k3s_registration_address }}:6443"

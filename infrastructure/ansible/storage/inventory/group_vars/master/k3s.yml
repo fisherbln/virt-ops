@@ -7,13 +7,17 @@ k3s_registration_address: 10.28.1.81
 k3s_control_node: true
 k3s_server:
   node-ip: "{{ ansible_host }}"
-  flannel-iface: enp2s0
+  #flannel-iface: enp2s0
+  flannel-iface: enp1s0f0
   tls-san:
     - "{{ k3s_registration_address }}"
     - expanse.{{ NET_DOMAIN }}
   docker: false
   disable-network-policy: true
   disable-cloud-controller: true
-  cluster-cidr: "172.30.0.0/16"
-  service-cidr: "172.31.0.0/16"
+  #cluster-cidr: "172.30.0.0/16"
+  #service-cidr: "172.31.0.0/16"
+  # pbs range:
+  cluster-cidr: "172.17.0.0/16"
+  service-cidr: "172.18.0.0/16"
   write-kubeconfig-mode: "0644"
