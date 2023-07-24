@@ -9,7 +9,7 @@ metadata:
 data:
   config.yaml: |
     endpoints:
-      - name: grafana
+      - name: outline
         group: external
         url: https://outline.${ORG_DOMAIN}
         interval: 1m
