@@ -8,7 +8,7 @@ k3s_control_node: true
 k3s_server:
   node-ip: "{{ ansible_host }}"
   #flannel-iface: enp2s0
-  flannel-iface: enp2s0f0
+  flannel-iface: enp1s0f0
   tls-san:
     - "{{ k3s_registration_address }}"
     - expanse.{{ NET_DOMAIN }}
