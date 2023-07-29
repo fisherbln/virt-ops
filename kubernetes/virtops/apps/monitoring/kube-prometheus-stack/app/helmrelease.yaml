@@ -18,7 +18,6 @@ spec:
         namespace: flux-system
       interval: 30m
   install:
-    createNamespace: true
     remediation: # perform remediation when helm install fails
       retries: 3
   upgrade:
