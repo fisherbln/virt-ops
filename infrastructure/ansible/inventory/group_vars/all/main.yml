@@ -7,3 +7,5 @@ ssh_authorized_keys:
 
 vector_aggregator_addr: "10.45.0.2"
 vector_aggregator_port: "6000"
+
+node_exporter_version: 1.5.0
