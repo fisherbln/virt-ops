@@ -2,10 +2,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: net-wildcard-certificate
+  name: ${NET_DOMAIN}
   namespace: networking
 spec:
-  secretName: net-wildcard-tls
+  #secretName: net-wildcard-tls
+  secretName: ${NET_DOMAIN}-tls
   issuerRef:
     #name: letsencrypt-staging
     name: letsencrypt-production

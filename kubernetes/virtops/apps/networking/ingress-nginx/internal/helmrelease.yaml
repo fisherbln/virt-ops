@@ -78,7 +78,7 @@
                 any: true
     
           extraArgs:
-            default-ssl-certificate: "networking/net-wildcard-tls"
+            default-ssl-certificate: "networking/${NET_DOMAIN}-tls"
     
           topologySpreadConstraints:
             - maxSkew: 2
