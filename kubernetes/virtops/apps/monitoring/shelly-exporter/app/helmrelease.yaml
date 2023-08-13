@@ -31,7 +31,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: d1ceward/shellyplug-exporter
-      tag: v1.5.0
+      tag: v1.6.0@sha256:b564b43460827be89c9ad7a064d7092b41fe0442dc6773b7854c5585578eba19
     service:
       main:
         ports:
