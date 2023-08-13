@@ -21,7 +21,7 @@ resource "kubernetes_daemon_set_v1" "smartctl_exporter" {
       spec {
         container {
           name              = "main"
-          image             = "quay.io/prometheuscommunity/smartctl-exporter:v0.9.1"
+          image             = "quay.io/prometheuscommunity/smartctl-exporter:v0.10.0@sha256:fc47a23c756105478fbc66b1bb2f47658cc38df8771d2653482c03584223760a"
           image_pull_policy = "IfNotPresent"
           args = [
             "--smartctl.path=/usr/sbin/smartctl",
