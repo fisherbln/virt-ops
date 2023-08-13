@@ -52,5 +52,5 @@ spec:
           volumes:
             - name: nas-backups
               nfs:
-                server: expanse.${NET_DOMAIN}
+                server: pbs.${NET_DOMAIN}
                 path: /eros/Backup/Databases/postgresql

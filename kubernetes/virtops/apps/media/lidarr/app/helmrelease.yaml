@@ -82,13 +82,13 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: expanse.${NET_DOMAIN}
+        server: pbs.${NET_DOMAIN}
         path: /eros/Media
         mountPath: /media
       downloads:
         enabled: true
         type: nfs
-        server: "expanse.${NET_DOMAIN}"
+        server: "pbs.${NET_DOMAIN}"
         path: /eros/Downloads
         mountPath: /downloads
     resources:

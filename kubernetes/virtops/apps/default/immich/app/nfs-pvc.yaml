@@ -18,7 +18,7 @@ spec:
   accessModes: ["ReadWriteMany"]
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: expanse.${NET_DOMAIN}
+    server: pbs.${NET_DOMAIN}
     path: /eros/Apps/Immich
   # Note: The first two options are strictly for NFSv4.2
   mountOptions: 

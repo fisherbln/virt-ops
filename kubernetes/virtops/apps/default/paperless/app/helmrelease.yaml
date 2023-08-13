@@ -88,7 +88,7 @@ spec:
         enabled: true
         mountPath: /usr/src/paperless/data
         type: nfs
-        server: &nas "expanse.${NET_DOMAIN}"
+        server: &nas "pbs.${NET_DOMAIN}"
         path: /eros/Documents/paperless/data
       media:
         enabled: true

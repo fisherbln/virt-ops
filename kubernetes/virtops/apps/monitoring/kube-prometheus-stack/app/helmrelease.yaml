@@ -260,7 +260,7 @@ spec:
             static_configs:
               - targets:
                   - gateway.${NET_DOMAIN}:9100
-                  - expanse.${NET_DOMAIN}:9100
+                  - pbs.${NET_DOMAIN}:9100
           - job_name: ceph-exporter
             scrape_interval: 1m
             scrape_timeout: 10s
@@ -288,7 +288,7 @@ spec:
             metrics_path: /minio/v2/metrics/cluster
             static_configs:
               - targets: 
-                  - "expanse.${NET_DOMAIN}:9000" # nas
+                  - "pbs.${NET_DOMAIN}:9000" # nas
           - job_name: blocky
             scrape_interval: 15s
             scrape_timeout: 15s
@@ -298,7 +298,7 @@ spec:
           - job_name: smartctl-exporter
             static_configs:
               - targets: 
-                  - "expanse.${NET_DOMAIN}:9633" # nas
+                  - "pbs.${NET_DOMAIN}:9633" # nas
           #- job_name: snmp-exporter-ruckus
           #  metrics_path: /snmp
           #  
