@@ -28,7 +28,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: linuxserver/grocy
-      tag: 4.0.0@sha256:6156fa85f99f088f373a63e4526bb9e1f40fde1ec7b915ddd1f7cb325f4cba5d
+      tag: 4.0.1@sha256:f8f5f96b6ea8d406d33be86dfe18cff76b1d1625a361a782a1878a1e9ff698b3
     env:
       TZ: "${TIMEZONE}"
       GROCY_CULTURE: "en_US"
