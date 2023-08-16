@@ -21,7 +21,7 @@ spec:
       nameOverride: *app
     image:
       repository: public.ecr.aws/docker/library/redis
-      tag: 7.0.12@sha256:b28dc180f6651e05fa4edaee8e79c101db723346452170b0f1650277dd7bc312
+      tag: 7.0.12@sha256:723a3268e4ee04f55ce667cd379113e21a03272092c868442f5a20bb2445c08b
 
     service:
       main:
