@@ -25,7 +25,7 @@ spec:
   values:
     image:
       repository: docker.io/sissbruecker/linkding
-      tag: 1.20.1@sha256:a629f7fa6171a64253294a6e93d539a34ad5eec4b5748bee0bb1729d7d92e25e
+      tag: 1.21.0@sha256:01be3e728f5fc347068d18745711410523015fed397b236fd521a0c15025afb9
     # https://github.com/sissbruecker/linkding/blob/master/docs/Options.md
     env:
       TZ: "${TIMEZONE}"
