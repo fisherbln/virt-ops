@@ -28,7 +28,7 @@ spec:
   values:
     initContainers:
       02-config-sync:
-        image: ghcr.io/kiwigrid/k8s-sidecar:1.25.0@sha256:c1871e536cc87b76890864047852ec64b7498d236a77f6aa4d8791a1e2d5348e
+        image: ghcr.io/kiwigrid/k8s-sidecar:1.25.1@sha256:415d07ee1027c3ff7af9e26e05e03ffd0ec0ccf9f619ac00ab24366efe4343bd
         imagePullPolicy: IfNotPresent
         env:
           - { name: FOLDER, value: /config }
@@ -110,7 +110,7 @@ spec:
         memory: 500Mi
     sidecars:
       config-sync:
-        image: ghcr.io/kiwigrid/k8s-sidecar:1.25.0@sha256:c1871e536cc87b76890864047852ec64b7498d236a77f6aa4d8791a1e2d5348e
+        image: ghcr.io/kiwigrid/k8s-sidecar:1.25.1@sha256:415d07ee1027c3ff7af9e26e05e03ffd0ec0ccf9f619ac00ab24366efe4343bd
         imagePullPolicy: IfNotPresent
         env:
           - { name: FOLDER, value: /config }
