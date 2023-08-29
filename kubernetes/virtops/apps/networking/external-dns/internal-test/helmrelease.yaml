@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: externaldns-internal-test
+  name: externaldns-internal
   namespace: networking
 spec:
   interval: 30m
@@ -17,14 +17,14 @@ spec:
       interval: 30m
 
   values:
-    fullnameOverride: &name externaldns-internal-test
+    fullnameOverride: &name externaldns-internal
 
     domainFilters:
       - ${ORG_DOMAIN}
 
     env:
       - name: EXTERNAL_DNS_RFC2136_HOST
-        value: "10.5.0.5"
+        value: "10.5.0.20"
       - name: EXTERNAL_DNS_RFC2136_PORT
         value: "53"
       - name: EXTERNAL_DNS_RFC2136_ZONE
