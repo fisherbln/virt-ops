@@ -1,0 +1,24 @@
+---
+# 
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+    name: pbs-minio
+    namespace: monitoring
+spec:
+    staticConfigs:
+    - targets: 
+        - "pbs.${NET_DOMAIN}:9000" # nas
+    metricsPath: //minio/v2/metrics/cluster
+---
+#
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: pbs-smartctl-exporter
+  namespace: monitoring
+spec:
+  staticConfigs:
+    - targets: [
+        - "pbs.${NET_DOMAIN}:9633" # nas
+  metricsPath: /metrics

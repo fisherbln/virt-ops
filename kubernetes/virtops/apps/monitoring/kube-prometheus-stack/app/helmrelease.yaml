@@ -268,15 +268,15 @@ spec:
             static_configs:
               - targets:
                   - "smtp-relay.${NET_DOMAIN}:9749"
-          - job_name: minio
-            metrics_path: /minio/v2/metrics/cluster
-            static_configs:
-              - targets: 
-                  - "pbs.${NET_DOMAIN}:9000" # nas
-          - job_name: smartctl-exporter
-            static_configs:
-              - targets: 
-                  - "pbs.${NET_DOMAIN}:9633" # nas
+          #- job_name: minio
+          #  metrics_path: /minio/v2/metrics/cluster
+          #  static_configs:
+          #    - targets: 
+          #        - "pbs.${NET_DOMAIN}:9000" # nas
+          #- job_name: smartctl-exporter
+          #  static_configs:
+          #    - targets: 
+          #        - "pbs.${NET_DOMAIN}:9633" # nas
         enableAdminAPI: true
         walCompression: true
         externalLabels:
