@@ -7,15 +7,32 @@ metadata:
   labels:
     gatus.io/enabled: "true"
 data:
+  #config.yaml: |
+  #  endpoints:
+  #    - name: esphome
+  #      group: external
+  #      url: https://esphome.${ORG_DOMAIN}
+  #      interval: 1m
+  #      client:
+  #        dns-resolver: tcp://1.1.1.1:53
+  #      conditions:
+  #        - "[STATUS] == 200"
+  #      alerts:
+  #        - type: pushover
+
   config.yaml: |
     endpoints:
       - name: esphome
-        group: external
-        url: https://esphome.${ORG_DOMAIN}
+        group: guarded
+        url: 1.1.1.1
         interval: 1m
-        client:
-          dns-resolver: tcp://1.1.1.1:53
+        ui:
+          hide-hostname: true
+          hide-url: true
+        dns:
+          query-name: esphome.${ORG_DOMAIN}
+          query-type: A
         conditions:
-          - "[STATUS] == 200"
+          - "len([BODY]) == 0"
         alerts:
           - type: pushover
