@@ -1,0 +1,12 @@
+---
+# 
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+    name: pve-ceph-exporter
+    namespace: monitoring
+spec:
+    staticConfigs:
+    - targets: 
+        - pve1.${NET_DOMAIN}:9283
+    metricsPath: /metrics

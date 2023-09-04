@@ -245,13 +245,13 @@ spec:
           #  static_configs:
           #    - targets: ["192.168.254.9:9119"] # router
 
-          - job_name: ceph-exporter
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - pve1.${NET_DOMAIN}:9283
+          #- job_name: ceph-exporter
+          #  scrape_interval: 1m
+          #  scrape_timeout: 10s
+          #  honor_timestamps: true
+          #  static_configs:
+          #    - targets:
+          #        - pve1.${NET_DOMAIN}:9283
 
           - job_name: podman-exporter
             scrape_interval: 1m
