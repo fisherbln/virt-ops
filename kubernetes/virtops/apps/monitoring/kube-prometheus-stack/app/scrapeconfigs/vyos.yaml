@@ -9,4 +9,14 @@ spec:
     staticConfigs:
     - targets: ["gateway.${NET_DOMAIN}:9798"]
     metricsPath: /metrics
-        
+---
+# 
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+    name: vyos-podman-exporter
+    namespace: monitoring
+spec:
+    staticConfigs:
+    - targets: ["gateway.${NET_DOMAIN}:8888"]
+    metricsPath: /metrics
