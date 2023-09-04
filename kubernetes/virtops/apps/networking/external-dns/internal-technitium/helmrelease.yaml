@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: externaldns-internal-new
+  name: externaldns-internal-technitium
   namespace: networking
 spec:
   interval: 30m
@@ -17,7 +17,7 @@ spec:
       interval: 30m
 
   values:
-    fullnameOverride: &name externaldns-internal-new
+    fullnameOverride: &name externaldns-internal-technitium
 
     domainFilters:
       - ${ORG_DOMAIN}
