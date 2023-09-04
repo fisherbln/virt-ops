@@ -1,0 +1,46 @@
+#---
+#    # yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+#apiVersion: monitoring.coreos.com/v1alpha1
+#kind: ScrapeConfig
+#metadata:
+#    name: vyos-gatus
+#    namespace: monitoring
+#spec:
+#    staticConfigs:
+#    - targets: ["status.turbo.ac"]
+#    metricsPath: /metrics
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+    name: vyos-speedtest-exporter
+    namespace: monitoring
+spec:
+    staticConfigs:
+    - targets: 
+        - gateway.${NET_DOMAIN}:9798
+    metricsPath: /metrics
+        
+#---
+## yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+#apiVersion: monitoring.coreos.com/v1alpha1
+#kind: ScrapeConfig
+#metadata:
+#    name: vyos-smtp-relay
+#    namespace: monitoring
+#spec:
+#    staticConfigs:
+#    - targets: ["192.168.254.4:8080"]
+#    metricsPath: /metrics
+#---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+    name: vyos-vnstat
+    namespace: monitoring
+spec:
+    staticConfigs:
+    - targets: ["vyos.turbo.ac:8685"]
+    metricsPath: /metrics

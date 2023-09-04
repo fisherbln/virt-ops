@@ -245,22 +245,6 @@ spec:
           #  static_configs:
           #    - targets: ["192.168.254.9:9119"] # router
 
-          - job_name: podman-exporter
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - "gateway.${NET_DOMAIN}:9882"
-
-          #- job_name: node-exporter
-          #  scrape_interval: 1m
-          #  scrape_timeout: 10s
-          #  honor_timestamps: true
-          #  static_configs:
-          #    - targets:
-          #        - gateway.${NET_DOMAIN}:9100
-          #        - pbs.${NET_DOMAIN}:9100
           - job_name: ceph-exporter
             scrape_interval: 1m
             scrape_timeout: 10s
@@ -269,13 +253,13 @@ spec:
               - targets:
                   - pve1.${NET_DOMAIN}:9283
 
-          - job_name: speedtest-exporter
-            scrape_interval: 60m
-            scrape_timeout: 60s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - gateway.${NET_DOMAIN}:9798
+          #- job_name: speedtest-exporter
+          #  scrape_interval: 60m
+          #  scrape_timeout: 60s
+          #  honor_timestamps: true
+          #  static_configs:
+          #    - targets:
+          #        - gateway.${NET_DOMAIN}:9798
                   
           - job_name: smtp-relay
             scrape_interval: 1m
@@ -293,24 +277,6 @@ spec:
             static_configs:
               - targets: 
                   - "pbs.${NET_DOMAIN}:9633" # nas
-          #- job_name: snmp-exporter-ruckus
-          #  metrics_path: /snmp
-          #  
-          #  params:
-          #    #auth: [public_v2]
-          #    #module: [ruckus]
-          #    module: [ruckus]
-          #  static_configs:
-          #    - targets: 
-          #        - "ruckus.${NET_DOMAIN}"
-          #  relabel_configs:
-          #    - source_labels: [__address__]
-          #      target_label: __param_target
-          #    - source_labels: [__param_target]
-          #      target_label: instance
-          #    - target_label: __address__
-          #      replacement: "snmp-exporter-ruckus.monitoring.svc.cluster.local:9116" # ruckus
-
         enableAdminAPI: true
         walCompression: true
         externalLabels:
