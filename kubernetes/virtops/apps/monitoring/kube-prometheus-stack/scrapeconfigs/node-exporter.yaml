@@ -1,0 +1,13 @@
+---
+    # yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/monitoring.coreos.com/scrapeconfig_v1alpha1.json
+    apiVersion: monitoring.coreos.com/v1alpha1
+    kind: ScrapeConfig
+    metadata:
+      name: node-exporter
+      namespace: monitoring
+    spec:
+      staticConfigs:
+        - targets:
+            - gateway.${NET_DOMAIN}:9100
+            - pbs.${NET_DOMAIN}:9100
+      metricsPath: /metrics
