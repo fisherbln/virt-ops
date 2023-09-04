@@ -18,5 +18,5 @@ metadata:
     namespace: monitoring
 spec:
     staticConfigs:
-    - targets: ["gateway.${NET_DOMAIN}:8888"]
+    - targets: ["gateway.${NET_DOMAIN}:9882"]
     metricsPath: /metrics
