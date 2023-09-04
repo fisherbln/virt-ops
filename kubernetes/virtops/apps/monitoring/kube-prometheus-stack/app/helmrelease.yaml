@@ -253,13 +253,13 @@ spec:
               - targets:
                   - pve1.${NET_DOMAIN}:9283
 
-          #- job_name: speedtest-exporter
-          #  scrape_interval: 60m
-          #  scrape_timeout: 60s
-          #  honor_timestamps: true
-          #  static_configs:
-          #    - targets:
-          #        - gateway.${NET_DOMAIN}:9798
+          - job_name: podman-exporter
+            scrape_interval: 1m
+            scrape_timeout: 10s
+            honor_timestamps: true
+            static_configs:
+              - targets:
+                  - gateway.${NET_DOMAIN}:9882
                   
           - job_name: smtp-relay
             scrape_interval: 1m
