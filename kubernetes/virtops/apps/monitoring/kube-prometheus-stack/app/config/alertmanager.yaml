@@ -29,12 +29,12 @@ inhibit_rules:
         - severity = "warning"
 receivers:
     - name: heartbeat
-    webhook_configs:
+      webhook_configs:
         - send_resolved: true
         url: ${SECRET_ALERTMANAGER_UPTIMEROBOT_HEARTBEAT_TOKEN}
     - name: "null"
     - name: pushover
-    pushover_configs:
+      pushover_configs:
         - html: true
         message: |-
             {{ "{{-" }} range .Alerts {{ "}}" }}
