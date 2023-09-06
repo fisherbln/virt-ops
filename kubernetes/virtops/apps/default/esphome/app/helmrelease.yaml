@@ -84,22 +84,22 @@ spec:
       limits:
         memory: 2048M
 
-    sidecars:
-      subcleaner:
-        image: registry.k8s.io/git-sync/git-sync:v4.0.0@sha256:ad48c2dd8f5ae73e783c4a55bedb4cc13d51d347d157e6564c4debfd0fbd429d
-        imagePullPolicy: IfNotPresent
-        args:
-          - --repo=https://github.com/fisherbln/esphome-config
-          - --branch=main
-          - --wait=86400 # 1 day
-          - --root=/esphome-config
-        volumeMounts:
-          - { name: esphome-config, mountPath: /esphome-config }
+    #sidecars:
+    #  subcleaner:
+    #    image: registry.k8s.io/git-sync/git-sync:v4.0.0@sha256:ad48c2dd8f5ae73e783c4a55bedb4cc13d51d347d157e6564c4debfd0fbd429d
+    #    imagePullPolicy: IfNotPresent
+    #    args:
+    #      - --repo=https://github.com/fisherbln/esphome-config
+    #      - --branch=main
+    #      - --wait=86400 # 1 day
+    #      - --root=/esphome-config
+    #    volumeMounts:
+    #      - { name: esphome-config, mountPath: /esphome-config }
 
 
     volumeClaimTemplates:
       - name: config
         mountPath: /config
-        accessMode: ReadWriteOnce
+        accessMode: ReadWriteMany
         size: 1Gi
-        storageClass: ceph-block
+        storageClass: ceph-filesystem
