@@ -120,8 +120,12 @@ spec:
                     {{- include "loki.gatewaySelectorLabels" . | nindent 12 }}
                 topologyKey: kubernetes.io/hostname
       enabled: true
-      deploymentStrategy:
-        type: Recreate
+      #deploymentStrategy:
+      #  #type: Recreate
+      #  type: RollingUpdate
+      #  rollingUpdate:
+      #    maxUnavailable: 2
+      #    maxSurge: 0
       image:
         registry: ghcr.io
         repository: nginxinc/nginx-unprivileged
@@ -177,32 +181,34 @@ spec:
           emptyDir: {}
       persistence:
         size: 20Gi
-        storageClass: ceph-block
+        #storageClass: ceph-block
+        storageClass: ceph-filesystem
 
     backend:
       replicas: 3
-      #affinity: |
-      #  podAntiAffinity:
-      #    preferredDuringSchedulingIgnoredDuringExecution:
-      #      - weight: 1
-      #        podAffinityTerm:
-      #          labelSelector:
-      #            matchLabels:
-      #              {{- include "loki.backendSelectorLabels" . | nindent 12 }}
-      #          topologyKey: kubernetes.io/hostname
+      affinity: |
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "loki.backendSelectorLabels" . | nindent 12 }}
+                topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
-        storageClass: ceph-block
+        #storageClass: ceph-block
+        storageClass: ceph-filesystem
       extraVolumeMounts:
         - name: rules
           mountPath: /rules
-        - name: scratch
-          mountPath: /tmp/scratch
+        #- name: scratch
+        #  mountPath: /tmp/scratch
       extraVolumes:
         - name: rules
           emptyDir: {}
-        - name: scratch
-          emptyDir: {}
+        #- name: scratch
+        #  emptyDir: {}
           
     monitoring:
       dashboards:
