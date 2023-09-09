@@ -181,8 +181,8 @@ spec:
           emptyDir: {}
       persistence:
         size: 20Gi
-        #storageClass: ceph-block
-        storageClass: ceph-filesystem
+        storageClass: ceph-block
+        #storageClass: ceph-filesystem
 
     backend:
       replicas: 3
@@ -197,8 +197,8 @@ spec:
                 topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
-        #storageClass: ceph-block
-        storageClass: ceph-filesystem
+        storageClass: ceph-block
+        #storageClass: ceph-filesystem
       extraVolumeMounts:
         - name: rules
           mountPath: /rules

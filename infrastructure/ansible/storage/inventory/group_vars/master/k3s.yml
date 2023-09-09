@@ -3,7 +3,7 @@
 k3s_release_version: "v1.28.1+k3s1"
 k3s_install_hard_links: true
 k3s_become: true
-k3s_registration_address: 10.28.1.81
+k3s_registration_address: 10.28.1.80
 k3s_control_node: true
 k3s_server:
   node-ip: "{{ ansible_host }}"
