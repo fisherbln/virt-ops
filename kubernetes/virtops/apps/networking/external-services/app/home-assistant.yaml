@@ -28,7 +28,7 @@ metadata:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
 spec:
-  ingressClassName: nginx
+  ingressClassName: external
   rules:
     - host: &host smarthome.${ORG_DOMAIN}
       http:

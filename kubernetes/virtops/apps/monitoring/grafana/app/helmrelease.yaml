@@ -235,7 +235,7 @@ spec:
       enabled: true
     ingress:
       enabled: true
-      ingressClassName: nginx
+      ingressClassName: external
       annotations:
         external-dns.alpha.kubernetes.io/target: ingress.${ORG_DOMAIN}
         hajimari.io/icon: simple-icons:grafana

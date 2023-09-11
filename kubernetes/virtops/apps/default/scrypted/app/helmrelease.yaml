@@ -41,7 +41,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        ingressClassName: external
         hosts:
           - host: &host "scrypted.${ORG_DOMAIN}"
             paths:

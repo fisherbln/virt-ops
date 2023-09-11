@@ -28,7 +28,7 @@ metadata:
     app.kubernetes.io/name: unifi
     app.kubernetes.io/instance: unifi
 spec:
-  ingressClassName: nginx
+  ingressClassName: external
   rules:
     - host: &host unifi.${ORG_DOMAIN}
       http:
