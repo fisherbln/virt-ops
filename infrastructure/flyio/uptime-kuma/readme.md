@@ -50,3 +50,13 @@ Then add ip4 into your A name and ipv6 into AAAA of your custom domain
 Check the fly.io url to see information on your certificate.  Grab the info from here on adding the `_acme_challenge` CNAME and add it into cloudflare - but do not proxy! (Ensure DNS only)
 
 Once cert is registered, delete the acme challenge info (Should autorenew right?)
+
+# Upgrade Image 
+
+fly machines list # grab the ID of the machine to update
+fly machines update --image <image ref> <machine ID>
+
+example:
+```
+$ fly machines update --image louislam/uptime-kuma:1.23.1 machineID
+```
