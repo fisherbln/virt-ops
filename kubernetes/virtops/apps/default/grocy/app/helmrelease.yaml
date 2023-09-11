@@ -31,6 +31,7 @@ spec:
       tag: 4.0.3@sha256:05c77c107ca4e9c6a7370f8a33e5b480cfeab393527d1d89ef984e2b5ea2c969
     env:
       TZ: "${TIMEZONE}"
+      GROCY_MODE: "production"
       GROCY_CULTURE: "en_US"
       GROCY_CURRENCY: "USD"
       GROCY_AUTH_CLASS: Grocy\Middleware\ReverseProxyAuthMiddleware
