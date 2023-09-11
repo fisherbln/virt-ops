@@ -38,7 +38,8 @@ spec:
       PUID: "1000"
       PGID: "1000"
       # See here for env vars: https://github.com/grocy/grocy/blob/master/config-dist.php
-      GROCY_REVERSE_PROXY_AUTH_HEADER: HTTP_REMOTE_USER
+      #GROCY_REVERSE_PROXY_AUTH_HEADER: HTTP_REMOTE_USER
+      GROCY_REVERSE_PROXY_AUTH_HEADER: REMOTE_USER
       GROCY_REVERSE_PROXY_USE_ENV: false
       #GROCY_LDAP_ADDRESS: ldap://lldap.auth.svc.cluster.local:389
       #GROCY_LDAP_BASE_DN: dc=home,dc=arpa
