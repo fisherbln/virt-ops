@@ -177,13 +177,13 @@ spec:
 
       prometheusSpec:
         additionalScrapeConfigs:
-          - job_name: podman-exporter
-            scrape_interval: 1m
-            scrape_timeout: 10s
-            honor_timestamps: true
-            static_configs:
-              - targets:
-                  - gateway.${NET_DOMAIN}:9882
+          #- job_name: podman-exporter
+          #  scrape_interval: 1m
+          #  scrape_timeout: 10s
+          #  honor_timestamps: true
+          #  static_configs:
+          #    - targets:
+          #        - gateway.${NET_DOMAIN}:9882
                   
           - job_name: smtp-relay
             scrape_interval: 1m
