@@ -5,7 +5,7 @@ metadata:
   name: emqx-dashboard
   namespace: default
 spec:
-  ingressClassName: "nginx"
+  ingressClassName: external
   rules:
     - host: &host "emqx.${ORG_DOMAIN}"
       http:
