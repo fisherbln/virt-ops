@@ -1,3 +1,11 @@
+Steps (9/14/2023):
+1. Clear out clusterconfig directory (or reset.sh)
+2. generate-clusterconfig.sh
+3. apply-clusterconfig.sh
+4. deploy-integrations.sh
+5. apply-clusterconfig.sh (remove the -i from each apply)
+6. make bootstrap-flux
+
 # Talos configuration as code
 
 These folders contain the definitions of my Talos clusters. I use the awesome `talhelper` tool written by [@budimanjojo](https://github.com/budimanjojo) (https://github.com/budimanjojo/talhelper) to generate the individual node configurations.
