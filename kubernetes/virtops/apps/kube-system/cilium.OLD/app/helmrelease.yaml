@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: cilium
         namespace: flux-system
-      version: 1.14.2
+      version: 1.14.1
   interval: 30m
 
   valuesFrom:
@@ -21,16 +21,13 @@ spec:
       name: cilium-values
 
   values:
-    hubble:
-      serviceMonitor:
-        enabled: true
+    bgp:
+      enabled: true
 
-      dashboards:
-        enabled: true
-        label: grafana_dashboard
-        namespace: monitoring
-        labelValue: "1"
-        annotations: {}
+    hubble:
+      metrics:
+        serviceMonitor:
+          enabled: true
 
       relay:
         prometheus:
@@ -40,6 +37,8 @@ spec:
       ui:
         ingress:
           enabled: true
+          annotations:
+            nginx.ingress.kubernetes.io/whitelist-source-range: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
           className: "external"
           hosts:
             - &host hubble.${ORG_DOMAIN}

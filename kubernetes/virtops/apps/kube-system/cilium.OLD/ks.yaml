@@ -4,9 +4,11 @@ kind: Kustomization
 metadata:
   name: cluster-apps-cilium
   namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/enabled: "true"
 spec:
   interval: 10m
-  path: "./kubernetes/cluster-0/apps/kube-system/cilium/app"
+  path: "./kubernetes/virtops/apps/kube-system/cilium/app"
   prune: true
   sourceRef:
     kind: GitRepository
