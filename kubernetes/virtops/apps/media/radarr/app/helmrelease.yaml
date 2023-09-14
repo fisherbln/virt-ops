@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     controller:
-      type: statefulset
+      #type: statefulset
       annotations:
         reloader.stakater.com/auto: "true"
     image:
@@ -99,10 +99,11 @@ spec:
     persistence:
       media:
         enabled: true
-        type: nfs
-        server: pbs.${NET_DOMAIN}
-        path: /eros/Media
-        mountPath: /media
+        existingClaim: media
+        #type: nfs
+        #server: pbs.${NET_DOMAIN}
+        #path: /eros/Media
+        #mountPath: /media
       downloads:
         enabled: true
         type: nfs
