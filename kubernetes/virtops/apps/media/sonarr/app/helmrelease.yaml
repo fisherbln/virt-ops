@@ -102,11 +102,11 @@ spec:
         existingClaim: sonarr-config
       media:
         enabled: true
-        #existingClaim: media
-        type: nfs
-        server: pbs.${NET_DOMAIN}
-        path: /eros/Media
-        mountPath: /media
+        existingClaim: media
+        #type: nfs
+        #server: pbs.${NET_DOMAIN}
+        #path: /eros/Media
+        #mountPath: /media
       downloads:
         enabled: true
         type: nfs
