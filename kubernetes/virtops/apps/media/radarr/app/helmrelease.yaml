@@ -106,10 +106,11 @@ spec:
         #mountPath: /media
       downloads:
         enabled: true
-        type: nfs
-        server: "pbs.${NET_DOMAIN}"
-        path: /eros/Downloads
-        mountPath: /downloads
+        existingClaim: downloads
+        #type: nfs
+        #server: "pbs.${NET_DOMAIN}"
+        #path: /eros/Downloads
+        #mountPath: /downloads
       scripts:
         enabled: true
         type: configMap
