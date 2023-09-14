@@ -28,7 +28,7 @@ demo-cluster.yaml
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: postgres-demo-cluster
+  name: postgres-demo-clustere
   namespace: postgres
 spec:
   teamId: "postgres"
