@@ -24,9 +24,9 @@ data:
   # AWS_SECRET_ACCESS_KEY: <configured in externalSecret>
   
   # Add below during restore
-  CLONE_AWS_ENDPOINT: http://s3.${NET_DOMAIN} # Endpoint URL to your S3 Endpoint; MinIO in this example
-  CLONE_AWS_REGION: us-east-1
-  # CLONE_METHOD: CLONE_WITH_WALE
-  CLONE_WAL_BUCKET_SCOPE_PREFIX: ""
-  CLONE_WAL_S3_BUCKET: zalando-postgres
-  CLONE_AWS_S3_FORCE_PATH_STYLE: "true"
+  #CLONE_AWS_ENDPOINT: http://s3.${NET_DOMAIN} # Endpoint URL to your S3 Endpoint; MinIO in this example
+  #CLONE_AWS_REGION: us-east-1
+  ## CLONE_METHOD: CLONE_WITH_WALE
+  #CLONE_WAL_BUCKET_SCOPE_PREFIX: ""
+  #CLONE_WAL_S3_BUCKET: zalando-postgres
+  #CLONE_AWS_S3_FORCE_PATH_STYLE: "true"
