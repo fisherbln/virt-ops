@@ -40,9 +40,10 @@ spec:
       create: false
     service:
       type: LoadBalancer
-      loadBalancerIP: "${SVC_INFLUX_ADDR_V4}"
-      #annotations:
-      #  coredns.io/hostname: influx.${ORG_DOMAIN}
+      #loadBalancerIP: "${SVC_INFLUX_ADDR_V4}"
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: influx.${ORG_DOMAIN}
+        io.cilium/lb-ipam-ips: ${SVC_INFLUX_ADDR_V4}
 
     env:
       - name: TZ
@@ -60,7 +61,7 @@ spec:
 
     ingress:
       enabled: true
-      className: "nginx"
+      className: "external"
       annotations:
         #external-dns.alpha.kubernetes.io/target: ingress.${ORG_DOMAIN}
         nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
