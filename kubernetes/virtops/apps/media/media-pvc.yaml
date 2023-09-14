@@ -37,5 +37,5 @@ spec:
   accessModes: ["ReadWriteMany"]
   storageClassName: media
   resources:
-  #requests:
-  #  storage: 1Mi # Size does not matter ...twss
+    requests:
+        storage: 1Mi # Size does not matter ...twss
