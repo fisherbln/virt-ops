@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: "./kubernetes/cluster-0/apps/kube-system/cilium/app"
+  path: "./kubernetes/virtops/apps/kube-system/cilium/app"
   prune: true
   sourceRef:
     kind: GitRepository
