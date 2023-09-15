@@ -5,6 +5,6 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ./database.yaml
-  #- ./externalsecret.yaml
-  #- ./gatus.yaml
-  #- ./helmrelease.yaml
+  - ./externalsecret.yaml
+  - ./gatus.yaml
+  - ./helmrelease.yaml
