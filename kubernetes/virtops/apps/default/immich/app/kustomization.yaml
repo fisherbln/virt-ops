@@ -5,16 +5,16 @@ kind: Kustomization
 namespace: default
 resources:
   - ./database.yaml
-  - ./externalsecret.yaml
-  - ./configmap.yaml
-  - ./nfs-pvc.yaml
-  - ./typesense
-  - ./server
-  - ./microservices
-  - ./machine-learning
-  - ./web
-labels:
-  - pairs:
-      app.kubernetes.io/name: immich
-      app.kubernetes.io/instance: immich
-      app.kubernetes.io/part-of: immich
+  #- ./externalsecret.yaml
+  #- ./configmap.yaml
+  #- ./nfs-pvc.yaml
+  #- ./typesense
+  #- ./server
+  #- ./microservices
+  #- ./machine-learning
+  #- ./web
+#labels:
+#  - pairs:
+#      app.kubernetes.io/name: immich
+#      app.kubernetes.io/instance: immich
+#      app.kubernetes.io/part-of: immich
