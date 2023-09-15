@@ -5,5 +5,5 @@ kind: Kustomization
 namespace: auth
 resources:
   - ./database.yaml
-  - ./externalsecret.yaml
-  - ./helmrelease.yaml
+  #- ./externalsecret.yaml
+  #- ./helmrelease.yaml
