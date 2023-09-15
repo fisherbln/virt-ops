@@ -58,8 +58,8 @@ spec:
           secretKeyRef:
             name: *db_secret
             key: HOST
-      SEMAPHORE_DB_PORT:
-        value: 5432
+      SEMAPHORE_DB_PORT: 5432
+        #value: 5432
     envFrom:
       - secretRef:
           name: semaphore-secret
