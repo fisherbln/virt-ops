@@ -82,16 +82,9 @@ spec:
       media:
         enabled: true
         existingClaim: media
-        #type: nfs
-        #server: pbs.${NET_DOMAIN}
-        #path: /eros/Media
-        #mountPath: /media
       downloads:
         enabled: true
-        type: nfs
-        server: "pbs.${NET_DOMAIN}"
-        path: /eros/Downloads
-        mountPath: /downloads
+        existingClaim: downloads
     resources:
       requests:
         cpu: 10m

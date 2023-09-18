@@ -95,10 +95,6 @@ spec:
       media:
         enabled: true
         existingClaim: media
-        #type: nfs
-        #server: pbs.${NET_DOMAIN}
-        #path: /eros/Media
-        #mountPath: /media
       add-ons:
         enabled: true
         type: emptyDir
