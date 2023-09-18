@@ -16,4 +16,3 @@ spec:
   wait: true
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-externaldns-shared
