@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  maxHistory: 3
+  maxHistory: 2
   install:
     remediation:
       retries: 3
@@ -26,21 +26,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    initContainers:
-      01-init-config:
-        image: public.ecr.aws/docker/library/busybox:latest@sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
-        imagePullPolicy: IfNotPresent
-        command: ["/bin/sh", "-c", "cp /tmp/config/recyclarr.yml /config/recyclarr.yml"]
-        volumeMounts:
-          - { name: config-file, mountPath: /tmp/config }
-          - { name: config, mountPath: /config }
     controller:
       type: statefulset
       annotations:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/recyclarr/recyclarr
-      tag: edge
+      tag: 5.4.3
     env:
       TZ: ${TIMEZONE}
     envFrom:
@@ -65,7 +57,9 @@ spec:
         enabled: true
         type: configMap
         name: recyclarr-configmap
-        mountPath: "-"
+        subPath: recyclarr.yml
+        mountPath: /config/recyclarr.yml
+        readOnly: true
     resources:
       requests:
         cpu: 10m
