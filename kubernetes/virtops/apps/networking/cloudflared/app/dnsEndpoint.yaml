@@ -4,6 +4,7 @@ kind: DNSEndpoint
 metadata:
   name: cloudflared-tunnel
   namespace: networking
+  
 spec:
   endpoints:
     - dnsName: external.${ORG_DOMAIN}
