@@ -32,7 +32,7 @@ spec:
     image:
       # https://github.com/ansible-semaphore/semaphore/issues/1149
       repository: ghcr.io/onedr0p/semaphore
-      tag: v2.9.18@sha256:5a944716a8d0a9354863e57b6ee11a24821022144cf65249f50665fecd4faa3e
+      tag: v2.9.30@sha256:8b873b81dd46afe684b156561149c2414709efd01f80830f373605dc3b7531bc
     env:
       SEMAPHORE_LDAP_ACTIVATED: "no"
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
