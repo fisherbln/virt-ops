@@ -22,15 +22,15 @@ spec:
         name: rook-ceph
         namespace: flux-system
   values:
-    csi:
-      csiAddons:
-        enabled: true
+    #csi:
+    #  csiAddons:
+    #    enabled: true
     pspEnable: false
     crds:
       enabled: true
-    #cephBlockPoolsVolumeSnapshotClass:
-    #  enabled: true
-    #  name: csi-rbdplugin-snapclass
+    cephBlockPoolsVolumeSnapshotClass:
+      enabled: true
+      name: csi-rbdplugin-snapclass
     resources:
       requests:
         cpu: 1
