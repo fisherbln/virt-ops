@@ -22,9 +22,9 @@ spec:
         name: rook-ceph
         namespace: flux-system
   values:
-    #csi:
-    #  csiAddons:
-    #    enabled: true
+    csi:
+      csiAddons:
+        enabled: true
     pspEnable: false
     crds:
       enabled: true
