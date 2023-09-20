@@ -7,7 +7,6 @@ resources:
   - ./ceph-prometheus.yaml
   - ./secrets.sops.yaml
   - ./storage-class.yaml
-  #- ./volume-snapshot-class.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: rook-ceph-cluster
