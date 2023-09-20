@@ -6,7 +6,6 @@ namespace: flux-system
 resources:
   - ./secret.sops.yaml
   - ./clustersecretstore.yaml
-  #- ./clustersecretstoreold.yaml
   - ./externalsecret.yaml
 labels:
   - pairs:
