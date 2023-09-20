@@ -28,9 +28,9 @@ spec:
     pspEnable: false
     crds:
       enabled: true
-    cephBlockPoolsVolumeSnapshotClass:
-      enabled: true
-      name: csi-rbdplugin-snapclass
+    #cephBlockPoolsVolumeSnapshotClass:
+    #  enabled: true
+    #  name: csi-rbdplugin-snapclass
     resources:
       requests:
         cpu: 1
