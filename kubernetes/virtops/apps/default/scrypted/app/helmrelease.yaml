@@ -30,7 +30,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/koush/scrypted
-      tag: 18-jammy-full-v0.55.0
+      tag: 20-jammy-full-v0.55.0@sha256:268a10d447910dc55985d89ff3a39c5df3c6e6a9105c1745c7861c64e6cb1627
     env:
       TZ: ${TIMEZONE}
     service:
