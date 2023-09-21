@@ -8,6 +8,7 @@ resources:
   # Flux-Kustomizations
   - ./gatus/ks.yaml
   - ./grafana/ks.yaml
+  - ./karma/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./nextdns-exporter/ks.yaml
   - ./node-exporter/ks.yaml

@@ -34,5 +34,6 @@
     "yaml.customTags": [
         "!env_var"
     ],
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "editor.tabSize": 2
 }
