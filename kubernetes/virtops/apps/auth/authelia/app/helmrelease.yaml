@@ -33,7 +33,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/authelia/authelia
-      tag: master@sha256:6cf05076e116a1bd6b8b0ba19ea5b5ee7e7ae3f3361e15a2fe1bc774a254be4e
+      tag: master@sha256:1755e709a1187b05aea102fe7c4c263ab4fdbecf1f6de425d9f3110cb752fe0e
     args: ["--config", "/config/configuration.yaml", "--config.experimental.filters", "expand-env"]
     env:
       AUTHELIA_AUTHENTICATION_BACKEND_PASSWORD_RESET_DISABLE: "true"
