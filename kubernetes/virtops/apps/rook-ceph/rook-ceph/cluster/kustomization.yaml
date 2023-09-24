@@ -9,7 +9,7 @@ resources:
   - ./storage-class.yaml
 labels:
   - pairs:
-      app.kubernetes.io/name: rook-ceph-cluster
-      app.kubernetes.io/instance: rook-ceph-cluster
+      app.kubernetes.io/name: cluster-apps-rook-ceph-cluster
+      app.kubernetes.io/instance: cluster-apps-rook-ceph-cluster
       app.kubernetes.io/part-of: rook-ceph
       

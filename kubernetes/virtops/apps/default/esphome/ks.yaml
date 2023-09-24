@@ -15,5 +15,5 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores

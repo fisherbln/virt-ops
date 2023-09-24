@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
   path: ./kubernetes/virtops/apps/default/cloudnative-pg/app
   prune: true
@@ -29,7 +29,7 @@ spec:
   dependsOn:
     - name: cluster-apps-cloudnative-pg
     #- name: cluster-apps-kube-prometheus-stack
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
   path: ./kubernetes/virtops/apps/default/cloudnative-pg/cluster
   prune: true

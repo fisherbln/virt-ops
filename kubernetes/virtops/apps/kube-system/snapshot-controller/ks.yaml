@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     #- name: cluster-apps-kube-prometheus-stack
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
   path: "./kubernetes/virtops/apps/kube-system/snapshot-controller/app"
   prune: true
   sourceRef:

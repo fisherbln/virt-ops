@@ -29,7 +29,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/virtops/apps/default/immich/redis
   prune: true
   sourceRef:

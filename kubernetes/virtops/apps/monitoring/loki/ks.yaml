@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     #- name: cluster-apps-kube-prometheus-stack
-    - name: rook-ceph-cluster
+    - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
   path: "./kubernetes/virtops/apps/monitoring/loki/app"
   prune: true
