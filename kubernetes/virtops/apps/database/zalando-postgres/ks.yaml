@@ -13,7 +13,7 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    - name: cluster-apps-rook-ceph-cluster
+    - name: rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
@@ -31,5 +31,5 @@ spec:
   wait: true
   dependsOn:
     - name: cluster-apps-zalando-postgres
-    - name: cluster-apps-rook-ceph-cluster
+    - name: rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
