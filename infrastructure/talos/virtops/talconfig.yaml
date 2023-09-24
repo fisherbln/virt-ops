@@ -1,7 +1,7 @@
 ---
 clusterName: virtops
 
-talosVersion: v1.5.2
+talosVersion: v1.5.3
 kubernetesVersion: 1.28.1
 endpoint: "https://virtops.${net_domain}:6443"
 clusterPodNets:
