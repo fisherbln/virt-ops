@@ -60,31 +60,79 @@ nodes:
     ipAddress: 10.28.28.61
     controlPlane: false
     installDisk: /dev/sda
+    machineDisks:
+      - device: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
+        partitions:
+          - mountpoint: /var/mnt/sata
     networkInterfaces:
       - interface: eth0
         dhcp: true
       - interface: eth1
         dhcp: true
+    patches:
+      - |-
+        machine:
+          kubelet:
+            extraMounts:
+              - destination: /var/mnt/sata
+                type: bind
+                source: /var/mnt/sata
+                options:
+                  - rbind
+                  - rshared
+                  - rw
   - hostname: node-pve2.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.62
     controlPlane: false
     installDisk: /dev/sda
+    machineDisks:
+      - device: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
+        partitions:
+          - mountpoint: /var/mnt/sata
     networkInterfaces:
       - interface: eth0
         dhcp: true
       - interface: eth1
         dhcp: true
+    patches:
+      - |-
+        machine:
+          kubelet:
+            extraMounts:
+              - destination: /var/mnt/sata
+                type: bind
+                source: /var/mnt/sata
+                options:
+                  - rbind
+                  - rshared
+                  - rw
   - hostname: node-pve3.${net_domain}
     disableSearchDomain: true
     ipAddress: 10.28.28.63
     controlPlane: false
     installDisk: /dev/sda
+    machineDisks:
+      - device: /dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1
+        partitions:
+          - mountpoint: /var/mnt/sata
     networkInterfaces:
       - interface: eth0
         dhcp: true
       - interface: eth1
         dhcp: true
+    patches:
+      - |-
+        machine:
+          kubelet:
+            extraMounts:
+              - destination: /var/mnt/sata
+                type: bind
+                source: /var/mnt/sata
+                options:
+                  - rbind
+                  - rshared
+                  - rw
 
 controlPlane:
   patches:
@@ -96,9 +144,6 @@ controlPlane:
         allowSchedulingOnMasters: false
         proxy:
           disabled: true
-        extraManifests:
-          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/cni/cilium.yaml
-          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/kubelet-csr-approver/kubelet-csr-approver.yaml
 
     - |-
       - op: remove
@@ -143,9 +188,6 @@ worker:
         allowSchedulingOnMasters: false
         proxy:
           disabled: true
-        extraManifests:
-          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/cni/cilium.yaml
-          - https://raw.githubusercontent.com/fisherbln/virt-ops/main/infrastructure/talos/virtops/kubelet-csr-approver/kubelet-csr-approver.yaml
 
       machine:
         files:
