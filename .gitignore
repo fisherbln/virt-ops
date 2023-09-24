@@ -27,6 +27,6 @@ kubeconfig
 *kubeconfig
 
 # Talos clusterconfigs
-infrastructure/talos/**/clusterconfig
+infrastructure/talos/**/clusterconfig*
 db
 db.snapshot

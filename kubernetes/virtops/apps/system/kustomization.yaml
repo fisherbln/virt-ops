@@ -6,6 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./democratic-csi/ks.yaml
   - ./descheduler/ks.yaml
   - ./reloader/ks.yaml
   #- ./volsync/ks.yaml
