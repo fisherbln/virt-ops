@@ -1,24 +1,24 @@
-#---
-#apiVersion: kustomize.toolkit.fluxcd.io/v1
-#kind: Kustomization
-#metadata:
-#  name: monitoring-vector-aggregator
-#  namespace: flux-system
-#  labels:
-#    substitution.flux.home.arpa/enabled: "true"
-#spec:
-#  dependsOn:
-#    - name: cluster-apps-rook-ceph-cluster
-#    - name: monitoring-vector-agent
-#  path: "./kubernetes/virtops/apps/monitoring/vector/aggregator"
-#  prune: true
-#  sourceRef:
-#    kind: GitRepository
-#    name: home-ops-kubernetes
-#  wait: true
-#  interval: 15m
-#  retryInterval: 1m
-#a  timeout: 5m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: monitoring-vector-aggregator
+  namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/enabled: "true"
+spec:
+  dependsOn:
+    - name: cluster-apps-rook-ceph-cluster
+    - name: monitoring-vector-agent
+  path: "./kubernetes/virtops/apps/monitoring/vector/aggregator"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-ops-kubernetes
+  wait: true
+  interval: 15m
+  retryInterval: 1m
+  timeout: 5m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
