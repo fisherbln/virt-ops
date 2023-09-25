@@ -52,11 +52,9 @@ spec:
     service:
       main:
         type: LoadBalancer
-        #loadBalancerIP: 10.45.0.2 #${SVC_VECTORNEW_V4}
         annotations:
           external-dns.alpha.kubernetes.io/hostname: vector2.${ORG_DOMAIN}
           io.cilium/lb-ipam-ips: ${SVC_VECTOR_V4}
-        #externalTrafficPolicy: Local
         externalTrafficPolicy: Cluster
         ports:
           http:
