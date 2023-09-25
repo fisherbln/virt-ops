@@ -97,7 +97,7 @@ GitRepository :: home-ops-kubernetes
                 HelmRelease :: lldap
                 DependsOn:
                     Kustomization :: cluster-apps-cloudnative-pg-cluster
-            Kustomization :: cluster-apps-authelia
+            Kustomization :: auth-authelia
                 DependsOn:
                     Kustomization :: auth-lldap
                     Kustomization :: cluster-apps-cloudnative-pg-cluster

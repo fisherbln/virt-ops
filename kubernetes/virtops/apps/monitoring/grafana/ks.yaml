@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-zalando-postgres-cluster
     - name: cluster-apps-external-secrets-stores
-    #- name: cluster-apps-authelia
+    #- name: auth-authelia
   path: ./kubernetes/virtops/apps/monitoring/grafana/app
   prune: true
   sourceRef:
