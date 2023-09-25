@@ -93,13 +93,13 @@ GitRepository :: home-ops-kubernetes
                 DependsOn:
                     Kustomization :: cluster-apps-cloudnative-pg
                 Cluster :: postgres
-            Kustomization :: cluster-apps-lldap
+            Kustomization :: auth-lldap
                 HelmRelease :: lldap
                 DependsOn:
                     Kustomization :: cluster-apps-cloudnative-pg-cluster
             Kustomization :: cluster-apps-authelia
                 DependsOn:
-                    Kustomization :: cluster-apps-lldap
+                    Kustomization :: auth-lldap
                     Kustomization :: cluster-apps-cloudnative-pg-cluster
                 HelmRelease :: authelia
 ```
