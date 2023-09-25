@@ -8,7 +8,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-ingress-nginx
+    - name: networking-ingress-nginx
   path: ./kubernetes/virtops/apps/networking/external-services/app
   prune: true
   wait: false
