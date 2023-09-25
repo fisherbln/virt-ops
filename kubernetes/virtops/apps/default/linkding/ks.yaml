@@ -11,7 +11,7 @@ spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-zalando-postgres-cluster
+    - name: database-zalando-postgres-cluster
   path: ./kubernetes/virtops/apps/default/linkding/app
   prune: true
   sourceRef:

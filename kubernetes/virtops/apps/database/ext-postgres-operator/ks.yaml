@@ -13,5 +13,5 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    - name: cluster-apps-zalando-postgres-cluster
+    - name: database-zalando-postgres-cluster
     - name: cluster-apps-external-secrets-stores
