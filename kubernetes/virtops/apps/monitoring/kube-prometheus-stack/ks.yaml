@@ -10,7 +10,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    #- name: cluster-apps-thanos
+    #- name: monitoring-thanos
     #- name: cluster-apps-alertmanager
   
   path: "./kubernetes/virtops/apps/monitoring/kube-prometheus-stack/app"
