@@ -21,6 +21,7 @@ spec:
 
       updateStrategy:
         type: RollingUpdate
+      allowSnippetAnnotations: true
 
       service:
         #enabled: true
