@@ -8,7 +8,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    #- name: cluster-apps-kube-prometheus-stack
+    #- name: monitoring-kube-prometheus-stack
     - name: cluster-apps-rook-ceph-cluster
   path: "./kubernetes/virtops/apps/kube-system/snapshot-controller/app"
   prune: true
