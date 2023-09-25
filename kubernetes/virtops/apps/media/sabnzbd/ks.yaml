@@ -8,7 +8,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-volsync
+    - name: volsync
   path: ./kubernetes/virtops/apps/media/sabnzbd/app
   prune: true
   sourceRef:

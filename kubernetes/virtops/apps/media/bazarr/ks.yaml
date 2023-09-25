@@ -10,7 +10,7 @@ spec:
     - name: cluster-apps-rook-ceph-cluster
     - name: database-zalando-postgres-cluster
     - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-volsync
+    - name: volsync
   path: ./kubernetes/virtops/apps/media/bazarr/app
   prune: true
   sourceRef:

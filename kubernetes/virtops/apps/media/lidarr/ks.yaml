@@ -10,7 +10,7 @@ spec:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
     #- name: monitoring-kube-prometheus-stack
-    - name: cluster-apps-volsync
+    - name: volsync
   path: ./kubernetes/virtops/apps/media/lidarr/app
   prune: true
   sourceRef:

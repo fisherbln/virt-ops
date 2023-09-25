@@ -10,7 +10,7 @@ spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-volsync
+    - name: volsync
     #- name: monitoring-kube-prometheus-stack
   path: "./kubernetes/virtops/apps/default/mosquitto/app"
   prune: true
