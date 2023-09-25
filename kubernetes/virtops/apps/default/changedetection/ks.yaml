@@ -2,7 +2,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-changedetection
+  name: default-changedetection
   namespace: flux-system
 spec:
   dependsOn:

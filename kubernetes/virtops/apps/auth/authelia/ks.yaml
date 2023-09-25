@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-zalando-postgres-cluster
-    - name: cluster-apps-glauth
+    - name: default-glauth
     - name: cluster-apps-external-secrets-stores
     - name: cluster-apps-redis
   path: ./kubernetes/virtops/apps/auth/authelia/app
