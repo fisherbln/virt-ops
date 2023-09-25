@@ -25,11 +25,9 @@ spec:
       service:
         enabled: true
         type: LoadBalancer
-        #loadBalancerIP: "${SVC_INGRESS_ADDR}"
         annotations:
           external-dns.alpha.kubernetes.io/hostname: ingress.${ORG_DOMAIN}
-          io.cilium/lb-ipam-ips: "${SVC_INGRESS_ADDR}"
-        #externalTrafficPolicy: Local
+          #io.cilium/lb-ipam-ips: "${SVC_INGRESS_ADDR}"
         externalTrafficPolicy: Cluster
 
       publishService:
