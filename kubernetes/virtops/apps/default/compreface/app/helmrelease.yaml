@@ -1,0 +1,104 @@
+---
+# yaml-language-server: $schema=http://kubernetes-schemas.local.lan:8080/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: compreface
+  namespace: default
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    initContainers:
+      01-init-db:
+        image: ghcr.io/onedr0p/postgres-init:14.8
+        imagePullPolicy: IfNotPresent
+        envFrom:
+          - secretRef:
+              name: compreface-secret
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: exadel/compreface
+      tag: 1.1.0-arcface-r100
+    env:
+      TZ: ${TIMEZONE}
+      #POSTGRES_DB: compreface
+      POSTGRES_URL:
+        valueFrom:
+          secretKeyRef:
+            name: &db_secret database-compreface-user
+            key: POSTGRES_JDBC_URL
+      POSTGRES_URL:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret 
+            key: DATABASE_NAME
+      POSTGRES_USER:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret 
+            key: LOGIN
+      POSTGRES_PASSWORD:
+        valueFrom:
+          secretKeyRef:
+            name: *db_secret 
+            key: PASSWORD
+      EXTERNAL_DB: true
+      SAVE_IMAGES_TO_DB: true
+    envFrom:
+      - secretRef:
+          name: compreface-secret
+    service:
+      main:
+        type: LoadBalancer
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: compreface.${ORG_DOMAIN}
+          o.cilium/lb-ipam-ips: "${SVC_COMPREFACE_ADDR_V4}"
+        #externalIPs: ["${SVC_COMPREFACE_ADDR}"]
+        externalTrafficPolicy: Cluster
+        ports:
+          http:
+            port: 8000
+            targetPort: 80
+            protocol: TCP
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: external
+        annotations:
+          hajimari.io/icon: mdi:cctv
+        hosts:
+          - host: &host compreface.${ORG_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    resources:
+      requests:
+        cpu: 10m
+        memory: 1000Mi
+      limits:
+        memory: 6000Mi

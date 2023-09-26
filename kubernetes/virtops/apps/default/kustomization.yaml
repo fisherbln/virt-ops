@@ -9,6 +9,7 @@ resources:
   - ./adminer/ks.yaml
   - ./barcodebuddy/ks.yaml
   - ./changedetection/ks.yaml
+  - ./compreface/ks.yaml
   - ./esphome/ks.yaml
   - ./glauth/ks.yaml
   - ./grocy/ks.yaml
