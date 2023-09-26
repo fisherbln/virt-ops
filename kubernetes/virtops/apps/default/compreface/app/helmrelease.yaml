@@ -66,9 +66,9 @@ spec:
             key: PASSWORD
       EXTERNAL_DB: true
       SAVE_IMAGES_TO_DB: true
-    envFrom:
-      - secretRef:
-          name: compreface-secret
+    #envFrom:
+    #  - secretRef:
+    #      name: compreface-secret
     service:
       main:
         type: LoadBalancer
