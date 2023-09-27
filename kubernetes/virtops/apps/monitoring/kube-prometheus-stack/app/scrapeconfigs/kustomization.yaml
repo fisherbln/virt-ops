@@ -6,7 +6,7 @@
     resources:
       #- ./expanse.yaml
       - ./node-exporter.yaml
-      - ./pbs.yaml
+      #- ./pbs.yaml
       #- ./pikvm.yaml
       - ./vyos.yaml
       #- ./zigbee-controller.yaml
