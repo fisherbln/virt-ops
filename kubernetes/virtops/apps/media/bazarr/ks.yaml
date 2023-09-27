@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-rook-ceph-cluster
+    - name: rook-ceph-cluster
     - name: database-zalando-postgres-cluster
     - name: flux-system-external-secrets-stores
     - name: volsync

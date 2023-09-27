@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: flux-system-external-secrets-stores
-    - name: cluster-apps-rook-ceph-cluster
+    - name: rook-ceph-cluster
     #- name: monitoring-kube-prometheus-stack
   path: "./kubernetes/virtops/apps/default/paperless/redis"
   prune: true

@@ -19,7 +19,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-rook-ceph
+  name: rook-ceph
   namespace: flux-system
 spec:
   path: ./kubernetes/virtops/apps/rook-ceph/rook-ceph/app
@@ -35,11 +35,11 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-rook-ceph-cluster
+  name: rook-ceph-cluster
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-rook-ceph
+    - name: rook-ceph
   path: ./kubernetes/virtops/apps/rook-ceph/rook-ceph/cluster
   prune: true
   sourceRef:
@@ -53,11 +53,11 @@ spec:
 #apiVersion: kustomize.toolkit.fluxcd.io/v1
 #kind: Kustomization
 #metadata:
-#  name: cluster-apps-rook-ceph-cluster-monitoring
+#  name: rook-ceph-cluster-monitoring
 #  namespace: flux-system
 #spec:
 #  dependsOn:
-#    - name: cluster-apps-rook-ceph
+#    - name: rook-ceph
 #  path: ./kubernetes/virtops/apps/rook-ceph/rook-ceph/monitoring
 #  prune: true
 #  sourceRef:

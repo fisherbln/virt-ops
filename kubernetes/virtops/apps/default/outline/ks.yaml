@@ -29,7 +29,7 @@ metadata:
 spec:
   dependsOn:
     - name: flux-system-external-secrets-stores
-    - name: cluster-apps-rook-ceph-cluster
+    - name: rook-ceph-cluster
   path: ./kubernetes/virtops/apps/default/outline/redis
   prune: true
   sourceRef:
