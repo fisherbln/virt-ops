@@ -1,0 +1,47 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: &name pgo-s3-creds
+  namespace: flux-system
+spec:
+  provider:
+    doppler:
+      project: pgo-s3-creds
+      config: prd
+      auth:
+        secretRef:
+          dopplerToken:
+            name: doppler-token-auth-api
+            key: DOPPLER_TOKEN
+            namespace: flux-system
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterExternalSecret
+metadata:
+  name: &name pgo-s3-creds
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: *name
+  target:
+    name: pgo-s3-creds
+      creationPolicy: Owner
+      template:
+        engineVersion: v2
+        data:
+          s3.conf: |
+            [global]
+            repo1-s3-key=crunchy-postgres
+            repo1-s3-key-secret={{ .minio_crunchy_postgres_secret_key }}
+  dataFrom:
+    - find:
+        name:
+          regexp: .*
+        rewrite:
+          #- regexp:
+          #    source: "[-]"
+          #    target: "_"
+          - regexp:
+              source: "(.*)"
+              target: "minio_$1"
