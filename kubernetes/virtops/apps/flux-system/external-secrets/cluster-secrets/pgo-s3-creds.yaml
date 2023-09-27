@@ -43,7 +43,7 @@ spec:
           s3.conf: |
             [global]
             repo1-s3-key=crunchy-postgres
-            repo1-s3-key-secret={{ .minio_crunchy_postgres_secret_key }}
+            repo1-s3-key-secret={{ .minio_CRUNCHY_POSTGRES_SECRET_KEY }}
     dataFrom:
       - find:
           name:
