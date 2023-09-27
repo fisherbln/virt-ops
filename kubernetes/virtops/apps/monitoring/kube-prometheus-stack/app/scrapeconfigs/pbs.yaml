@@ -6,7 +6,7 @@ metadata:
     name: pbs-minio
     namespace: monitoring
 spec:
-    staticConfigs:
+  staticConfigs:
     - targets: 
         - "pbs.${NET_DOMAIN}:9000" # nas
     metricsPath: //minio/v2/metrics/cluster
