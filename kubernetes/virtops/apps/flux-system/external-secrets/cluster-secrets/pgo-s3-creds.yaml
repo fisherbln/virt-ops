@@ -48,10 +48,10 @@ spec:
       - find:
           name:
             regexp: .*
-        rewrite:
-          #- regexp:
-          #    source: "[-]"
-          #    target: "_"
-          - regexp:
-              source: "(.*)"
-              target: "minio_$1"
+        #rewrite:
+        #  #- regexp:
+        #  #    source: "[-]"
+        #  #    target: "_"
+        #  - regexp:
+        #      source: "(.*)"
+        #      target: "minio_$1"
