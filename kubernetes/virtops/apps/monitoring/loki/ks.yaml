@@ -8,8 +8,8 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    #- name: monitoring-kube-prometheus-stack
-    - name: rook-ceph-cluster
+    - name: monitoring-kube-prometheus-stack
+    - name: system-democratic-csi-local-path
     - name: flux-system-external-secrets-stores
   path: "./kubernetes/virtops/apps/monitoring/loki/app"
   prune: true
