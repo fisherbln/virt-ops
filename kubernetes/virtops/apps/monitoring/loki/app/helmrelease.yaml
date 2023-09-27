@@ -146,8 +146,6 @@ spec:
               - *host
 
     write:
-      #deploymentStrategy:
-      #  type: Recreate
       replicas: 3
       affinity: |
         podAntiAffinity:
@@ -160,7 +158,8 @@ spec:
                 topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
-        storageClass: ceph-block
+        #storageClass: ceph-block
+        storageClass: local-hostpath
 
     read:
       replicas: 3
@@ -173,16 +172,16 @@ spec:
                   matchLabels:
                     {{- include "loki.readSelectorLabels" . | nindent 12 }}
                 topologyKey: kubernetes.io/hostname
-      extraVolumeMounts:
-        - name: rules
-          mountPath: /rules
-      extraVolumes:
-        - name: rules
-          emptyDir: {}
-      persistence:
-        size: 20Gi
-        storageClass: ceph-block
-        #storageClass: ceph-filesystem
+      #extraVolumeMounts:
+      #  - name: rules
+      #    mountPath: /rules
+      #extraVolumes:
+      #  - name: rules
+      #    emptyDir: {}
+      #persistence:
+      #  size: 20Gi
+      #  storageClass: ceph-block
+      #  #storageClass: ceph-filesystem
 
     backend:
       replicas: 3
@@ -197,18 +196,16 @@ spec:
                 topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
-        storageClass: ceph-block
-        #storageClass: ceph-filesystem
-      extraVolumeMounts:
-        - name: rules
-          mountPath: /rules
-        #- name: scratch
-        #  mountPath: /tmp/scratch
-      extraVolumes:
-        - name: rules
-          emptyDir: {}
-        #- name: scratch
-        #  emptyDir: {}
+        storageClass: local-hostpath
+        #storageClass: ceph-block
+      #extraVolumeMounts:
+      #  - name: rules
+      #    mountPath: /rules
+      #extraVolumes:
+      #  - name: rules
+      #    emptyDir: {}
+      #  #- name: scratch
+      #  #  emptyDir: {}
           
     monitoring:
       dashboards:
