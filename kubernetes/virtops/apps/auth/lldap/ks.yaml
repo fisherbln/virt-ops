@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: database-zalando-postgres-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: ./kubernetes/virtops/apps/auth/lldap/app
   prune: true
   sourceRef:

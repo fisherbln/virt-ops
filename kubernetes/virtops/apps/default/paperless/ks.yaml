@@ -8,7 +8,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
     #- name: monitoring-kube-prometheus-stack
   path: "./kubernetes/virtops/apps/default/paperless/redis"

@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: ./kubernetes/virtops/apps/default/glauth/app
   prune: true
   sourceRef:

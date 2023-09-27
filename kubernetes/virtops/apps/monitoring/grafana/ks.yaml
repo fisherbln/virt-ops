@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: database-zalando-postgres-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     #- name: auth-authelia
   path: ./kubernetes/virtops/apps/monitoring/grafana/app
   prune: true

@@ -14,7 +14,7 @@ spec:
   wait: true
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -32,4 +32,4 @@ spec:
   dependsOn:
     - name: database-zalando-postgres
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores

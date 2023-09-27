@@ -23,7 +23,7 @@ metadata:
 spec:
   dependsOn:
     - name: cert-manager
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: "./kubernetes/virtops/apps/cert-manager/cert-manager/issuers"
   prune: true
   sourceRef:

@@ -3,7 +3,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-external-secrets
+  name: flux-system-external-secrets
   namespace: flux-system
 spec:
   path: ./kubernetes/virtops/apps/flux-system/external-secrets/app
@@ -20,11 +20,11 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-external-secrets-stores
+  name: flux-system-external-secrets-stores
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets
+    - name: flux-system-external-secrets
   path: ./kubernetes/virtops/apps/flux-system/external-secrets/stores
   prune: true
   sourceRef:
@@ -50,5 +50,5 @@ spec:
     name: home-ops-kubernetes
   wait: true
   dependsOn:
-    - name: cluster-apps-external-secrets
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets
+    - name: flux-system-external-secrets-stores

@@ -24,7 +24,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: "./kubernetes/virtops/apps/networking/external-dns/external"
   prune: true
   sourceRef:
@@ -44,7 +44,7 @@ spec:
 #    substitution.flux.home.arpa/enabled: "true"
 #spec:
 #  dependsOn:
-#    - name: cluster-apps-external-secrets-stores
+#    - name: flux-system-external-secrets-stores
 #  path: "./kubernetes/virtops/apps/networking/external-dns/internal"
 #  prune: true
 #  sourceRef:
@@ -65,7 +65,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: "./kubernetes/virtops/apps/networking/external-dns/internal-technitium"
   prune: true
   sourceRef:

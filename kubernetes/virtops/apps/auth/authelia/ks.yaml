@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: database-zalando-postgres-cluster
     - name: default-glauth
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: default-redis
   path: ./kubernetes/virtops/apps/auth/authelia/app
   prune: true

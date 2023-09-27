@@ -10,7 +10,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: database-zalando-postgres-cluster
   path: ./kubernetes/virtops/apps/default/linkding/app
   prune: true

@@ -10,7 +10,7 @@ spec:
     kind: GitRepository
     name: home-ops-kubernetes
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
     - name: volsync
   prune: true

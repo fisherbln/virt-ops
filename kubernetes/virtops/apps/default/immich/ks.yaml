@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: database-zalando-postgres-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: default-immich-redis
   path: ./kubernetes/virtops/apps/default/immich/app
   prune: true
@@ -28,7 +28,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
     - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/virtops/apps/default/immich/redis
   prune: true

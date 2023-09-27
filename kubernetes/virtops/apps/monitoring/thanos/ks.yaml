@@ -10,7 +10,7 @@ spec:
   dependsOn:
     #- name: monitoring-kube-prometheus-stack
     - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-external-secrets-stores
+    - name: flux-system-external-secrets-stores
   path: "./kubernetes/virtops/apps/monitoring/thanos/app"
   prune: true
   sourceRef:
