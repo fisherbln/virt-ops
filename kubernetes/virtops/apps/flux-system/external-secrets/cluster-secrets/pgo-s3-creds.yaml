@@ -21,27 +21,37 @@ kind: ClusterExternalSecret
 metadata:
   name: &name pgo-s3-creds
 spec:
-  secretStoreRef:
-    kind: ClusterSecretStore
-    name: *name
+  externalSecretName: *name
+
+  namespaceSelector:
+    matchLabels:
+      pgo-enabled: "true"
+
+  refreshTime: "1m"
+  
+  externalSecretSpec:
+    secretStoreRef:
+      kind: ClusterSecretStore
+      name: *name
+
   target:
     name: pgo-s3-creds
-      creationPolicy: Owner
-      template:
-        engineVersion: v2
-        data:
-          s3.conf: |
-            [global]
-            repo1-s3-key=crunchy-postgres
-            repo1-s3-key-secret={{ .minio_crunchy_postgres_secret_key }}
+    creationPolicy: Owner
+    template:
+      engineVersion: v2
+      data:
+        s3.conf: |
+          [global]
+          repo1-s3-key=crunchy-postgres
+          repo1-s3-key-secret={{ .minio_crunchy_postgres_secret_key }}
   dataFrom:
     - find:
         name:
           regexp: .*
-        rewrite:
-          #- regexp:
-          #    source: "[-]"
-          #    target: "_"
-          - regexp:
-              source: "(.*)"
-              target: "minio_$1"
+      rewrite:
+        #- regexp:
+        #    source: "[-]"
+        #    target: "_"
+        - regexp:
+            source: "(.*)"
+            target: "minio_$1"
