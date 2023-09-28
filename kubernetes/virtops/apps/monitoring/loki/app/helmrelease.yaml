@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -9,13 +10,12 @@ spec:
   chart:
     spec:
       chart: loki
-      version: 5.23.1
+      version: 5.23.0
       sourceRef:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
       interval: 30m
-      
   values:
     loki:
       structuredConfig:
@@ -62,7 +62,6 @@ spec:
           storage:
             s3:
               s3: null
-              #endpoint: "s3.${NET_DOMAIN}"
               insecure: true
               s3forcepathstyle: true
           ring:
@@ -126,7 +125,7 @@ spec:
         tag: 1.25-alpine
       ingress:
         enabled: true
-        ingressClassName: external
+        ingressClassName: "internal-nginx"
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: |
             10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
@@ -152,7 +151,6 @@ spec:
                 topologyKey: kubernetes.io/hostname
       persistence:
         size: 20Gi
-        #storageClass: ceph-block
         storageClass: local-hostpath
 
     read:
@@ -181,7 +179,7 @@ spec:
       persistence:
         size: 20Gi
         storageClass: local-hostpath
-          
+
     monitoring:
       dashboards:
         annotations:
@@ -200,15 +198,23 @@ spec:
       enabled: false
 
   valuesFrom:
-    - targetPath: loki.structuredConfig.common.storage.s3.bucketnames
-      kind: Secret
+    - kind: Secret
       name: loki-secret
-      valuesKey: BUCKET_NAME
-    - targetPath: loki.structuredConfig.common.storage.s3.access_key_id
-      kind: Secret
+      valuesKey: S3_BUCKET_NAME
+      targetPath: loki.structuredConfig.common.storage.s3.bucketnames
+    - kind: Secret
       name: loki-secret
-      valuesKey: AWS_ACCESS_KEY_ID
-    - targetPath: loki.structuredConfig.common.storage.s3.secret_access_key
-      kind: Secret
+      valuesKey: S3_BUCKET_HOST
+      targetPath: loki.structuredConfig.common.storage.s3.endpoint
+    - kind: Secret
       name: loki-secret
-      valuesKey: AWS_SECRET_ACCESS_KEY
+      valuesKey: S3_BUCKET_REGION
+      targetPath: loki.structuredConfig.common.storage.s3.region
+    - kind: Secret
+      name: loki-secret
+      valuesKey: S3_ACCESS_KEY
+      targetPath: loki.structuredConfig.common.storage.s3.access_key_id
+    - kind: Secret
+      name: loki-secret
+      valuesKey: S3_SECRET_KEY
+      targetPath: loki.structuredConfig.common.storage.s3.secret_access_key
