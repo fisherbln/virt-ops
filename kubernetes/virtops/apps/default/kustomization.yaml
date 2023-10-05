@@ -9,14 +9,14 @@ resources:
   - ./adminer/ks.yaml
   - ./barcodebuddy/ks.yaml
   - ./changedetection/ks.yaml
-  - ./compreface/ks.yaml
-  - ./esphome/ks.yaml
+  #- ./compreface/ks.yaml
+  #- ./esphome/ks.yaml
   - ./glauth/ks.yaml
   - ./grocy/ks.yaml
   - ./immich/ks.yaml
   - ./linkding/ks.yaml
   - ./mosquitto/ks.yaml
-  - ./node-red/ks.yaml
+  #- ./node-red/ks.yaml
   - ./outline/ks.yaml
   - ./paperless/ks.yaml
   - ./pgadmin/ks.yaml
