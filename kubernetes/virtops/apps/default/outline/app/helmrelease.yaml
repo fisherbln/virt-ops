@@ -33,7 +33,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: docker.io/outlinewiki/outline
-      tag: 0.71.0@sha256:8b39a677763dc5df0a1def72fc7850f436d664f321f14ac16eb820c38abc1571
+      tag: 0.72.1@sha256:ea2ed83b4131553507dd4972bee1850370a67a695702d731b561590654ff46bf
     env:
       DATABASE_URL:
         valueFrom:
