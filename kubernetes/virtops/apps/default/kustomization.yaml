@@ -6,7 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./adminer/ks.yaml
+  #- ./adminer/ks.yaml
   - ./barcodebuddy/ks.yaml
   - ./changedetection/ks.yaml
   #- ./compreface/ks.yaml
