@@ -6,11 +6,11 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./gatus/ks.yaml
+  #- ./gatus/ks.yaml
   - ./grafana/ks.yaml
   - ./karma/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
-  - ./nextdns-exporter/ks.yaml
+  #- ./nextdns-exporter/ks.yaml
   - ./node-exporter/ks.yaml
   #- ./loki/ks.yaml
   - ./thanos/ks.yaml
