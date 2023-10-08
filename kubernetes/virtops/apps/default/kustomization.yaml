@@ -7,12 +7,12 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   #- ./adminer/ks.yaml
-  - ./barcodebuddy/ks.yaml
-  - ./changedetection/ks.yaml
+  #- ./barcodebuddy/ks.yaml
+  #- ./changedetection/ks.yaml
   #- ./compreface/ks.yaml
   #- ./esphome/ks.yaml
   - ./glauth/ks.yaml
-  - ./grocy/ks.yaml
+  #- ./grocy/ks.yaml
   #- ./immich/ks.yaml
   - ./linkding/ks.yaml
   - ./mosquitto/ks.yaml
