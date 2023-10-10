@@ -19,7 +19,7 @@ apps:
 
   garage:
     # renovate: docker-image
-    image: dxflrs/garage:v0.8.4
+    image: dxflrs/garage:v0.9.0
     config_folder: /volume1/docker/garage
     data_folder: /volume1/docker/garage/data
     meta_folder: /volume1/docker/garage/meta
